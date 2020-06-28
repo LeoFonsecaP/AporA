@@ -1,72 +1,156 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-decoration: none; }
 
-@media (min-width: 992px) {
-  .header {
+.page {
+    background-color: #FFFFFF;
     width: 100%;
-    height: 70px;
+    height: 100%;
+    position: relative;
+}
+
+.navigation{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+
+    border-bottom: 02px solid #057700;
+    background-color: #7bf675;
+    color: #464b45;
+    text-decoration: none;
+
     display: flex;
-    background-color: #7bf675;
-    border-bottom: 14px solid #057700;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    padding: 5px; }
-    .header .logo {
-      width: 80px;
-      margin-top: 15px;
-      margin-left: 35%;
-      margin-right: auto; }
-    .header .navegacao {
-      float: right;
-      height: 100%; }
-      .header .navegacao ul {
-        height: 100%;
-        display: table;
-        float: center; }
-        .header .navegacao ul li {
-          height: 100%;
-          padding: 0px 20px;
-          display: table-cell;
-          vertical-align: bottom;
-          color: #464b45;
-          font-family: "Roboto Mono";
-          font-size: 20px;
-          font-weight: 600; }
-    .header .direita {
-      float: right;
-      height: 100%; }
-      .header .direita ul {
-        height: 100%;
-        display: table;
-        float: right; }
-        .header .direita ul li {
-          height: 100%;
-          padding: 0px 10px;
-          vertical-align: bottom;
-          color: #464b45;
-          font-family: "Roboto Mono";
-          font-size: 10px;
-          font-weight: 600; } }
-@media (max-width: 991px) {
-  .header {
-    width: 100%;
-    height: 70px;
-    display: block;
-    background-color: #7bf675;
-    border-bottom: 14px solid #057700; }
-    .header .inner_header {
-      height: 100%;
-      width: 70%;
-      margin: 0 auto;
-      background-color: #7bf675; }
-      .header .inner_header .logo {
-        margin: 0 auto;
-        width: 70px;
-        margin-top: 35px; }
-      .header .inner_header ul {
-        display: none; } }
+    font-family: "Roboto Mono Medium";
+}
 
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 75px;
+    height: auto;
+}
+
+.logo:hover {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 77px;
+    height: auto;
+}
+
+.header_links{
+    height: auto;
+    /*width: 30%;*/
+    width: 500px;
+    position: absolute;
+    top: 26%;
+    left: 90px;
+    list-style: none;
+    font-size: 17px;
+    display: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.header_links li a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.header_links li a:hover {
+    color: white;
+    font-size: 18px;
+    text-decoration: inherit;
+}
+
+.instagram_icon {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 16px;
+    right: 190px;
+}
+.instagram_icon:hover {
+    width: 22px;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    right: 189px;
+}
+
+.account_options {
+    position: absolute;
+    text-align: left;
+    flex-direction: column;
+    top: 26%;
+    right: 10px;
+}
+
+.account_options a {
+    font-size: 12px;
+    color: whitesmoke;
+    text-decoration: inherit;
+    padding: 2px 7px;
+    border-bottom-width: 6px;
+    background: #464b45;
+}
+
+.account_options a:hover {
+    font-size: 12px;
+    color: whitesmoke;
+    padding: 3px 7px;
+    border-bottom-width: 6px;
+    background: #000000;
+}
+
+.content {
+    position: relative;
+    top: 100px;
+    width: 50vw;
+    margin: 0 auto;
+    height: auto;
+
+    color: black;
+    background: #FFFFFF;
+    text-decoration: none;
+
+    overflow-wrap: normal;
+}
+
+.file_upload {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.ResumosContainer {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Thumbnail {
+    width: 10vw;
+    height: 10vw;
+}
+
+.PopUp {
+    width: 40vw;
+    height: 40vw;
+    right: 30%;
+    top: 70px;
+    bottom: 30%;
+    left: 30%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 /*# sourceMappingURL=mainpage_style.css.map */

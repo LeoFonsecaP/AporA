@@ -11,64 +11,122 @@ list-style: none;
 text-decoration: none;
 }
 
-@media(min-width: 992px){
-	.header{
-		width: 100%;
-		height: 70px;
-		display: flex;
-		background-color: $A_por_A_verde_claro;
-		border-bottom: 14px solid $A_por_A_verde_escuro;
-		justify-content: space-between;
-		padding: 5px;
-		.logo{
-			width: 80px;
-			margin-top: 15px;
-			margin-left: 35%;
-			margin-right: auto;
-		}
-		.navegacao{
-			float: right;
-			height: 100%;
-			ul{
-				height: 100%;
-				display: table;
-				float: center;
-				li{
-					height: 100%;
-					padding: 0px 20px;
-					display: table-cell;
-					vertical-align: bottom;
-					color: $A_por_A_cinza;
-					font-family: "Roboto Mono";
-					font-size: 20px;
-					font-weight: 600;					
-				}
-			}
-		}
-		.direita{
-			float: right;
-			height: 100%;
-			ul{
-				height: 100%;
-				display: table;
-				float: right;
-				li{
-					height: 100%;
-					padding: 0px 10px;
-					vertical-align: bottom;
-					color: $A_por_A_cinza;
-					font-family: "Roboto Mono";
-					font-size: 10px;
-					font-weight: 600;					
-				}
-			}
-		}
-		img{
-			
-		}
-	}
+.page {
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
+@media(min-width: 992px){
+
+	.navigation{
+		position: fixed;
+		width: 100%;
+		height: 50px;
+
+		border-bottom: 02px solid #057700;
+		background-color: #7bf675;
+		color: #464b45;
+		text-decoration: none;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		font-family: "Roboto Mono Medium";
+	}
+
+	.logo {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		width: 75px;
+		height: auto;
+	}
+
+	.logo:hover {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		width: 77px;
+		height: auto;
+	}
+
+	.header_links{
+		height: auto;
+		width: 500px;
+		position: absolute;
+		top: 26%;
+		left: 90px;
+		list-style: none;
+		font-size: 17px;
+		display: inherit;
+		flex-direction: inherit;
+		align-items: inherit;
+		justify-content: inherit;
+	}
+
+	.header_links li a {
+		color: inherit;
+		text-decoration: inherit;
+	}
+
+	.header_links li a:hover {
+		color: white;
+		font-size: 18px;
+		text-decoration: inherit;
+	}
+
+	.instagram_icon {
+		width: 20px;
+		height: auto;
+		position: absolute;
+		top: 16px;
+		right: 190px;
+	}
+	.instagram_icon:hover {
+		width: 22px;
+		height: auto;
+		position: absolute;
+		top: 15px;
+		right: 189px;
+	}
+
+	.account_options {
+		position: absolute;
+		text-align: left;
+		flex-direction: column;
+		top: 26%;
+		right: 10px;
+	}
+
+	.account_options a {
+		font-size: 12px;
+		color: whitesmoke;
+		text-decoration: inherit;
+		padding: 2px 7px;
+		border-bottom-width: 6px;
+		background: #464b45;
+	}
+
+	.account_options a:hover {
+		font-size: 12px;
+		color: whitesmoke;
+		padding: 3px 7px;
+		border-bottom-width: 6px;
+		background: #000000;
+	}
+
+	.content {
+		top: 50px;
+		width: 100vw;
+		color: black;
+		overflow-wrap: normal;
+		height: auto;
+		background: #FFFFFF;
+	}
+}
 @media(max-width: 991px){
 	.header{
 		width: 100%;
