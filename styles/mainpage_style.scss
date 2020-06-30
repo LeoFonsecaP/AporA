@@ -21,7 +21,7 @@ text-decoration: none;
 		justify-content: space-between;
 		padding: 5px;
 		.logo{
-			width: 80px;
+			width: 100px;
 			margin-top: 15px;
 			margin-left: 35%;
 			margin-right: auto;
@@ -58,13 +58,13 @@ text-decoration: none;
 					vertical-align: bottom;
 					color: $A_por_A_cinza;
 					font-family: "Roboto Mono";
-					font-size: 10px;
-					font-weight: 600;					
+					font-size: 12px;
+					font-weight: 600;				
 				}
 			}
 		}
 		img{
-			
+			width: 35px;
 		}
 	}
 }

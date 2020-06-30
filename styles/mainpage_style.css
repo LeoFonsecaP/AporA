@@ -15,7 +15,7 @@
     justify-content: space-between;
     padding: 5px; }
     .header .logo {
-      width: 80px;
+      width: 100px;
       margin-top: 15px;
       margin-left: 35%;
       margin-right: auto; }
@@ -48,8 +48,10 @@
           vertical-align: bottom;
           color: #464b45;
           font-family: "Roboto Mono";
-          font-size: 10px;
-          font-weight: 600; } }
+          font-size: 12px;
+          font-weight: 600; }
+    .header img {
+      width: 35px; } }
 @media (max-width: 991px) {
   .header {
     width: 100%;
