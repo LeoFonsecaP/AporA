@@ -129,6 +129,10 @@ text-decoration: none;
 		height: auto;
 		background: #FFFFFF;
 	}
+
+	.mobile_only{
+		display: none;
+	}
 }
 @media(max-width: 991px){
 	.navigation{
@@ -147,14 +151,14 @@ text-decoration: none;
 		justify-content: space-between;
 		font-family: "Roboto Mono Medium";
 		
-		.header_links{
+		.header_links, .account_options{
 			display: none;
 		}
 
 		.logo {
 			position: absolute;
 			top: 10px;
-			left: 35vw;
+			left: 40vw;
 			width: 75px;
 			height: auto;
 		}
@@ -172,48 +176,37 @@ text-decoration: none;
 			height: auto;
 			position: absolute;
 			top: 16px;
-			left: 25vw;
+			right: 10vw;
 			.instagram_icon:hover {
 				width: 25px;
 				height: auto;
 				position: absolute;
 				top: 15px;
-				left: 20vw;
+				right: 5vw;
 			}
 		}
-
-		.account_options {
+		.ver_mais_cel{
+			width: 20px;
+			height: auto;
 			position: absolute;
-			text-align: left;
-			flex-direction: column;
-			top: 26%;
-			right: 5px;
+			top: 16px;
+			left: 5vw;
 		}
-	
-		.account_options a {
-			font-size: 12px;
-			@media(max-width: 370px){
-				font-size: 9px;
-			}
-			color: whitesmoke;
-			text-decoration: inherit;
-			padding: 2px 7px;
-			border-bottom-width: 6px;
-			background: #464b45;
-		}
-	
-		.account_options a:hover {
-			font-size: 12px;
-			color: whitesmoke;
-			padding: 3px 7px;
-			border-bottom-width: 6px;
-			background: #000000;
+		.loginimg{
+			width: 20px;
+			height: auto;
+			position: absolute;
+			top: 16px;
+			right: 3vw;
 		}
 	}
 	.content {
 		top: 25vw;
 		@media(max-width: 350px){
 			top: 30vw;
+		}
+		@media(min-width: 600px){
+			top: 12vw;
 		}
 		width: 80vw;
 		color: black;

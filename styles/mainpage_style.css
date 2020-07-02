@@ -107,7 +107,10 @@
     right: 10vw;
     overflow-wrap: normal;
     height: auto;
-    background: #FFFFFF; } }
+    background: #FFFFFF; }
+
+  .mobile_only {
+    display: none; } }
 @media (max-width: 991px) {
   .navigation {
     position: fixed;
@@ -122,12 +125,12 @@
     align-items: center;
     justify-content: space-between;
     font-family: "Roboto Mono Medium"; }
-    .navigation .header_links {
+    .navigation .header_links, .navigation .account_options {
       display: none; }
     .navigation .logo {
       position: absolute;
       top: 10px;
-      left: 35vw;
+      left: 40vw;
       width: 75px;
       height: auto; }
     .navigation .logo:hover {
@@ -141,36 +144,25 @@
       height: auto;
       position: absolute;
       top: 16px;
-      left: 25vw; }
+      right: 10vw; }
       .navigation .instagram_icon .instagram_icon:hover {
         width: 25px;
         height: auto;
         position: absolute;
         top: 15px;
-        left: 20vw; }
-    .navigation .account_options {
+        right: 5vw; }
+    .navigation .ver_mais_cel {
+      width: 20px;
+      height: auto;
       position: absolute;
-      text-align: left;
-      flex-direction: column;
-      top: 26%;
-      right: 5px; }
-    .navigation .account_options a {
-      font-size: 12px;
-      color: whitesmoke;
-      text-decoration: inherit;
-      padding: 2px 7px;
-      border-bottom-width: 6px;
-      background: #464b45; } }
-    @media (max-width: 991px) and (max-width: 370px) {
-      .navigation .account_options a {
-        font-size: 9px; } }
-@media (max-width: 991px) {
-    .navigation .account_options a:hover {
-      font-size: 12px;
-      color: whitesmoke;
-      padding: 3px 7px;
-      border-bottom-width: 6px;
-      background: #000000; }
+      top: 16px;
+      left: 5vw; }
+    .navigation .loginimg {
+      width: 20px;
+      height: auto;
+      position: absolute;
+      top: 16px;
+      right: 3vw; }
 
   .content {
     top: 25vw;
@@ -185,5 +177,8 @@
   @media (max-width: 991px) and (max-width: 350px) {
     .content {
       top: 30vw; } }
+  @media (max-width: 991px) and (min-width: 600px) {
+    .content {
+      top: 12vw; } }
 
 /*# sourceMappingURL=mainpage_style.css.map */
