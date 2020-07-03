@@ -16,14 +16,31 @@ text-decoration: none;
 	width: 100%;
 	height: 100%;
 	position: relative;
+	overflow-x: hidden;
 }
 
-@media(min-width: 992px){
+::-webkit-scrollbar {
+	width: 7px;
+}
+::-webkit-scrollbar-track {
+	//box-shadow: inset 0 0 5px $A_por_A_cinza;
+	border-left: 1px solid $A_por_A_cinza;
+}
+::-webkit-scrollbar-thumb {
+	background: $A_por_A_cinza;
+	//border-radius: 10px;
+}
+/*::-webkit-scrollbar-thumb:hover {
+	background: black;
+}*/
 
+
+@media(min-width: 768px){
 	.navigation{
 		position: fixed;
 		width: 100%;
 		height: 50px;
+		z-index: 5;
 
 		border-bottom: 07px solid #057700;
 		background-color: #7bf675;
@@ -35,22 +52,22 @@ text-decoration: none;
 		align-items: center;
 		justify-content: space-between;
 		font-family: "Roboto Mono Medium";
-	}
 
-	.logo {
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		width: 75px;
-		height: auto;
-	}
+		.logo {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 75px;
+			height: auto;
 
-	.logo:hover {
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		width: 77px;
-		height: auto;
+			&:hover {
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				width: 77px;
+				height: auto;
+			}
+		}
 	}
 
 	.header_links{
@@ -119,15 +136,157 @@ text-decoration: none;
 	}
 
 	.content {
-		top: 50px;
-		width: 80vw;
-		color: black;
+		top: 100px;
 		position: relative;
-		left: 10vw;
-		right: 10vw;
+		z-index: 1;
+		width: 60vw;
+		height: 100%;
+		left: 20vw;
+		right: 20vw;
+		color: $A_por_A_cinza;
 		overflow-wrap: normal;
-		height: auto;
 		background: #FFFFFF;
+	}
+
+	.UploadWindow {
+		position: absolute;
+		z-index: 8;
+		left: 15vw;
+		right: 15vw;
+		//top: 15vh;
+		top: 7vh;
+		bottom: 35vh;
+
+		//height:75vh;
+		//height: 100vh;
+		height: 800px;
+		width: 59.40vw;
+
+		background: #FFFFFF;
+		border: none;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	.Button {
+		position: absolute;
+		height: 4vh;
+		width: 30vw;
+		top: 3vh;
+		left: 2vw;
+		right: 65vw;
+		text-align: center;
+		line-height: 4vh;
+		cursor: pointer;
+		background: $A_por_A_verde_claro;
+	}
+
+	.Preview {
+		position: absolute;
+		height: 35.36vw;
+		width: 25vw;
+		top: 10vh;
+		left: 2vw;
+		right: 65vw;
+
+		border: 2px solid $A_por_A_cinza;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-family: "Roboto Mono Medium";
+		color: #464b45;
+		text-decoration: none;
+		li {
+			display: flex;
+			flex-direction: row;
+			text-align: left;
+
+			position: relative;
+			display: table;
+			width: 100%;
+			height: 10vh;
+			border-bottom: 1px solid $A_por_A_cinza;
+			justify-content: space-between;
+
+			img {
+				display: table-cell;
+				height: 35.36vw;
+				//width: 25vw;
+				max-width: 100%;
+				object-fit: contain;
+				vertical-align: middle;
+				horiz-align: left;
+			}
+			p {
+				display: none;
+				overflow-x: fragments;
+				vertical-align: middle;
+				horiz-align: left;
+			}
+		}
+
+	}
+	.SlideShowContainer {
+		width: 100%;
+		margin: 0 auto;
+		height: 600px;
+		background: black;
+		.SlideShowDisplayer {
+			overflow: hidden;
+			vertical-align: center;
+			top: 50px;
+			bottom: 50px;
+			width: 80%;
+			margin: 0 auto;
+			height: 600px;
+			.Slider {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: row;
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+			.NextButton{
+				position: absolute;
+				right: 15%;
+				top: 55%;
+				background: transparent;
+				font-size: 60px;
+				color: whitesmoke;
+				opacity: 0.8;
+				border: none;
+				box-shadow: none;
+				cursor: pointer;
+				&:active , &:hover{
+					color: $A_por_A_verde_claro;
+					box-shadow: none;
+				}
+				&:focus {outline:0;}
+			}
+			.PreviousButton {
+				position: absolute;
+				left: 15%;
+				top: 55%;
+				background: transparent;
+				font-size: 60px;
+				color: whitesmoke;
+				opacity: 0.8;
+				border: none;
+				box-shadow: none;
+				cursor: pointer;
+				&:active, &:hover {
+					color: $A_por_A_verde_claro;
+					box-shadow: none;
+				}
+				&:focus {outline:0;}
+			}
+		}
 	}
 }
 @media(max-width: 991px){

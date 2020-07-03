@@ -39,11 +39,39 @@
 				magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
 				accumsan porttitor, facilisis luctus, metus
 			</p>
-			<button id="upload">Upload</button>
-			<script src="PopUpWindow.js"></script>
+			<button id="uploadButton">Upload</button>
+
+			<div class="SlideShowContainer">
+				<div class="SlideShowDisplayer">
+					<div id="slider" class="Slider">
+						<img src="Imagens/teste1.jpg">
+						<img src="Imagens/teste2.jpg">
+						<img src="Imagens/teste3.jpg">
+						<img src="Imagens/teste4.png">
+						<img src="Imagens/teste5.png">
+					</div>
+					<button id="nextButton" class="NextButton">></button>
+					<button id="previousButton" class="PreviousButton"><</button>
+				</div>
+			</div>
+
+			<script type="module">
+				import {DEFAULT_TRANSITION_EFFECT} from "./Scripts/js/Sliders.js";
+				import {CircularSlider} from "./Scripts/js/CircularSlider.js";
+				const slidesContainer = document.getElementById('slider');
+				const slider = new CircularSlider(slidesContainer, 'horizontal');
+				const nextButton = document.getElementById('nextButton');
+				const previousButton = document.getElementById('previousButton');
+				nextButton.addEventListener("click", (() => {
+				 	slider.transitionToNextSlide(DEFAULT_TRANSITION_EFFECT);
+				}).bind(slider));
+				previousButton.addEventListener("click", (() => {
+					console.log(DEFAULT_TRANSITION_EFFECT);
+					slider.transitionToPreviousSlide(DEFAULT_TRANSITION_EFFECT);
+				}).bind(slider));
+			</script>
 			<ul class="ResumosContainer" id="ResumosContainer"></ul>
 		</div>
-		<script src="Resumos.js"></script>
 	</body>
 </html>
 	
