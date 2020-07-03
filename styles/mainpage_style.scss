@@ -133,6 +133,32 @@ text-decoration: none;
 	.mobile_only{
 		display: none;
 	}
+	.titulo{
+		top: 50px;
+		width: 80vw;
+		color: black;
+		position: relative;
+		left: 40vw;
+		right: 10vw;
+	}
+	.Sobre_nos{
+		top: 50px;
+		width: 80vw;
+		color: black;
+		position: relative;
+		left: 10vw;
+		right: 10vw;
+		overflow-wrap: normal;
+		height: auto;
+		background: #FFFFFF;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		font-family: "Roboto Mono Medium";
+		
+	}
 }
 @media(max-width: 991px){
 	.navigation{
