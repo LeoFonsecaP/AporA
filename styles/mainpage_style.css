@@ -14,21 +14,6 @@
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  border-left: 1px solid #464b45;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #464b45;
-}
-
-/*::-webkit-scrollbar-thumb:hover {
-	background: black;
-}*/
 @media (min-width: 768px) {
   .navigation {
     position: fixed;
