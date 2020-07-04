@@ -133,31 +133,49 @@ text-decoration: none;
 	.mobile_only{
 		display: none;
 	}
-	.titulo{
+
+	h1{
 		top: 50px;
-		width: 80vw;
-		color: black;
+		font-weight: 700;
 		position: relative;
-		left: 40vw;
-		right: 10vw;
+		text-align: center;
+		font-family: "Roboto Mono Medium";
+		color: $A_por_A_cinza;
 	}
+
 	.Sobre_nos{
 		top: 50px;
-		width: 80vw;
-		color: black;
+		width: 90vw;
+		left: 5vw;
+		right: 5vw;
+		color: $A_por_A_cinza;
 		position: relative;
-		left: 10vw;
-		right: 10vw;
 		overflow-wrap: normal;
 		height: auto;
 		background: #FFFFFF;
 
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: 2fr 2fr;
+		grid-template-rows: 30vh;
+		grid-template-rows: 1fr;
+		grid-gap: 10px 20px;
 		font-family: "Roboto Mono Medium";
-		
+		h1{
+			font-weight: 700;
+			grid-column-start: 1;
+			grid-row-start: 1;
+			text-align: right;
+		}
+		.historia_e_obj{
+			padding: 5px;
+			grid-column-start: 1;
+			grid-row-start: 2;
+		}
+		.como{
+			padding: 5px;
+			grid-column-start: 2;
+			grid-row-start: 2;
+		}
 	}
 }
 @media(max-width: 991px){
@@ -227,6 +245,7 @@ text-decoration: none;
 		}
 	}
 	.content {
+		display: none;
 		top: 25vw;
 		@media(max-width: 350px){
 			top: 30vw;
