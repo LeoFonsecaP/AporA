@@ -20,7 +20,7 @@
 				<li><a href="index.html">Forum</a></li>
 			</ul>
 			<a href="https://www.instagram.com/alunosporalunos/" target="_blank">
-				<img src="GIMP/testing/GreyInstagram.png" class="instagram_icon">
+				<img src="Imagens/GreyInstagram.png" class="instagram_icon">
 			</a>
 			<div class="account_options">
 				<a href="index.html">Entrar</a>
@@ -47,20 +47,7 @@
 				</div>
 			</div>
 
-			<script type="module">
-				import {DEFAULT_TRANSITION_EFFECT} from "./Scripts/js/Sliders.js";
-				import {CircularSlider} from "./Scripts/js/CircularSlider.js";
-				const slidesContainer = document.getElementById('slider');
-				const slider = new CircularSlider(slidesContainer, 'horizontal');
-				const nextButton = document.getElementById('nextButton');
-				const previousButton = document.getElementById('previousButton');
-				nextButton.addEventListener("click", (() => {
-				 	slider.transitionToNextSlide(DEFAULT_TRANSITION_EFFECT);
-				}).bind(slider));
-				previousButton.addEventListener("click", (() => {
-					console.log(DEFAULT_TRANSITION_EFFECT);
-					slider.transitionToPreviousSlide(DEFAULT_TRANSITION_EFFECT);
-				}).bind(slider));
+			<script src="slide.js" type="module">
 			</script>
 			<ul class="ResumosContainer" id="ResumosContainer"></ul>
 		</div>
