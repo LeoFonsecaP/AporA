@@ -19,7 +19,7 @@ text-decoration: none;
 	overflow-x: hidden;
 }
 
-@media(min-width: 768px){
+@media(min-width: 769px){
 	.footer{
 		width: 100vw;
 		color: $A_por_A_cinza;
@@ -36,5 +36,23 @@ text-decoration: none;
 			margin: auto;
 		}
 	}
+}
 
+@media(max-width: 768px){
+	.footer{
+		width: 100vw;
+		color: $A_por_A_cinza;
+		position: relative;
+		overflow-wrap: normal;
+		background: $A_por_A_verde_claro;
+		height: auto;
+		padding: 5px;
+		top: 15vh;
+		display: grid;
+		font-weight: 300;
+		border-top: 7px solid $A_por_A_verde_escuro;
+		p{
+			margin: auto;
+		}
+	}
 }

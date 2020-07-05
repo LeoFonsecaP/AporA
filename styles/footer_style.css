@@ -12,7 +12,7 @@
   position: relative;
   overflow-x: hidden; }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .footer {
     width: 100vw;
     color: #464b45;
@@ -24,6 +24,21 @@
     top: 15vh;
     display: grid;
     font-weight: 400;
+    border-top: 7px solid #057700; }
+    .footer p {
+      margin: auto; } }
+@media (max-width: 768px) {
+  .footer {
+    width: 100vw;
+    color: #464b45;
+    position: relative;
+    overflow-wrap: normal;
+    background: #7bf675;
+    height: auto;
+    padding: 5px;
+    top: 15vh;
+    display: grid;
+    font-weight: 300;
     border-top: 7px solid #057700; }
     .footer p {
       margin: auto; } }
