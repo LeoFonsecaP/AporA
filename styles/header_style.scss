@@ -141,8 +141,45 @@ text-decoration: none;
 		justify-content: space-between;
 		font-family: "Roboto Mono Medium";
 		
-		.header_links, .account_options{
+		.account_options{
 			display: none;
+		}
+
+		.header_links{
+			position: absolute;
+			width: 40%;
+			@media(min-width: 700px){
+				width: 30%;
+			}
+			height: 270px;
+			top: 42px;
+			left: -350px;
+			background-color: $A_por_A_verde_claro;
+			text-align: center;
+			transition: ease-out 0.5s;
+			border: 7px solid $A_por_A_verde_escuro;
+			border-left: 0px;
+			border-collapse: collapse;
+			li{
+				list-style: none;
+				padding: 20px 0px;
+				border-bottom: 5px solid $A_por_A_verde_escuro;
+				&:last-child{
+					border-bottom: 0px;
+				}
+				a{
+					font-style: "Roboto Mono Medium";
+					font-weight: 700;
+					color: $A_por_A_cinza;
+				}
+				a:hover{
+					color: whitesmoke;
+				}
+			}
+		}
+
+		.header_links.active{
+			left: 0;
 		}
 
 		.logo {
@@ -182,6 +219,7 @@ text-decoration: none;
 			top: 16px;
 			left: 5vw;
 		}
+
 		.loginimg{
 			width: 20px;
 			height: auto;

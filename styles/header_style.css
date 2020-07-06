@@ -115,8 +115,38 @@
     align-items: center;
     justify-content: space-between;
     font-family: "Roboto Mono Medium"; }
-    .navigation .header_links, .navigation .account_options {
+    .navigation .account_options {
       display: none; }
+    .navigation .header_links {
+      position: absolute;
+      width: 40%;
+      height: 270px;
+      top: 42px;
+      left: -350px;
+      background-color: #7bf675;
+      text-align: center;
+      transition: ease-out 0.5s;
+      border: 7px solid #057700;
+      border-left: 0px;
+      border-collapse: collapse; } }
+    @media (max-width: 768px) and (min-width: 700px) {
+      .navigation .header_links {
+        width: 30%; } }
+@media (max-width: 768px) {
+      .navigation .header_links li {
+        list-style: none;
+        padding: 20px 0px;
+        border-bottom: 5px solid #057700; }
+        .navigation .header_links li:last-child {
+          border-bottom: 0px; }
+        .navigation .header_links li a {
+          font-style: "Roboto Mono Medium";
+          font-weight: 700;
+          color: #464b45; }
+        .navigation .header_links li a:hover {
+          color: whitesmoke; }
+    .navigation .header_links.active {
+      left: 0; }
     .navigation .logo {
       position: absolute;
       top: 10px;
