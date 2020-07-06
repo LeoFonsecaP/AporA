@@ -1,6 +1,8 @@
 export class SwipeDetector {
     constructor(htmlElementId) {
+        console.log(htmlElementId);
         this.element = document.getElementById(htmlElementId);
+        console.log(this.element);
 
         this.x = 0;
         this.y = 0;

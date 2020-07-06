@@ -3,14 +3,16 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .page {
   background-color: #FFFFFF;
   width: 100%;
   height: 100%;
   position: relative;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
 
 @media (min-width: 769px) {
   h1 {
@@ -19,7 +21,8 @@
     position: relative;
     text-align: center;
     font-family: "Roboto Mono Medium";
-    color: #464b45; }
+    color: #464b45;
+  }
 
   .Sobre_nos {
     top: 70px;
@@ -37,15 +40,18 @@
     grid-template-rows: 1fr;
     grid-gap: 10px 20px;
     font-family: "Roboto Mono Medium";
-    padding-bottom: 58px; }
-    .Sobre_nos .historia_e_obj {
-      padding: 5px;
-      grid-column-start: 1;
-      grid-row-start: 2; }
-    .Sobre_nos .como {
-      padding: 5px;
-      grid-column-start: 2;
-      grid-row-start: 2; }
+    padding-bottom: 58px;
+  }
+  .Sobre_nos .historia_e_obj {
+    padding: 5px;
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+  .Sobre_nos .como {
+    padding: 5px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
 
   .content {
     top: 40px;
@@ -57,62 +63,108 @@
     right: 20vw;
     color: #464b45;
     overflow-wrap: normal;
-    background: #FFFFFF; }
+    background: #FFFFFF;
+  }
 
   .SlideShowContainer {
     width: 100%;
     margin: 0 auto;
-    height: 500px; }
-    .SlideShowContainer .SlideShowDisplayer {
-      overflow: hidden;
-      vertical-align: center;
-      top: 40px;
-      bottom: 50px;
-      width: 80%;
-      margin: 0 auto;
-      height: 500px; }
-      .SlideShowContainer .SlideShowDisplayer .Slider {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row; }
-        .SlideShowContainer .SlideShowDisplayer .Slider img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: contain; }
-      .SlideShowContainer .SlideShowDisplayer .NextButton {
-        position: absolute;
-        right: 15%;
-        top: 55%;
-        background: transparent;
-        font-size: 60px;
-        color: whitesmoke;
-        opacity: 0.8;
-        border: none;
-        box-shadow: none;
-        cursor: pointer; }
-        .SlideShowContainer .SlideShowDisplayer .NextButton:active, .SlideShowContainer .SlideShowDisplayer .NextButton:hover {
-          color: #7bf675;
-          box-shadow: none; }
-        .SlideShowContainer .SlideShowDisplayer .NextButton:focus {
-          outline: 0; }
-      .SlideShowContainer .SlideShowDisplayer .PreviousButton {
-        position: absolute;
-        left: 15%;
-        top: 55%;
-        background: transparent;
-        font-size: 60px;
-        color: whitesmoke;
-        opacity: 0.8;
-        border: none;
-        box-shadow: none;
-        cursor: pointer; }
-        .SlideShowContainer .SlideShowDisplayer .PreviousButton:active, .SlideShowContainer .SlideShowDisplayer .PreviousButton:hover {
-          color: #7bf675;
-          box-shadow: none; }
-        .SlideShowContainer .SlideShowDisplayer .PreviousButton:focus {
-          outline: 0; } }
+    height: 500px;
+  }
+  .SlideShowContainer .SlideShowDisplayer {
+    overflow: hidden;
+    vertical-align: center;
+    top: 40px;
+    bottom: 50px;
+    width: 80%;
+    margin: 0 auto;
+    height: 500px;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Slider img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .SlideShowContainer .SlideShowDisplayer .NextButton {
+    position: absolute;
+    right: 15%;
+    top: 55%;
+    background: transparent;
+    font-size: 60px;
+    color: whitesmoke;
+    opacity: 0.8;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .NextButton:active, .SlideShowContainer .SlideShowDisplayer .NextButton:hover {
+    color: #7bf675;
+    box-shadow: none;
+  }
+  .SlideShowContainer .SlideShowDisplayer .NextButton:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .PreviousButton {
+    position: absolute;
+    left: 15%;
+    top: 55%;
+    background: transparent;
+    font-size: 60px;
+    color: whitesmoke;
+    opacity: 0.8;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .PreviousButton:active, .SlideShowContainer .SlideShowDisplayer .PreviousButton:hover {
+    color: #7bf675;
+    box-shadow: none;
+  }
+  .SlideShowContainer .SlideShowDisplayer .PreviousButton:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .DotsContainer {
+    position: absolute;
+    bottom: 5%;
+    vertical-align: center;
+    horiz-align: center;
+    background: transparent;
+    border: none;
+    width: 50%;
+  }
+  .SlideShowContainer .SlideShowDisplayer .DotsContainer:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Dot {
+    border: 1px solid #464b45;
+    background: whitesmoke;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Dot:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .SelectedDot {
+    border: 1px solid #464b45;
+    background: #7bf675;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .SelectedDot:focus {
+    outline: 0;
+  }
+}
 @media (max-width: 768px) {
   h1 {
     top: 12vh;
@@ -120,7 +172,8 @@
     position: relative;
     text-align: center;
     font-family: "Roboto Mono Medium";
-    color: #464b45; }
+    color: #464b45;
+  }
 
   .Sobre_nos {
     top: 12vh;
@@ -135,11 +188,14 @@
     display: grid;
     grid-gap: 10px 20px;
     font-family: "Roboto Mono Medium";
-    padding-bottom: 58px; }
-    .Sobre_nos .historia_e_obj {
-      padding: 5px; }
-    .Sobre_nos .como {
-      padding: 5px; }
+    padding-bottom: 58px;
+  }
+  .Sobre_nos .historia_e_obj {
+    padding: 5px;
+  }
+  .Sobre_nos .como {
+    padding: 5px;
+  }
 
   .content {
     top: 50px;
@@ -151,61 +207,107 @@
     right: 20vw;
     color: #464b45;
     overflow-wrap: normal;
-    background: #FFFFFF; }
+    background: #FFFFFF;
+  }
 
   .SlideShowContainer {
     width: 100%;
     margin: 0 auto;
-    height: 200px; }
-    .SlideShowContainer .SlideShowDisplayer {
-      overflow: hidden;
-      vertical-align: center;
-      top: 40px;
-      bottom: 50px;
-      width: 100%;
-      margin: 0 auto;
-      height: 300px; }
-      .SlideShowContainer .SlideShowDisplayer .Slider {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row; }
-        .SlideShowContainer .SlideShowDisplayer .Slider img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: contain; }
-      .SlideShowContainer .SlideShowDisplayer .NextButton {
-        position: absolute;
-        right: 15%;
-        top: 55%;
-        background: transparent;
-        font-size: 60px;
-        color: whitesmoke;
-        opacity: 0.8;
-        border: none;
-        box-shadow: none;
-        cursor: pointer; }
-        .SlideShowContainer .SlideShowDisplayer .NextButton:active, .SlideShowContainer .SlideShowDisplayer .NextButton:hover {
-          color: #7bf675;
-          box-shadow: none; }
-        .SlideShowContainer .SlideShowDisplayer .NextButton:focus {
-          outline: 0; }
-      .SlideShowContainer .SlideShowDisplayer .PreviousButton {
-        position: absolute;
-        left: 15%;
-        top: 55%;
-        background: transparent;
-        font-size: 60px;
-        color: whitesmoke;
-        opacity: 0.8;
-        border: none;
-        box-shadow: none;
-        cursor: pointer; }
-        .SlideShowContainer .SlideShowDisplayer .PreviousButton:active, .SlideShowContainer .SlideShowDisplayer .PreviousButton:hover {
-          color: #7bf675;
-          box-shadow: none; }
-        .SlideShowContainer .SlideShowDisplayer .PreviousButton:focus {
-          outline: 0; } }
+    height: 200px;
+  }
+  .SlideShowContainer .SlideShowDisplayer {
+    overflow: hidden;
+    vertical-align: center;
+    top: 40px;
+    bottom: 50px;
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Slider img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .SlideShowContainer .SlideShowDisplayer .NextButton {
+    position: absolute;
+    right: 15%;
+    top: 55%;
+    background: transparent;
+    font-size: 60px;
+    color: whitesmoke;
+    opacity: 0.8;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .NextButton:active, .SlideShowContainer .SlideShowDisplayer .NextButton:hover {
+    color: #7bf675;
+    box-shadow: none;
+  }
+  .SlideShowContainer .SlideShowDisplayer .NextButton:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .PreviousButton {
+    position: absolute;
+    left: 15%;
+    top: 55%;
+    background: transparent;
+    font-size: 60px;
+    color: whitesmoke;
+    opacity: 0.8;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .PreviousButton:active, .SlideShowContainer .SlideShowDisplayer .PreviousButton:hover {
+    color: #7bf675;
+    box-shadow: none;
+  }
+  .SlideShowContainer .SlideShowDisplayer .PreviousButton:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .DotsContainer {
+    position: absolute;
+    bottom: 5%;
+    vertical-align: center;
+    horiz-align: center;
+    background: transparent;
+    border: none;
+    width: 50%;
+  }
+  .SlideShowContainer .SlideShowDisplayer .DotsContainer:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Dot {
+    border: 1px solid #464b45;
+    background: whitesmoke;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .Dot:focus {
+    outline: 0;
+  }
+  .SlideShowContainer .SlideShowDisplayer .SelectedDot {
+    border: 1px solid #464b45;
+    background: #7bf675;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+  }
+  .SlideShowContainer .SlideShowDisplayer .SelectedDot:focus {
+    outline: 0;
+  }
+}
 
 /*# sourceMappingURL=mainpage_style.css.map */
