@@ -35,6 +35,13 @@ text-decoration: none;
 		p{
 			margin: auto;
 		}
+		a{
+			text-decoration: none;
+			color: inherit;
+			&:hover{
+				color: white;
+			}
+		}
 	}
 }
 
@@ -54,6 +61,13 @@ text-decoration: none;
 		border-top: 7px solid $A_por_A_verde_escuro;
 		p{
 			margin: auto;
+		}
+		a{
+			text-decoration: none;
+			color: inherit;
+			&:hover{
+				color: white;
+			}
 		}
 	}
 }

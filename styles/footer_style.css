@@ -26,7 +26,12 @@
     font-weight: 400;
     border-top: 7px solid #057700; }
     .footer p {
-      margin: auto; } }
+      margin: auto; }
+    .footer a {
+      text-decoration: none;
+      color: inherit; }
+      .footer a:hover {
+        color: white; } }
 @media (max-width: 768px) {
   .footer {
     width: 100vw;
@@ -42,6 +47,11 @@
     font-size: small;
     border-top: 7px solid #057700; }
     .footer p {
-      margin: auto; } }
+      margin: auto; }
+    .footer a {
+      text-decoration: none;
+      color: inherit; }
+      .footer a:hover {
+        color: white; } }
 
 /*# sourceMappingURL=footer_style.css.map */
