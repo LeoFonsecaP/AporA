@@ -20,15 +20,15 @@ export class CircularSlider {
     }
 
     transitionToNextItem() {
-        this.transitionToItem(this.super.counter + 1);
+        this.super.transitionToItem(this.super.counter + 1);
     }
 
     transitionToPreviousItem() {
-        this.transitionToItem(this.super.counter - 1);
+        this.super.transitionToItem(this.super.counter - 1);
     }
 
     transitionToItem(index) {
-        this.super.transitionToItem(index);
+        this.super.transitionToItem(index + 1);
     }
 
     addItem(index, newSlide) {

@@ -1,8 +1,6 @@
 export class SwipeDetector {
     constructor(htmlElementId) {
-        console.log(htmlElementId);
         this.element = document.getElementById(htmlElementId);
-        console.log(this.element);
 
         this.x = 0;
         this.y = 0;
@@ -47,7 +45,6 @@ function startListeningToTouchMovements(detector) {
         detector.x = event.changedTouches[0].pageX - detector.x;
         detector.y = event.changedTouches[0].pageY - detector.y;
         (selectListener(detector))();
-        console.log('triggered');
     });
 }
 
@@ -62,7 +59,6 @@ function startListeningToMouseMovements(detector) {
     detector.element.addEventListener('mouseup', event => {
         detector.x = event.clientX - detector.x;
         detector.y = event.clientY - detector.y;
-        console.log('triggered');
         (selectListener(detector))();
     });
 }

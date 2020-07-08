@@ -73,27 +73,25 @@ text-decoration: none;
 	}
 
 	.SlideShowContainer {
-		width: 100%;
+		width: 21.21vw;
 		margin: 0 auto;
-		height: 500px;
+		top: 40px;
+		height: 30vw;
 		.SlideShowDisplayer {
 			overflow: hidden;
-			vertical-align: center;
-			top: 40px;
-			bottom: 50px;
-			width: 80%;
+			width: 100%;
 			margin: 0 auto;
-			height: 500px;
+			height: 100%;
 			.Slider {
 				width: 100%;
 				height: 100%;
 				display: flex;
 				flex-direction: row;
-
 				img {
 					display: block;
-					width: 100%;
-					height: 100%;
+					max-width: 100%;
+					min-width: 100%;
+					height: auto; 
 					object-fit: contain;
 				}
 			}
@@ -103,13 +101,13 @@ text-decoration: none;
 				top: 55%;
 				background: transparent;
 				font-size: 60px;
-				color: whitesmoke;
+				color: $A_por_A_verde_claro;
 				opacity: 0.8;
 				border: none;
 				box-shadow: none;
 				cursor: pointer;
 				&:active , &:hover{
-					color: $A_por_A_verde_claro;
+					color: $A_por_A_verde_escuro;
 					box-shadow: none;
 				}
 				&:focus {outline:0;}
@@ -120,13 +118,13 @@ text-decoration: none;
 				top: 55%;
 				background: transparent;
 				font-size: 60px;
-				color: whitesmoke;
+				color: $A_por_A_verde_claro;
 				opacity: 0.8;
 				border: none;
 				box-shadow: none;
 				cursor: pointer;
 				&:active, &:hover {
-					color: $A_por_A_verde_claro;
+					color: $A_por_A_verde_escuro;
 					box-shadow: none;
 				}
 				&:focus {outline:0;}
@@ -135,7 +133,6 @@ text-decoration: none;
 				position: absolute;
 				bottom: 5%;
 				vertical-align: center;
-				horiz-align: center;
 				background: transparent;
 				border: none;
 				width: 50%;

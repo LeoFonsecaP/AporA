@@ -1,3 +1,5 @@
+import {DEFAULT_TRANSITION} from "./Slider.js";
+
 export class SlideShow {
     constructor(slider, nextPreviousMenu, dotsMenu) {
         this.slider = slider;
@@ -22,5 +24,13 @@ export class SlideShow {
     start() {
         this.dotsMenu.startListening();
         this.nextPreviousMenu.startListening();
+    }
+
+    refresh() {
+        let currentSlide = this.slider.getIndexOfCurrentItem();
+        this.slider.changeTransitionEffect('none');
+        this.slider.transitionToItem(currentSlide);
+        this.dotsMenu.setSelectedDot(currentSlide);
+        this.slider.changeTransitionEffect(DEFAULT_TRANSITION);
     }
 }

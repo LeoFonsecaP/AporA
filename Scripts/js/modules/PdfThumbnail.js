@@ -1,27 +1,30 @@
 export class PdfThumbnailsGenerator {
-    constructor(pdfJs) {
+    constructor(pdfJs, width, height) {
+        this.dimensions = {'width' : width, 'height' : height};
         this.pdfJs = pdfJs;
     }
 
     generateThumbnail(pdfSrc, destinationImage) {
         this.pdfJs.getDocument(pdfSrc).promise.then((pdf) => {
-            const callback = page => mapPageToThumbnail(page, destinationImage);
+            const callback = page => {
+                mapPageToThumbnail(page, destinationImage, this.dimensions);
+            };
             return pdf.getPage(1).then(callback);
         });
     }
 }
 
-function mapPageToThumbnail(page, destinationImage) {
-    const canvas = generateCanvas(destinationImage);
+function mapPageToThumbnail(page, destinationImage, dimensions) {
+    const canvas = generateCanvas(dimensions);
     const renderArguments = generateRenderArguments(page, canvas);
     const updateImageSrc = () => destinationImage.src = canvas.toDataURL();
     return page.render(renderArguments).promise.then(updateImageSrc);
 }
 
-function generateCanvas(destinationImage) {
+function generateCanvas(dimensions) {
     const canvas = document.createElement('canvas');
-    canvas.height = destinationImage.clientHeight;
-    canvas.width = destinationImage.clientWidth;
+    canvas.height = dimensions.height;
+    canvas.width = dimensions.width;
     return canvas;
 }
 

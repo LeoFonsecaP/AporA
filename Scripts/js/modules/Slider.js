@@ -13,6 +13,7 @@ export class Slider {
         this.container.style.transition = transitionEffect;
         this.direction = Direction.HORIZONTAL;
         this.counter = 0;
+        this.transitionToItem(this.counter);
     }
 
     setTransitionsDirectionToVertical(direction) {
