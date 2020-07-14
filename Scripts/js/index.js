@@ -10,7 +10,7 @@ function main() {
     const swipeDetector = new SwipeDetector('slideShowDisplayer');
     const movementMenu = new MovementMenu('nextButton', 'previousButton', swipeDetector);
     const slider = new CircularSlider('slider', DEFAULT_TRANSITION);
-    const dotsMenu = new DotsMenu('dotsContainer', 'Dot', 'SelectedDot');
+    const dotsMenu = new DotsMenu('dots', 'Dot', 'SelectedDot');
     const slideShow = new SlideShow(slider, movementMenu, dotsMenu);
     slideShow.start();
 

@@ -77,7 +77,8 @@ export class CalendarMouseActionsMenu {
         this.activeListener = (((event) => {
             event.preventDefault();
             const newEndDate = this.detectEventDate(event);
-            this.resizeActivityAllocatedTime(newEndDate); 
+            this.resizeActivityAllocatedTime(newEndDate);
+            return false;
         })).bind(this);
     }  
 
@@ -91,6 +92,7 @@ export class CalendarMouseActionsMenu {
             previousDate = currentDate;
             currentDate = this.detectEventDate(event);
             this.changeActivityStartingDate(currentDate, previousDate);
+            return false;
         })).bind(this);
     }
 
@@ -100,7 +102,8 @@ export class CalendarMouseActionsMenu {
         this.activeListener = (((event) => {
             event.preventDefault();
             const newEndDate = this.detectEventDate(event);
-            this.resizeActivityAllocatedTime(newEndDate); 
+            this.resizeActivityAllocatedTime(newEndDate);
+            return false;
         })).bind(this);
     }
 

@@ -18,29 +18,34 @@ text-decoration: none;
 	position: relative;
 	overflow-x: hidden;
 }
-
 @media(min-width: 769px){
 	.footer{
 		width: 100vw;
 		color: $A_por_A_cinza;
 		position: relative;
-		overflow-wrap: normal;
-		background: $A_por_A_verde_claro;
-		height: auto;
-		padding: 5px;
-		top: 15vh;
+		bottom: 0;
+		top: 16vh;
+		height: 30px;
 		display: grid;
-		font-weight: 400;
-		border-top: 7px solid $A_por_A_verde_escuro;
+		overflow-wrap: normal;
+
+		font-size: 10px;
+		line-height: 27px;
+		
+		background: $A_por_A_verde_claro;
+		border-top: 3px solid $A_por_A_verde_escuro;
+		margin: 0 auto;
+		margin-bottom: 0;
 		p{
-			margin: auto;
-		}
-		a{
-			text-decoration: none;
-			color: inherit;
-			&:hover{
+			max-width: 90%;
+			margin: 0 auto;
+			a {
+				text-decoration: none;
 				color: white;
-			}
+				&:hover{
+					color: white;
+				}
+			}	
 		}
 	}
 }
@@ -50,16 +55,18 @@ text-decoration: none;
 		width: 100vw;
 		color: $A_por_A_cinza;
 		position: relative;
+		bottom: 0;
+		top: 18vh;
 		overflow-wrap: normal;
-		background: $A_por_A_verde_claro;
-		height: auto;
 		padding: 5px;
-		top: 15vh;
+		height: 50px;
+		padding: 5px;
 		display: grid;
-		font-weight: 300;
-		font-size: small;
+		font-size: 9px;
+		background: $A_por_A_verde_claro;
 		border-top: 7px solid $A_por_A_verde_escuro;
 		p{
+			max-width: 90%;
 			margin: auto;
 		}
 		a{

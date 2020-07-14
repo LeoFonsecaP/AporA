@@ -68,7 +68,7 @@ function createResizeBorder() {
     resizeBorder.style.bottom = '0';
     resizeBorder.style.cursor = 'ns-resize';
     resizeBorder.style.position = 'absolute';
-    resizeBorder.style.background = 'green';
+    resizeBorder.style.background = '#057700';
     return resizeBorder;
 }
 
