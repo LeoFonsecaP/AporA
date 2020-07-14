@@ -23,7 +23,10 @@ html {
 	overflow-x: hidden;
 }
 
-.content {
+
+
+@media (min-width: 769px) {
+	.content {
 	top: 75px;
 	position: relative;
 	z-index: 1;
@@ -150,8 +153,6 @@ html {
 		}
 	}
 }
-
-@media (min-width: 769px) {
 	h1 {
 		top: 70px;
 		font-weight: 700;
@@ -163,9 +164,6 @@ html {
 
 	.Sobre_nos {
 		top: 70px;
-		width: 90%;
-		left: 5%;
-		right: 5%;
 		color: $A_por_A_cinza;
 		position: relative;
 		overflow-wrap: normal;
@@ -176,7 +174,7 @@ html {
 		grid-template-columns: 2fr 2fr;
 		grid-template-rows: 30%;
 		grid-template-rows: 1fr;
-		grid-gap: 10px 20px;
+		grid-gap: 10px 50px;
 		font-family: "Roboto Mono Medium";
 		.historia_e_obj {
 			padding: 5px;
@@ -224,8 +222,14 @@ html {
 	.content {
 		top: 100px;
 		width: 90%;
+		position: relative;
+		z-index: 1;
 		max-height: calc(100% - 50px - 400px) !important;
 		overflow: hidden;
+		color: $A_por_A_cinza;
+			background: #ffffff;
+			max-width: 980px;
+			margin: 0 auto;
 	}
 
 	.SlideShowContainer {
