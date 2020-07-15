@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
+
+$A_por_A_verde_claro: #7bf675;
+$A_por_A_verde_escuro: #057700;
+$A_por_A_cinza: #464b45;
+
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+html {
+	max-width: 100%;
+	min-width: 100%;
+	margin: 0;
+}
+
+.page {
+	background-color: #ffffff;
+	overflow-x: hidden;
+}
+
+
+
+@media (min-width: 769px) {
+.content {
+	display: hidden;
+	position: relative;
+	width: 90%;
+	height: auto;
+	color: $A_por_A_cinza;
+	background: #ffffff;
+	max-width: 980px;
+	margin: 0 auto;
+	margin-top: 75px;
+	display: block;
+}
+
+.SlideShowContainer {
+	position: relative;
+	min-width: 588;
+	max-width: 65%;
+	height: 75%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 50px 2fr 50px;
+	grid-template-rows: 95% 5%;
+	.SlideShowDisplayer {
+		grid-row-start: 1;
+		grid-row-end: 1;
+		grid-column-start: 2;
+		grid-column-end: 2;
+		height: 95%;
+		overflow: hidden;
+		margin: auto;
+		.Slider {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			img {
+				display: block;
+				max-width: 100%;
+				min-width: 100%;
+				height: auto;
+				object-fit: contain;
+			}
+		}
+	}
+	.PreviousButton {
+		grid-row-start: 1;
+		grid-row-end: 1;
+		grid-column-start: 1;
+		grid-column-end: 1;
+		background: transparent;
+		line-height: 15%;
+		font-size: 60px;
+		color: $A_por_A_verde_claro;
+		opacity: 0.8;
+		border: none;
+		box-shadow: none;
+		cursor: pointer;
+		&:active,
+		&:hover {
+			color: $A_por_A_verde_escuro;
+			box-shadow: none;
+		}
+		&:focus {
+			outline: 0;
+		}
+	}
+	.NextButton {
+		grid-row-start: 1;
+		grid-row-end: 1;
+		grid-column-start: 3;
+		grid-column-end: 3;
+		background: transparent;
+		line-height: 15%;
+		font-size: 60px;
+		color: $A_por_A_verde_claro;
+		opacity: 0.8;
+		border: none;
+		box-shadow: none;
+		cursor: pointer;
+		&:active,
+		&:hover {
+			color: $A_por_A_verde_escuro;
+			box-shadow: none;
+		}
+		&:focus {
+			outline: 0;
+		}
+	}
+	.DotsContainer {
+		grid-row-start: 2;
+		grid-row-end: 2;
+		grid-column-start: 1;
+		grid-column-end: 4;
+		display: inline-flex;
+		width: 100%;
+		.Dots {
+			margin: 0 auto;
+			background: transparent;
+			border: none;
+			align-items: center;
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+	.Dot {
+		border: 1px solid $A_por_A_cinza;
+		background: whitesmoke;
+		border-radius: 100%;
+		height: 15px;
+		width: 15px;
+		cursor: pointer;
+		&:focus {
+			outline: 0;
+		}
+	}
+	.SelectedDot {
+		border: 1px solid $A_por_A_cinza;
+		background: $A_por_A_verde_claro;
+		border-radius: 100%;
+		height: 15px;
+		width: 15px;
+		cursor: pointer;
+		&:focus {
+			outline: 0;
+		}
+	}
+}
+	h1 {
+		margin-top: 80px;
+		font-weight: 700;
+		height: 5%;
+		text-align: center;
+		font-family: "Roboto Mono Medium";
+		color: $A_por_A_cinza;
+	}
+
+	.Sobre_nos {
+		color: $A_por_A_cinza;
+		overflow-wrap: normal;
+		background: #ffffff;
+
+		margin-top: 40px;
+		margin-bottom: 40px;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: max-content;
+		grid-gap: 50px;
+		font-family: "Roboto Mono Medium";
+		.historia_e_obj {
+			padding: 5px;
+			grid-column-start: 1;
+			grid-column-end: 2;
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+		.como {
+			padding: 5px;
+			grid-column-start: 2;
+			grid-column-end: 3;
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+	}
+}
+@media (max-width: 768px) {
+	h1 {
+		font-weight: 700;
+		margin-top: 40px;
+		text-align: center;
+		font-family: "Roboto Mono Medium";
+		color: $A_por_A_cinza;
+	}
+
+	.Sobre_nos {
+		width: 90%;
+		left: 5%;
+		right: 5%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin: 0 auto;
+		color: $A_por_A_cinza;
+		overflow-wrap: normal;
+		height: auto;
+		background: #ffffff;
+		font-family: "Roboto Mono Medium";
+		.historia_e_obj {
+			padding: 5px;
+		}
+		.como {
+			padding: 5px;
+		}
+	}
+
+	.content {
+		top: 100px;
+		width: 90%;
+		position: relative;
+		overflow: hidden;
+		color: $A_por_A_cinza;
+		background: #ffffff;
+		max-width: 980px;
+		margin: 0 auto;
+		border-bottom: 50px;
+	}
+
+	.SlideShowContainer {
+		position: relative;
+		width: 100%;
+		height: 70%;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 25px 2fr 25px;
+		grid-template-rows: 90% 10%;
+		.SlideShowDisplayer {
+			grid-row-start: 1;
+			grid-row-end: 1;
+			grid-column-start: 2;
+			grid-column-end: 2;
+			height: 95%;
+			overflow: hidden;
+			margin: auto;
+			.Slider {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: row;
+				img {
+					display: block;
+					max-width: 100%;
+					min-width: 100%;
+					height: auto;
+					max-width: 100%;
+					object-fit: contain;
+				}
+			}
+		}
+		.PreviousButton {
+			grid-row-start: 1;
+			grid-row-end: 1;
+			grid-column-start: 1;
+			grid-column-end: 1;
+			background: transparent;
+			line-height: 15%;
+			font-size: 30px;
+			color: $A_por_A_verde_claro;
+			opacity: 0.8;
+			border: none;
+			box-shadow: none;
+			cursor: pointer;
+			&:active,
+			&:hover {
+				color: $A_por_A_verde_escuro;
+				box-shadow: none;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		.NextButton {
+			grid-row-start: 1;
+			grid-row-end: 1;
+			grid-column-start: 3;
+			grid-column-end: 3;
+			background: transparent;
+			line-height: 15%;
+			font-size: 30px;
+			color: $A_por_A_verde_claro;
+			opacity: 0.8;
+			border: none;
+			box-shadow: none;
+			cursor: pointer;
+			&:active,
+			&:hover {
+				color: $A_por_A_verde_escuro;
+				box-shadow: none;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		.DotsContainer {
+			grid-row-start: 2;
+			grid-row-end: 2;
+			grid-column-start: 1;
+			grid-column-end: 4;
+			display: inline-flex;
+			width: 100%;
+			.Dots {
+				margin: 0 auto;
+				background: transparent;
+				border: none;
+				align-items: center;
+				&:focus {
+					outline: 0;
+				}
+			}
+		}
+		.Dot {
+			border: 1px solid $A_por_A_cinza;
+			background: whitesmoke;
+			border-radius: 100%;
+			height: 15px;
+			width: 15px;
+			cursor: pointer;
+			&:focus {
+				outline: 0;
+			}
+		}
+		.SelectedDot {
+			border: 1px solid $A_por_A_cinza;
+			background: $A_por_A_verde_claro;
+			border-radius: 100%;
+			height: 15px;
+			width: 15px;
+			cursor: pointer;
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+}

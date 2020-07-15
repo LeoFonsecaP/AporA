@@ -1,0 +1,78 @@
+{% extends './default.html' %}
+
+{% block content %}
+{% load static %}
+<div class="SlideShowContainer">
+    <div class="SlideShowDisplayer" id="slideShowDisplayer">
+        <div id="slider" class="Slider">
+            <img src={% static "images/whiteBackground.png" %}
+                data-src={% static "images\Como estudar Física.pdf" %}
+                alt="" class="Pdf" />
+            <img src={% static "images/whiteBackground.png" %}
+                data-src={% static "images/Eletrostática.pdf" %}
+                alt="" class="Pdf" />
+            <img src={% static "images/whiteBackground.png" %}
+                data-src={% static "imagens/Vetores.pdf" %}
+                alt="" class="Pdf" />
+        </div>
+    </div>
+    <button id="previousButton" class="PreviousButton"><</button>
+    <button id="nextButton" class="NextButton">></button>
+    <div id="dotsContainer" class="DotsContainer">
+        <div id="dots" class="Dots"></div>
+    </div>
+</div>
+
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"
+        type="text/javascript"></script>
+<script src={% static "scripts/js/index.js" %} type="module"></script>
+
+<h1>Sobre Nós:</h1>
+<div class="Sobre_nos">
+    <article class="historia_e_obj">
+        <h2>Como surgimos:</h2>
+        <p>
+            O projeto Alunos por Alunos foi idealizado para ser um
+            canal de materiais e
+            conhecimento via Instagram, email e Google Drive para os
+            alunos mais prejudicados
+            pela paralisação das aulas presenciais: estudantes de
+            escolas públicas, que não tem
+            acesso a cursinho online nem aulas EAD.
+        </p>
+        <h2>Nosso objetivo:</h2>
+        <p>
+            Sendo assim, nosso maior objetivo é democratizar, ainda
+            que
+            pouco, o acesso à educação de excelência
+            que tivemos acesso aos alunos que não têm nem o mínimo
+            dela.
+        </p>
+    </article>
+    <article class="como">
+        <h2>Como operamos:</h2>
+        <p>
+            No nosso Instagram, postamos dicas e fazemos lives sobre
+            diversos temas toda a semana,
+            sempre buscando chamar algum convidado que tenha
+            experiência no assunto para enriquecer o conteúdo.
+            Para que sejam solucionadas as dúvidas dos alunos, temos
+            e-mails para cada área do conhecimento.
+            Portanto, é como um plantão de dúvidas: o estudante
+            manda
+            sua pergunta e/ou redação a ser corrigida no
+            email correspondente de cada área e os voluntários
+            respondem e enviam a resposta.
+            Já no Google Drive, dezenas de alunos disponibilizam
+            resumos, listas de exercícios,
+            planilhas das mais variadas matérias para que todos
+            tenham
+            acesso a esse material, uma
+            vez que o Drive é uma rede na qual você tem a opção de
+            deixar um link compartilhado para
+            que qualquer um tenha acesso.
+        </p>
+    </article>
+</div>
+
+{% endblock %}
