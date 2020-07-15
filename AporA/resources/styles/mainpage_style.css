@@ -18,7 +18,7 @@ html {
 }
 
 @media (min-width: 769px) {
-  .content {
+  .mp {
     display: hidden;
     position: relative;
     width: 90%;
@@ -239,7 +239,7 @@ html {
   .Sobre_nos .como {
     padding: 5px;
   }
-  .content {
+  .mp {
     top: 100px;
     width: 90%;
     position: relative;
