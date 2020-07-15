@@ -24,7 +24,7 @@ from organization.views import OrganizationController
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("home.urls"), name = "main"),
-    path('politica_de_privacidade', include("pdp.urls"), name = "politica_de_privacidade"),
-    path('organizacao', OrganizationController.as_view(), name = "organizacao"),
+    path('', include("home.urls")),
+    path('politica_de_privacidade', include("pdp.urls")),
+    path('organizacao', OrganizationController.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
