@@ -60,6 +60,7 @@ body {
     height: auto;
     color: #464b45;
     background: #ffffff;
+    min-height: 72vh;
     max-width: 980px;
     margin: 0 auto;
     margin-top: 85px;
