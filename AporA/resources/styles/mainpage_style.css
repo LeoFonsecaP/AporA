@@ -23,10 +23,14 @@ body {
 }
 
 @media (min-width: 769px) {
+<<<<<<< HEAD
   .page_wrapper {
     padding-bottom: 75px;
   }
   .content {
+=======
+  .mp {
+>>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
     display: hidden;
     position: relative;
     width: 90%;
@@ -251,7 +255,7 @@ body {
   .Sobre_nos .como {
     padding: 5px;
   }
-  .content {
+  .mp {
     top: 100px;
     width: 90%;
     position: relative;

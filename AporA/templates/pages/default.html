@@ -10,8 +10,10 @@
       <link rel="stylesheet" href={% static "styles/mainpage_style.css" %} />
       <link rel="stylesheet" href={% static "styles/footer_style.css" %}/>
       <link rel="stylesheet" href={% static "styles/calendar.css" %}/>
+      <link rel="stylesheet" href={% static "styles/politicadeprivacidade_style.css" %}/>
    </head>
    <body>
+<<<<<<< HEAD
       <div class="page_wrapper">
          <div class="navigation_container">
             <div class="navigation">
@@ -41,10 +43,40 @@
                      alt="Falhas no carregamento" />
                </a>
                <script src={% static "scripts/menu_cel.js" %}></script>
+=======
+      <div class="navigation_container">
+         <div class="navigation">
+            <a href="{% url 'home' %}" class="logo">
+               <img src={% static "images/LogoSite.png" %} alt="Falhas no
+                  carregamento" />
+            </a>
+            <div class="navigation_links">
+               <a href="index.html" class="hidden_on_mobile">Materiais</a>
+               <a href="index.html" class="hidden_on_mobile">Exercícios</a>
+               <a href="organizacao" class="hidden_on_mobile">Organização</a>
+               <a href="index.html" class="hidden_on_mobile">Forum</a>
+            </div>
+            <a href="https://www.instagram.com/alunosporalunos/" target="_blank"
+               class="instagram_icon">
+               <img src={% static "images/GreyInstagram.png" %}
+                  alt="Falhas no carregamento" />
+            </a>
+            <a href="index.html" class="log_in_button">Entrar</a>
+            <button class="ver_mais_cel mobile_only">
+               <img src={% static "images/menu_ver_mais.png" %}
+               alt="Falhas no carregamento" />
+            </button>
+            <a class="loginimg mobile_only">
+               <img src={% static "images/login_img.png" %}
+                  alt="Falhas no carregamento" />
+            </a>
+            <script src={% static "scripts/menu_cel.js" %}></script>
+>>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
 
             </div>
          </div>
 
+<<<<<<< HEAD
          <div class="content">
             {% block content %}
             {% endblock %}
@@ -57,6 +89,18 @@
                | MANTENEDORES: CESAR GUIBO E LEONARDO FONSECA
             </p>
          </div>
+=======
+         {% block content %}
+         {% endblock %}
+
+      <div class="footer">
+         <p>
+            COPYRIGHT &copy; 2020 | ALUNOS POR ALUNOS |TODOS OS DIREITOS
+            RESERVADOS | <a href="{% url 'pdp' %}">POLITICA DE
+            PRIVACIDADE</a>
+            | MANTENEDORES: CESAR GUIBO E LEONARDO FONSECA
+         </p>
+>>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
       </div>
    </body>
 </html>

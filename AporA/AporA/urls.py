@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from home.views import renderHomePage
@@ -22,9 +22,11 @@ from home.views import renderPrivacyPolicy
 from organization.views import OrganizationController
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', renderHomePage),
+    path('', include("home.urls")),
+    path('politica_de_privacidade', include("pdp.urls")),
     path('organizacao', OrganizationController.as_view()),
     path('privacidade', renderPrivacyPolicy),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -11,6 +11,17 @@ list-style: none;
 text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+/*.page {
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow-x: hidden;
+}*/
+
+>>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
 @media(min-width: 769px){
 	.footer{
 		clear: both;
@@ -49,6 +60,10 @@ text-decoration: none;
 		color: $A_por_A_cinza;
 		position: absolute;
 		bottom: 0;
+<<<<<<< HEAD
+=======
+		top: 15vh;
+>>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
 		overflow-wrap: normal;
 		padding: 5px;
 		height: auto;
