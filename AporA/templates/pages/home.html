@@ -2,22 +2,21 @@
 
 {% block content %}
 {% load static %}
-<div class = "mp">
-    <div class="SlideShowContainer">
-        <div class="SlideShowDisplayer" id="slideShowDisplayer">
-            <div id="slider" class="Slider">
-                <img src={% static "images/whiteBackground.png" %}
-                    data-src={% static "images\Como estudar Física.pdf" %}
-                    alt="" class="Pdf" />
-                <img src={% static "images/whiteBackground.png" %}
-                    data-src={% static "images/Eletrostática.pdf" %}
-                    alt="" class="Pdf" />
-                <img src={% static "images/whiteBackground.png" %}
-                    data-src={% static "imagens/Vetores.pdf" %}
-                    alt="" class="Pdf" />
-            </div>
+<div class="SlideShowContainer">
+    <div class="SlideShowDisplayer" id="slideShowDisplayer">
+        <div id="slider" class="Slider">
+            <img src={% static "images/whiteBackground.png" %}
+                data-src={% static "images\Como estudar Física.pdf" %}
+                alt="" class="Pdf" />
+            <img src={% static "images/whiteBackground.png" %}
+                data-src={% static "images/Eletrostática.pdf" %}
+                alt="" class="Pdf" />
+            <img src={% static "images/whiteBackground.png" %}
+                data-src={% static "imagens/Vetores.pdf" %}
+                alt="" class="Pdf" />
         </div>
-        <button id="previousButton" class="PreviousButton"><</button>
+    </div>
+    <button id="previousButton" class="PreviousButton"><</button>
         <button id="nextButton" class="NextButton">></button>
         <div id="dotsContainer" class="DotsContainer">
             <div id="dots" class="Dots"></div>
@@ -25,7 +24,7 @@
     </div>
 
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"
-            type="text/javascript"></script>
+        type="text/javascript"></script>
     <script src={% static "scripts/js/index.js" %} type="module"></script>
 
     <h1>Sobre Nós:</h1>
@@ -75,5 +74,4 @@
             </p>
         </article>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
