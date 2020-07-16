@@ -11,18 +11,12 @@ list-style: none;
 text-decoration: none;
 }
 
-/*.page {
-	background-color: #FFFFFF;
-	width: 100%;
-	height: 100%;
-	position: relative;
-	overflow-x: hidden;
-}*/
 @media(min-width: 769px){
 	.footer{
+		clear: both;
 		width: 100%;
 		color: $A_por_A_cinza;
-		position: relative;
+		position: absolute;
 		bottom: 0;
 		height: auto;
 		display: grid;
@@ -50,11 +44,11 @@ text-decoration: none;
 
 @media(max-width: 768px){
 	.footer{
+		clear: both;
 		width: 100%;
 		color: $A_por_A_cinza;
-		position: relative;
+		position: absolute;
 		bottom: 0;
-		top: 13vh;
 		overflow-wrap: normal;
 		padding: 5px;
 		height: auto;

@@ -6,18 +6,12 @@
   text-decoration: none;
 }
 
-/*.page {
-	background-color: #FFFFFF;
-	width: 100%;
-	height: 100%;
-	position: relative;
-	overflow-x: hidden;
-}*/
 @media (min-width: 769px) {
   .footer {
+    clear: both;
     width: 100%;
     color: #464b45;
-    position: relative;
+    position: absolute;
     bottom: 0;
     height: auto;
     display: -ms-grid;
@@ -45,11 +39,11 @@
 
 @media (max-width: 768px) {
   .footer {
+    clear: both;
     width: 100%;
     color: #464b45;
-    position: relative;
+    position: absolute;
     bottom: 0;
-    top: 13vh;
     overflow-wrap: normal;
     padding: 5px;
     height: auto;

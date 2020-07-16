@@ -12,49 +12,51 @@
       <link rel="stylesheet" href={% static "styles/calendar.css" %}/>
    </head>
    <body>
-      <div class="navigation_container">
-         <div class="navigation">
-            <a href="" class="logo">
-               <img src={% static "images/LogoSite.png" %} alt="Falhas no
-                  carregamento" />
-            </a>
-            <div class="navigation_links">
-               <a href="index.html" class="hidden_on_mobile">Materiais</a>
-               <a href="index.html" class="hidden_on_mobile">Exercícios</a>
-               <a href="organizacao" class="hidden_on_mobile">Organização</a>
-               <a href="index.html" class="hidden_on_mobile">Forum</a>
+      <div class="page_wrapper">
+         <div class="navigation_container">
+            <div class="navigation">
+               <a href="" class="logo">
+                  <img src={% static "images/LogoSite.png" %} alt="Falhas no
+                     carregamento" />
+               </a>
+               <div class="navigation_links">
+                  <a href="index.html" class="hidden_on_mobile">Materiais</a>
+                  <a href="index.html" class="hidden_on_mobile">Exercícios</a>
+                  <a href="organizacao" class="hidden_on_mobile">Organização</a>
+                  <a href="index.html" class="hidden_on_mobile">Forum</a>
+               </div>
+               <a href="https://www.instagram.com/alunosporalunos/"
+                  target="_blank"
+                  class="instagram_icon">
+                  <img src={% static "images/GreyInstagram.png" %}
+                     alt="Falhas no carregamento" />
+               </a>
+               <a href="index.html" class="log_in_button">Entrar</a>
+               <button class="ver_mais_cel mobile_only">
+                  <img src={% static "images/menu_ver_mais.png" %}
+                     alt="Falhas no carregamento" />
+               </button>
+               <a class="loginimg mobile_only">
+                  <img src={% static "images/login_img.png" %}
+                     alt="Falhas no carregamento" />
+               </a>
+               <script src={% static "scripts/menu_cel.js" %}></script>
+
             </div>
-            <a href="https://www.instagram.com/alunosporalunos/" target="_blank"
-               class="instagram_icon">
-               <img src={% static "images/GreyInstagram.png" %}
-                  alt="Falhas no carregamento" />
-            </a>
-            <a href="index.html" class="log_in_button">Entrar</a>
-            <button class="ver_mais_cel mobile_only">
-               <img src={% static "images/menu_ver_mais.png" %}
-               alt="Falhas no carregamento" />
-            </button>
-            <a class="loginimg mobile_only">
-               <img src={% static "images/login_img.png" %}
-                  alt="Falhas no carregamento" />
-            </a>
-            <script src={% static "scripts/menu_cel.js" %}></script>
-
          </div>
-      </div>
 
-      <div class="content">
-         {% block content %}
-         {% endblock %}
-      </div>
+         <div class="content">
+            {% block content %}
+            {% endblock %}
+         </div>
 
-      <div class="footer">
-         <p>
-            COPYRIGHT &copy; 2020 | ALUNOS POR ALUNOS |TODOS OS DIREITOS
-            RESERVADOS | <a href="politica_de_privacidade.html">POLITICA DE
-               PRIVACIDADE</a>
-            | MANTENEDORES: CESAR GUIBO E LEONARDO FONSECA
-         </p>
+         <div class="footer">
+            <p>
+               COPYRIGHT &copy; 2020 | ALUNOS POR ALUNOS |TODOS OS DIREITOS
+               RESERVADOS | <a href="privacidade">POLITICA DE PRIVACIDADE</a>
+               | MANTENEDORES: CESAR GUIBO E LEONARDO FONSECA
+            </p>
+         </div>
       </div>
    </body>
 </html>

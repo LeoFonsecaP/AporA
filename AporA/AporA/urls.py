@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from home.views import renderHomePage
+from home.views import renderPrivacyPolicy
 from organization.views import OrganizationController
 
 
@@ -25,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', renderHomePage),
     path('organizacao', OrganizationController.as_view()),
+    path('privacidade', renderPrivacyPolicy),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

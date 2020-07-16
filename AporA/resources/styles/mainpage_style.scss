@@ -11,20 +11,26 @@ $A_por_A_cinza: #464b45;
 	text-decoration: none;
 }
 
-html {
+body {
+	position: absolute;
 	max-width: 100%;
 	min-width: 100%;
-	margin: 0;
+	top: 0;
 }
 
-.page {
+.page_wrapper {
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 100vh;	
+	position: absolute;
+	top: 0;
 	background-color: #ffffff;
-	overflow-x: hidden;
 }
-
-
 
 @media (min-width: 769px) {
+	.page_wrapper {
+		padding-bottom: 75px;
+	}
 .content {
 	display: hidden;
 	position: relative;
@@ -36,6 +42,7 @@ html {
 	margin: 0 auto;
 	margin-top: 75px;
 	display: block;
+	min-height: calc(100% - 27);
 }
 
 .SlideShowContainer {
@@ -192,6 +199,10 @@ html {
 	}
 }
 @media (max-width: 768px) {
+	.page_wrapper {
+		padding-bottom: 200px;
+	}
+
 	h1 {
 		font-weight: 700;
 		margin-top: 40px;
