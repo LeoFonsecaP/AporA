@@ -4,16 +4,11 @@ $A_por_A_verde_claro: #7bf675;
 $A_por_A_verde_escuro: #057700;
 $A_por_A_cinza: #464b45;
 
-<<<<<<< HEAD
 * {
-=======
-*{
->>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	text-decoration: none;
-<<<<<<< HEAD
 }
 
 .page {
@@ -22,67 +17,4 @@ $A_por_A_cinza: #464b45;
 	height: 100%;
 	position: relative;
 	overflow-x: hidden;
-=======
-}
-	
-html {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  background: white;
-}
-
-::-webkit-scrollbar {
-  width: 7px;
-}
-	
-::-webkit-scrollbar-track {
-  box-shadow: inset -1px 2px 2px rgba(70,75,69,0.5);
-  background: rgba(70,75,69,0.5);
-  border-radius: 20px;
-}
-	
-::-webkit-scrollbar-thumb {
-  opacity: 0.5;
-  background: #7bf675;
-  border-radius: 20px;
-}
-
-@media (min-width: 769px) {
-	.pp{
-		position: relative;
-		margin-top: 60px;
-		z-index: 1;
-		width: 80vw;
-		height: 100%;
-		left: 10vw;
-		right: 10vw;
-		overflow-wrap: normal;
-		font-family: "Roboto Mono Medium";
-		color: $A_por_A_cinza;
-		padding: 10px;
-		h1{
-			text-align: center;
-			margin-bottom: 25px;
-		}
-	}
-}
-
-@media (max-width: 768px) {
-	.pp {
-		display: hidden;
-		position: relative;
-		width: 90%;
-		height: auto;
-		color: $A_por_A_cinza;
-		background: #ffffff;
-		min-height: 72vh;
-		max-width: 980px;
-		margin: 0 auto;
-		margin-top: 85px;
-		display: block;
-	}
->>>>>>> 501c2b69161225a59eb9c780e0182156bc054554
 }

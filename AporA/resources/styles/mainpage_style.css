@@ -35,7 +35,8 @@ body {
     background: #ffffff;
     max-width: 980px;
     margin: 0 auto;
-    margin-top: 75px;
+    margin-top: 100px;
+    margin-bottom: 75px;
     display: block;
     min-height: calc(100% - 27);
   }
@@ -252,7 +253,7 @@ body {
     padding: 5px;
   }
   .content {
-    top: 100px;
+    margin-top: 100px;
     width: 90%;
     position: relative;
     overflow: hidden;

@@ -1,241 +1,19 @@
 {% extends './default.html' %}
 
 {% block content %}
-{% load static %}
-<div class="CalendarContainer">
-    <label>
+<form>
+    <h4>
         Selecione os blocos de tempo livres na sua semana
         para estudar:
-    </label>
-    <div class="DayLabels">
-        <p>Dom.</p>
-        <p>Seg.</p>
-        <p>Ter.</p>
-        <p>Qua.</p>
-        <p>Qui.</p>
-        <p>Sex.</p>
-        <p>Sab.</p>
-    </div>
-    <div class="WeekContainer" id="weekContainer">
-        <div class="HourLabels">
-            <p>00:00</p>
-            <p>01:00</p>
-            <p>02:00</p>
-            <p>03:00</p>
-            <p>04:00</p>
-            <p>05:00</p>
-            <p>06:00</p>
-            <p>07:00</p>
-            <p>08:00</p>
-            <p>09:00</p>
-            <p>10:00</p>
-            <p>11:00</p>
-            <p>12:00</p>
-            <p>13:00</p>
-            <p>14:00</p>
-            <p>15:00</p>
-            <p>16:00</p>
-            <p>17:00</p>
-            <p>18:00</p>
-            <p>19:00</p>
-            <p>20:00</p>
-            <p>21:00</p>
-            <p>22:00</p>
-            <p>23:00</p>
-        </div>
-        <div class="Week" id="week">
-            <div class="SundayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-            <div class="DayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-            <div class="DayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-            <div class="DayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-            <div class="DayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-            <div class="DayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-            <div class="DayContainer">
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-                <div class="Hour"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="StudyInfo">
+    </h4>
+    <div class="CalendarContainer" id="calendarContainer"></div>
     <div class="SubjectSelection">
-        <p>
+        <h4>
             Selecione as duas materias nas quais voce mais possui
             dificuldades:
-        </p>
-        <select class="Materias com dificuldade">
+        </h4>
+        <label>Materia 1:</label>
+        <select class="dificult_subject">
             <option>Matematica</option>
             <option>Fisica</option>
             <option>Quimica</option>
@@ -244,7 +22,8 @@
             <option>Geografia</option>
             <option>Biologia</option>
         </select>
-        <select class="Materias com dificuldade">
+        <label>Materia 2:</label>
+        <select class="dificult_subject">
             <option>Matematica</option>
             <option>Fisica</option>
             <option>Quimica</option>
@@ -255,11 +34,12 @@
         </select>
     </div>
     <div class="SubjectSelection">
-        <p>
+        <h4>
             Selecione as duas materias nas quais voce menos possui
             dificuldades:
-        </p>
-        <select>
+        </h4>
+        <label>Materia 1:</label>
+        <select class="easy_subject">
             <option>Matematica</option>
             <option>Fisica</option>
             <option>Quimica</option>
@@ -268,7 +48,8 @@
             <option>Geografia</option>
             <option>Biologia</option>
         </select>
-        <select class="Materias com dificuldade">
+        <label>Materia 2:</label>
+        <select class="easy_subject">
             <option>Matematica</option>
             <option>Fisica</option>
             <option>Quimica</option>
@@ -278,23 +59,17 @@
             <option>Biologia</option>
         </select>
     </div>
-</div>
-<script type="module">
-                import {Calendar} from './Scripts/js/modules/Calendar/Calendar.js';
-                import {CalendarDisplay} from './Scripts/js/modules/Calendar/CalendarDisplay.js';
-                import {ActivityDisplayFactory} from './Scripts/js/modules/Calendar/ActivityDisplayFactory.js';
-                import {ActivityFactory} from './Scripts/js/modules/Calendar/ActivityFactory.js';
-                import {CalendarMouseActionsMenu} from './Scripts/js/modules/Calendar/CalendarMouseMenu.js';
 
-                const container = document.getElementById('week');
-                const activityFactory = new ActivityFactory();
-                const activityDisplayFactory = new ActivityDisplayFactory('SelectedActivity');
-                const calendar = new Calendar(activityFactory);
-                const calendarDisplay = new CalendarDisplay(container, activityDisplayFactory);
-                const calendarMenu = new CalendarMouseActionsMenu(container, calendar);
+    <input type="submit" value="Enviar" id="submitButton"/>
+</form>
 
-                calendar.registerDisplay(calendarDisplay);
-                calendarMenu.startListening();
-        </script>
+{% load static %}
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.mjs"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+<script src={% static "scripts/js/organizacao.js" %} type="module"></script>{% csrf_token %}
 
 {% endblock %}
