@@ -16,7 +16,7 @@
       <div class="page_wrapper">
          <div class="navigation_container">
             <div class="navigation">
-               <a href="" class="logo">
+               <a href="{% url 'home' %}" class="logo">
                   <img src={% static "images/LogoSite.png" %} alt="Falhas no
                      carregamento" />
                </a>
@@ -54,7 +54,7 @@
          <div class="footer">
             <p>
                COPYRIGHT &copy; 2020 | ALUNOS POR ALUNOS |TODOS OS DIREITOS
-               RESERVADOS | <a href="privacidade">POLITICA DE PRIVACIDADE</a>
+               RESERVADOS | <a href="{% url 'pdp' %}">POLITICA DE PRIVACIDADE</a>
                | MANTENEDORES: CESAR GUIBO E LEONARDO FONSECA
             </p>
          </div>
