@@ -1,9 +1,8 @@
-
-*{
-padding: 0;
-margin: 0;
-list-style: none;
-text-decoration: none;
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
 html {
@@ -15,144 +14,121 @@ body {
   background: white;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-}
+.CalendarContainer {
+  margin: 0 auto;
+  height: 70%;
+  width: 80%;
 
-::-webkit-scrollbar-track {
-  box-shadow: inset -1px 2px 2px rgba(70,75,69,0.5);
-  background: rgba(70,75,69,0.5);
-  border-radius: 20px;
-}
+  display: flex;
+  flex-direction: column;
 
-::-webkit-scrollbar-thumb {
-  opacity: 0.5;
-  background: #7bf675;
-  border-radius: 20px;
-}
-  .CalendarContainer {
-    margin: 0 auto;
-    height: 80%;
-    width: 80%;
+  .DayLabels {
+    height: 30px;
+    width: calc(100% - 22px);
+
+    margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-bottom: 2px solid rgb(70, 75, 69);
+    z-index: 2;
+
+    color: white;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    label {
-      height: 20px; 
-    }
-
-    .DayLabels {
-      height: 30px;
-      width: calc(100% - 22px);
-
-      margin-top: 25px;
-      margin-left: 5px;
-      margin-right: 5px;
-      border-bottom: 2px solid rgb(70,75,69);
-      z-index: 2;
-
-      color: white;
-
-      display: flex;
-      flex-direction: row;
-
-      p {
-        margin: 0;
-        color: rgb(70,75,69);
-        border-right: 2px solid rgb(70,75,69);
-        width: calc(14.2857142% - 1px);
-        height: 100%;
-        line-height: 100%;
-        text-align: center;
-
-        &:first-child {
-          margin-left: 45px;
-          width: calc(14.2857142% - 3px);
-          border-left: 2px solid rgb(70,75,69);
-        }
-      }
-    }
-
-    .WeekContainer {
+    p {
+      margin: 0;
+      color: rgb(70, 75, 69);
+      border-right: 2px solid rgb(70, 75, 69);
+      width: calc(14.2857142% - 1px);
       height: 100%;
-      width: 100%;
-      overflow-x: hidden;
-      overflow-y: scroll;
+      line-height: 100%;
+      text-align: center;
+
+      &:first-child {
+        margin-left: 45px;
+        width: calc(14.2857142% - 3px);
+        border-left: 2px solid rgb(70, 75, 69);
+      }
+    }
+  }
+
+  .WeekContainer {
+    height: 70vh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: row;
+
+    .Week {
+      position: relative;
+      margin-right: 10px;
+
+      height: 150vh;
+      width: calc(100% - 60px);
+      padding: 0;
+
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+      grid-template-rows: 150vh;
+    }
+
+    .HourLabels {
+      margin: 0;
+
+      color: rgb(70, 75, 69);
+
+      width: 50px;
+      height: 150vh;
+      font-size: 15px;
 
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
 
-      .Week {
-        position: relative;
-        margin-right: 10px;
-
-        height: 150vh;
-        width: calc(100% - 60px);
-        padding: 0;
-
-        display: grid;
-        grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-        grid-template-rows: 150vh;
-      }
-
-      .HourLabels {
-        margin: 0;
-
-        color: rgb(70,75,69);
-
-        width: 50px;
-        height: 150vh;
-        font-size: 15px;
-
-        display: flex;
-        flex-direction: column;
+      div {
+        height: calc(4.1666666% - 0px);
+        margin: 0px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
 
         p {
-          height: calc(4.1666666% - 2px);
-          width: 100%;
           line-height: 100%;
-          margin: 0px;
-
-          text-align: left;
-          color: rgb(70,75,69);
-          border-bottom: 2px dashed rgba(70,75,69,0.5);
+          color: rgb(70, 75, 69);
         }
-
         p:first-child {
           margin-top: 2px;
         }
       }
+    }
 
-      .SundayContainer {
-        background: white;
-        border-left: 2px solid rgb(70,75,69);
-        border-right: 2px solid rgb(70,75,69);
+    .DayContainer:first-child {
+        border-left: 2px solid rgb(70, 75, 69);
+        border-right: 2px solid rgb(70, 75, 69);
+    }
+    .DayContainer {
+      background: white;
+      border-right: 2px solid rgb(70, 75, 69);
 
-        display: flex;
-        flex-direction: column;
-      }
+      display: flex;
+      flex-direction: column;
+    }
 
-      .DayContainer {
-        background: white;
-        border-right: 2px solid rgb(70,75,69);
+    .Hour {
+      height: calc(4.1666666% - 2.04166666px);
+      flex-grow: 0.6;
+      border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
+      margin: 0;
+    }
 
-        display: flex;
-        flex-direction: column;
-      }
-
-      .Hour {
-        height: calc(4.1666666% - 2.04166666px);
-        flex-grow: 0.6;
-        border-bottom: 2px dashed rgba(70,75,69,0.5);
-        margin: 0;
-      }
-
-      .Hour:first-child {
-        border-top: 2px dashed rgba(70,75,69,0.5);
-      }
+    .Hour:first-child {
+      border-top: 2px dashed rgba(70, 75, 69, 0.5);
     }
   }
+}
 
 .SelectedActivity {
   position: relative;
@@ -170,29 +146,48 @@ body {
 }
 
 .SelectedActivity:focus {
-  opacity: 1.0;
+  opacity: 1;
   border: 1px solid green;
   cursor: ns-resize;
 }
 
-.StudyInfo {
-  border: 3px solid rgb(70, 75, 69);
-  border-radius: 20px;
-  padding: 10px 10px;
+.SubjectSelection {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 70%;
-
-  .SubjectSelection {
-    p {
-      margin-bottom: 2px;
-    }
+  margin-top: 150px;
+  label {
+    margin-top: 15px;
+    margin-bottom: 3px;
   }
-
-  .SubjectSelection:last-child {
-    border-top: 1px solid rgb(70, 75, 69);
-    padding-top: 30px;
-    margin-top: 30px;
+  select {
+    padding: 7px calc(50% - 66px);
+    width: 100%;
+    background: rgb(70, 75, 69);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
   }
+  p {
+    margin-bottom: 2px;
+  }
+}
+
+input {
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 7px 0;
+  width: 80%;
+  color: white;
+  background: rgb(70, 75, 69);
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
 }

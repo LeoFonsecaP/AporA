@@ -27,4 +27,5 @@ urlpatterns = [
     path('', include("home.urls")),
     path('politica_de_privacidade', include("pdp.urls")),
     path('organizacao', OrganizationController.as_view()),
+    path('materias', include("materias.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

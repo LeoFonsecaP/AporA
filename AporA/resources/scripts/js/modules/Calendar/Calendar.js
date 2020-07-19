@@ -78,4 +78,12 @@ export class Calendar {
             display.update(this.date, this.allocatedTime, this.description);
         });
     }
+
+    toJson() {
+        let jsonObject = this.activities.reduce((acc, activity) => {
+           return acc + '{"date":' + JSON.stringify(activity.date) +
+                  ',"allocatedTime":' + activity.allocatedTime + '},';
+        }, '[');
+        return jsonObject + ']';
+    }
 }
