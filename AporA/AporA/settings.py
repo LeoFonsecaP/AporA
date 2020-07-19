@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home',
     'organization',
     'pdp',
+    'materias',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
