@@ -35,8 +35,8 @@ body {
     height: 100%;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 75px 500px 1fr 24px 80px;
-        grid-template-columns: 75px 500px 1fr 24px 80px;
+    -ms-grid-columns: 75px 550px 1fr 24px 80px;
+        grid-template-columns: 75px 550px 1fr 24px 80px;
     -ms-grid-rows: 22px;
         grid-template-rows: 22px;
     font-family: "Roboto Mono Medium";
@@ -62,7 +62,7 @@ body {
         grid-template-rows: 100%;
   }
   .navigation .navigation_links a {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 20px;
     color: #464b45;
     margin: 0 auto;
