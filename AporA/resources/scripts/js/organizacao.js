@@ -29,14 +29,16 @@ function main() {
     submitButton.addEventListener('click', (event) => {
         event.preventDefault();
         const formData = {}
-        const json = '{"easySubjects":[' + easySubjects[0].value + ',' +
-                     easySubjects[1].value + '], "difficultSubjects":[' +
-                     difficultSubjects[0].value + ',' +
-                     difficultSubjects[1].value + '],"availableHours":' + 
+        const json = '{"easySubjects":[' + '"' + easySubjects[0].value + '",' +
+                     '"' + easySubjects[1].value + '"], "difficultSubjects":[' +
+                     '"' + difficultSubjects[0].value + '",' +
+                     '"' + difficultSubjects[1].value + '"],"availableHours":' + 
                      calendar.toJson() + '}';
         const request = new XMLHttpRequest();
         const csrfToken = Cookies.get('csrftoken');
         console.log(json);
+        console.log('object');
+        console.log(JSON.parse(json));
         request.open('POST', 'organizacao');
         request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/resources/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'resources/')]
+
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)

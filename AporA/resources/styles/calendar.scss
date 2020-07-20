@@ -17,7 +17,7 @@ body {
 .CalendarContainer {
   margin: 0 auto;
   height: 70%;
-  width: 80%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -152,7 +152,7 @@ body {
 }
 
 .SubjectSelection {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -180,10 +180,8 @@ body {
 input {
   margin: 0 auto;
   margin-top: 100px;
-  margin-left: 10%;
-  margin-right: 10%;
   padding: 7px 0;
-  width: 80%;
+  width: 100%;
   color: white;
   background: rgb(70, 75, 69);
   border-radius: 10px;
