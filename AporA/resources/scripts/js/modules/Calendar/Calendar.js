@@ -80,10 +80,11 @@ export class Calendar {
     }
 
     toJson() {
-        let jsonObject = this.activities.reduce((acc, activity) => {
-           return acc + '{"date":' + JSON.stringify(activity.date) +
-                  ',"allocatedTime":' + activity.allocatedTime + '},';
-        }, '[');
-        return jsonObject + ']';
+        return JSON.stringify(this.activities.map((activity) => {
+            return {
+                'date' : activity.date, 
+                'allocatedTime': activity.allocatedTime
+            };
+        }));
     }
 }

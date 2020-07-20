@@ -1,0 +1,8 @@
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/cesar/.wget-hsts'. HSTS will be disabled.
+--2020-07-19 20:29:05--  https://www.youtube.com/redirect?redir_token=QUFFLUhqbEllYUJxSGIzdUxFUWRjQTRzcWZDaHZBTzZvZ3xBQ3Jtc0ttOTExejVMYTB3aHpNQ2RWeF95b2I0c1FORl9LUmI4Q0lYNWswUUZrWG1JRW44cnZyb0dKTXdTSnpoOU84OEpSLWI3bWpWcS1LcEpHU29OSjRWQk4tTy01QVVjNGY3TlVvdklUQnRVWm1sQXVRazNZYw%3D%3D
+Resolving www.youtube.com (www.youtube.com)... 2800:3f0:4001:819::200e, 2800:3f0:4001:81b::200e, 2800:3f0:4001:809::200e, ...
+Connecting to www.youtube.com (www.youtube.com)|2800:3f0:4001:819::200e|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2020-07-19 20:29:05 ERROR 404: Not Found.
+

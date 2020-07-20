@@ -70,6 +70,7 @@
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
-<script src={% static "scripts/js/organizacao.js" %} type="module"></script>{% csrf_token %}
+{% csrf_token %}
+<script src={% static "scripts/js/organizacao.js" %} type="module"></script>
 
 {% endblock %}
