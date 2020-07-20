@@ -30,12 +30,23 @@ body {
       align-content: flex-start;
 }
 
-.container a .materias {
-  width: 310px;
+.container .resumo {
+  text-align: center;
+  font-family: "Roboto Mono Medium";
+  color: #464b45;
+  font-weight: 600;
+}
+
+.container .resumo h3 {
+  margin-top: -10px;
+}
+
+.container .resumo a img {
+  width: 250px;
   padding: 10px 20px;
 }
 
 .container:first-child {
-  margin-top: 50px;
+  margin-top: 100px;
 }
-/*# sourceMappingURL=materias.css.map */
+/*# sourceMappingURL=materia.css.map */

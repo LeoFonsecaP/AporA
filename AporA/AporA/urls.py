@@ -29,4 +29,8 @@ urlpatterns = [
     path('politica_de_privacidade/', include("pdp.urls"), name = "privacidade"),
     path('organizacao/', OrganizationController.as_view()),
     path('materiais/', include("materias.urls"), name = "materiais"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
