@@ -1,0 +1,20 @@
+{% extends './default.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+	<a href="{% url 'matematica' %}"><img src={% static "images/matematica.png" %} class="materias"></a>
+	<a href="{% url 'quimica' %}"><img src={% static "images/quimica.png" %} class="materias"></a>
+	<a href="{% url 'fisica' %}"><img src={% static "images/fisica.png" %} class="materias"></a>
+	<a href="{% url 'biologia' %}"><img src={% static "images/biologia.png" %} class="materias"></a>
+	<a href="{% url 'historia' %}"><img src={% static "images/historia.png" %} class="materias"></a>
+	<a href="{% url 'geografia' %}"><img src={% static "images/geografia.png" %} class="materias"></a>
+	<a href="{% url 'literatura' %}"><img src={% static "images/literatura.png" %} class="materias"></a>
+	<a href="{% url 'gramatica' %}"><img src={% static "images/gramatica.png" %} class="materias"></a>
+	<a href="{% url 'redacao' %}"><img src={% static "images/redacao.png" %} class="materias"></a>
+	<a href="{% url 'sociologia' %}"><img src={% static "images/sociologia.png" %} class="materias"></a>
+	<a href="{% url 'filosofia' %}"><img src={% static "images/filosofia.png" %} class="materias"></a>
+</div>
+
+{% endblock %}
+	
