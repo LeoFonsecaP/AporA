@@ -36,17 +36,15 @@ function main() {
                      calendar.toJson() + '}';
         const request = new XMLHttpRequest();
         const csrfToken = Cookies.get('csrftoken');
-        console.log(json);
-        console.log('object');
         console.log(JSON.parse(json));
-        request.open('POST', 'organizacao');
+        request.open('POST', '');
         request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader("X-CSRFToken", csrfToken);
         request.setRequestHeader('Content-Type', 'application/json');
         request.onload = () => {
             console.log(request.response);
-            //window.location.reload(true);
+            console.log(JSON.parse(request.response));
         };
         request.send(json);
     });

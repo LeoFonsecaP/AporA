@@ -82,7 +82,8 @@ export class Calendar {
     toJson() {
         return JSON.stringify(this.activities.map((activity) => {
             return {
-                'date' : activity.date, 
+                'weekDay' : activity.date.day,
+                'startHour' : activity.date.hour, 
                 'allocatedTime': activity.allocatedTime
             };
         }));

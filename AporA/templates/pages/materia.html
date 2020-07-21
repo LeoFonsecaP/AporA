@@ -1,0 +1,17 @@
+{% extends './default.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+	{% for resumo in resumos %}
+		{% if nome == resumo.materia %}
+		<div class="resumo">
+		<a href="{{ resumo.link }}"><img src={{resumo.thumb.url}}></a>
+		<h3>{{resumo.titulo}}</h3>
+		</div>
+		{% endif %}
+	{% endfor %}
+</div>
+
+{% endblock %}
+	

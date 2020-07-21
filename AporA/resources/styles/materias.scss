@@ -23,9 +23,11 @@ body {
 	justify-content: space-around;
 	align-items: center;
 	align-content: flex-start;
-	.materias{
-		width: 315px;
-		padding: 10px 20px;
+	a{
+		.materias{
+			width: 310px;
+			padding: 10px 20px;
+		}
 	}
 	&:first-child{
 		margin-top: 50px;

@@ -30,8 +30,8 @@ body {
       align-content: flex-start;
 }
 
-.container .materias {
-  width: 315px;
+.container a .materias {
+  width: 310px;
   padding: 10px 20px;
 }
 
