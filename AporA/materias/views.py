@@ -8,6 +8,6 @@ def rendermaterias(request):
 
 def render_materia(request, materia):
     return render(request, 'materia.html', {
-		"resumos": resumo.objects.all(), # Filtrar por materia
+		"resumos": resumo.objects.all(),
 		"nome": materia
 	})
