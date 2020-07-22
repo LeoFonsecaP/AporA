@@ -1,4 +1,4 @@
-import {addHtmlChild, removeHtmlChild} from './Utils.js';
+import {addHtmlChild, removeHtmlChild} from '../Utils.js';
 
 export const DEFAULT_TRANSITION = 'transform 0.4s ease-in-out';
 

@@ -22,16 +22,6 @@ class Subjects(models.TextChoices):
     PHILOSOPHY = 'Phi' 
     SOCIOLOGY = 'Soc' 
 
-class Routine(models.Model):
-    routines_user = models.CharField(max_length=32, primary_key=True) 
-
-    available_time = models.IntegerField(default=0)
-    
-    # Both subject related fields must recieve the subjects as comma separated 
-    # values encoded exactly as defined in the  IntegerChoices subclass Subjects
-    difficult_subjects = models.TextField()
-    easy_subjects = models.TextField()
-
 class StudyTimeBlock(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     week_day = models.TextField(choices=WeekDay.choices)

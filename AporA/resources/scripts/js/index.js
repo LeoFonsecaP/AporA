@@ -1,10 +1,10 @@
-import {DotsMenu} from "./modules/DotsMenu.js";
-import {MovementMenu} from "./modules/MovementMenu.js";
-import {DEFAULT_TRANSITION} from "./modules/Slider.js";
-import {SlideShow} from "./modules/SlideShow.js";
-import {CircularSlider} from "./modules/CircularSlider.js";
-import {SwipeDetector} from "./modules/SwipeDetector.js";
-import {PdfThumbnailsGenerator} from "./modules/PdfThumbnail.js";
+import {DotsMenu} from "./modules/SlideShow/DotsMenu.js";
+import {MovementMenu} from "./modules/SlideShow/MovementMenu.js";
+import {DEFAULT_TRANSITION} from "./modules/SlideShow/Slider.js";
+import {SlideShow} from "./modules/SlideShow/SlideShow.js";
+import {CircularSlider} from "./modules/SlideShow/CircularSlider.js";
+import {SwipeDetector} from "./modules/SlideShow/SwipeDetector.js";
+import {PdfThumbnailsGenerator} from "./modules/SlideShow/PdfThumbnail.js";
 
 function main() {
     const swipeDetector = new SwipeDetector('slideShowDisplayer');

@@ -1,11 +1,11 @@
 import { ActivityDisplay } from './ActivityDisplay.js';
 
 export class ActivityDisplayFactory {
-    constructor(cssClass) {
-        this.cssClass = cssClass;
+    constructor(displaysCssClass) {
+        let cssClass = displaysCssClass;
+
+        this.create = (parent, date) => {
+            return new ActivityDisplay(parent, cssClass, date); 
+        }
     } 
-    
-    create(parent, date) {
-        return new ActivityDisplay(parent, this.cssClass, date); 
-    }
 }

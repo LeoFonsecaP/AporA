@@ -2,8 +2,6 @@ from organization.models import StudyTimeBlock
 import functools
 import math
 
-# 0, 3, 7, 10, 13, 17, 20, 23
-
 STRENGTHS_WEIGHTS = 1
 NEUTRAL_WEIGHTS = 2
 WEAKNESSES_WEIGHTS = 4
@@ -15,8 +13,8 @@ NEUTRALS_CYCLE_INDEXES = [1, 2, 4, 5, 6, 11, 12, 14, 15, 16, 18, 19, 21, 22]
 TOTAL_NUMBER_OF_SUBJECTS = 10
 
 SUBJECTS = [
-    'Portugues', 'Redacao', 'Ingles', 'Matematica', 'Fisica', 'Quimica', 'Geografia', 'Historia',
-    'Biologia', 'Sociologia', 'Filosofia'
+    'Portugues', 'Redacao', 'Ingles', 'Matematica', 'Fisica', 'Quimica',
+    'Geografia', 'Historia', 'Biologia', 'Sociologia', 'Filosofia'
 ]
 
 class StudentAdvisor:
@@ -31,9 +29,9 @@ class StudentAdvisor:
         for weakness in self.advisees_weaknesses:
             self.neutral_subjects.remove(weakness)
 
-        
     def generate_routine(self, week_available_time):
         study_time_blocks = self._generate_study_time_blocks(week_available_time)
+        #sorted(study_time_blocks, key=time_block_to_hours)
         self._select_subject_for_study_time_blocks(study_time_blocks)
         return study_time_blocks
 

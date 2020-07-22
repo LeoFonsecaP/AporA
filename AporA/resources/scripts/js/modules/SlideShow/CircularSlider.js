@@ -1,5 +1,5 @@
 import {Slider, DEFAULT_TRANSITION} from "./Slider.js";
-import {addHtmlChild} from "./Utils.js";
+import {addHtmlChild} from "../Utils.js";
 
 export class CircularSlider {
     constructor(sliderId, transitionEffect) {

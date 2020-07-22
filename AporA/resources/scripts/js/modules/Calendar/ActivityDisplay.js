@@ -1,91 +1,60 @@
-export const RESIZE_BORDER_CSS_CLASS = '_ResizeBorder';
-export const CLOSE_ICON_CSS_CLASS = '_CloseIcon';
+import { WEEK_DAYS, HOURS_IN_A_DAY } from "./WeekRelativeDate.js";
 
 const INITIAL_ALLOCATED_TIME = 1;
 const INITIAL_ACTIVITY_DESCRIPTION = '';
 
 export class ActivityDisplay {
-    constructor(parent, cssClass, initialStartDate) {
-        this.htmlElement = document.createElement('div');
-        this.htmlElement.className = cssClass;
-        this.htmlElement.style.position = 'absolute';
-        this.description = createParagraph();
-        this.htmlElement.appendChild(this.description);
-        this.htmlElement.appendChild(createResizeBorder());
-        this.htmlElement.appendChild(createDeleteIcon());
+    constructor(activitiesParent, activityCssClass) {
+        let html = {};
+        let cssClass = activityCssClass;
+        let parent = activitiesParent;
+        let description = {};
 
-        this.updateStartDate(initialStartDate)
-        this.updateAllocatedTime(INITIAL_ALLOCATED_TIME);
-        this.updateActivityDescription(INITIAL_ACTIVITY_DESCRIPTION);
+        this.render = (initialStartDate, allocatedTime=1, textDescription='') => {
+            html = document.createElement('div');
+            html.className = cssClass;
+            html.style.position = 'absolute';
+            
+            description = document.createElement('p');
+            html.appendChild(description);
+    
+            updateStartDate(initialStartDate);
+            updateAllocatedTime(allocatedTime);
+            updateActivityDescription(textDescription);
+           
+            parent.appendChild(html);
+        }
+    
+        let updateStartDate = (newStartDate) => {
+            let weekDayAsInt = WEEK_DAYS.indexOf(newStartDate.getWeekDay());
+            html.style.left = toPercentage(weekDayAsInt, WEEK_DAYS.length);
+            html.style.top = toPercentage(newStartDate.getHour(), HOURS_IN_A_DAY);
+        }
 
-        parent.appendChild(this.htmlElement);
-    }
+        let updateAllocatedTime = (newAllocatedTime) => {
+            html.style.height = toPercentage(newAllocatedTime, HOURS_IN_A_DAY);
+        }
 
-    updateStartDate(newStartDate) {
-        const topRelativeOffset = ((newStartDate.hour / 24) * 100) + '%';
-        const leftRelativeOffset = ((newStartDate.day / 7) * 100) + '%';
-        this.htmlElement.style.left = leftRelativeOffset;
-        this.htmlElement.style.top = topRelativeOffset;
-    }
+        let updateActivityDescription = (newDescription) => {
+            description.textContent = newDescription;
+        }
+    
+        this.update = (newStartDate, newAllocatedTime, newDescription) => {
+            updateStartDate(newStartDate);
+            updateAllocatedTime(newAllocatedTime);
+            updateActivityDescription(newDescription);
+        }
 
-    updateAllocatedTime(newAllocatedTime) {
-        this.htmlElement.style.height = ((newAllocatedTime / 24) * 100) + '%';
-    }
+        this.destroy = () => {
+            html.parentNode.removeChild(html);
+        }
 
-    updateActivityDescription(newActivityDescription) {
-        this.description.textContent = newActivityDescription;
-    }
-
-    update(newStartDate, newAllocatedTime, newActivityDescription) {
-        this.updateStartDate(newStartDate);
-        this.updateAllocatedTime(newAllocatedTime);
-        this.updateActivityDescription(newActivityDescription);
-    }
-
-    destroy() {
-        this.htmlElement.parentNode.removeChild(this.htmlElement);
+        this.getHtml = () => {
+            return html;
+        }
     }
 }
 
-function createParagraph() {
-    let resizeBorder = document.createElement('p');
-    resizeBorder.fontSize = '10px'
-    resizeBorder.style.marginTop = '17px';
-    resizeBorder.style.width = 'calc(100% - 30px)';
-    resizeBorder.style.height = 'calc(100% - 34px)';
-    resizeBorder.style.marginLeft = '15px';
-    resizeBorder.style.marginRight = '15px';
-    resizeBorder.style.bottom = '0px';
-    resizeBorder.style.wordWrap = 'break-word';
-    return resizeBorder;
-}
-
-function createResizeBorder() {
-    let resizeBorder = document.createElement('div');
-    resizeBorder.classList.add('_ResizeBorder');
-    resizeBorder.style.height = '10px';
-    resizeBorder.style.width = '100%';
-    resizeBorder.style.bottom = '0';
-    resizeBorder.style.cursor = 'ns-resize';
-    resizeBorder.style.position = 'absolute';
-    resizeBorder.style.background = '#057700';
-    return resizeBorder;
-}
-
-function createDeleteIcon() {
-    let resizeBorder = document.createElement('div');
-    resizeBorder.className = '_CloseIcon';
-    resizeBorder.style.height = '20px';
-    resizeBorder.style.width = '20px';
-    resizeBorder.style.lineHeight = '20px';
-    resizeBorder.style.fontSize = '20px';
-    resizeBorder.style.textAlign = 'center';
-    resizeBorder.style.cursor = 'pointer';
-    resizeBorder.style.position = 'absolute';
-    resizeBorder.style.top = '7px';
-    resizeBorder.style.right = '7px';
-    resizeBorder.innerHTML = '&#10005';
-    resizeBorder.style.background = 'transparent';
-    return resizeBorder;
-
+function toPercentage(numberOfOccurrences, sampleSpaceSize) {
+    return ((numberOfOccurrences / sampleSpaceSize) * 100) + '%';
 }

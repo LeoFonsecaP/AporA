@@ -2,9 +2,9 @@ import { Activity } from './Activity.js';
 
 export class ActivityFactory {
     constructor() {
-        this.nextKey = 0;
-    }
-    create(date) {
-        return new Activity(date, this.nextKey++);
+        let nextKey = 0;
+        this.create = (date, allocatedTime=1, description='') => {
+            return new Activity(date, nextKey++, allocatedTime, description);
+        }
     }
 }

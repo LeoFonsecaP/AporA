@@ -1,66 +1,69 @@
+import { HOURS_IN_A_DAY } from "./WeekRelativeDate.js";
+
+const DEFAULT_ALLOCATED_TIME = 1;
+const DEFAULT_DESCRIPTION = '';
+
 export class Activity {
-    constructor(date, key) {
-        this.date = date;
-        this.allocatedTime = 1;
-        this.key = key;
-        this.displays = [];
-        this.description = '';
-    }
+    constructor(activityDate, activityKey, activityAllocatedTime=1, activityDescription='') {
+        let key = activityKey;
+        let date = activityDate;
+        let allocatedTime = activityAllocatedTime;
+        let description = activityDescription;
+        console.log({'date': date, 'allocatedTime': allocatedTime, 'description': description});
+        let displays = [];
 
-    setDate(date) {
-        this.date = date;
-        this.updateDisplays();
-    }
+        this.setDate = (newDate) => {
+            date = newDate;
+            this.updateDisplays();
+        };
 
-    setAllocatedTime(allocatedTime) {
-        this.allocatedTime = allocatedTime;
-        this.updateDisplays();
-    }
+        this.setAllocatedTime = (newAllocatedTime) => {
+            const endHour = date.getHour() + newAllocatedTime;
+            if (endHour < 0 || endHour > HOURS_IN_A_DAY)
+                throw new Error('Invalid allocated time for activity');
+            allocatedTime = newAllocatedTime;
+            this.updateDisplays();
+        };
 
-    setDescription(description) {
-        this.description = description; 
-        this.updateDisplays();
-    }
+        this.setDescription = (newDescription) => {
+            description = newDescription; 
+            this.updateDisplays();
+        };
 
-    getDate() {
-        return this.date;
-    }
+        this.getDate = () => {return date};
 
-    getKey() {
-        return this.key;
-    }
+        this.getKey = () => {return key};
 
-    contains(date) {
-        const timeDistance = date.hour - this.date.hour;
-        return ((date.day === this.date.day) && 
-                ((timeDistance >= 0) && (timeDistance < this.allocatedTime)));
-    }
+        this.getAllocatedTime = () => {return allocatedTime};
 
-    isDisjointTo(activity) {
-        return (!this.contains(activity.getDate()) &&
-               (!activity.contains(this.getDate())));
-    }
+        this.getDescription = () => {return description};
 
-    getAllocatedTime() {
-        return this.allocatedTime;
-    }
+        this.contains = (dateToVerify) => {
+            if (dateToVerify.getWeekDay() !== date.getWeekDay())
+                return false;
+            const timeDistance = dateToVerify.getHour() - date.getHour();
+            return (timeDistance >= 0) && (timeDistance < allocatedTime);
+        };
 
-    getDescription() {
-        return this.description; 
-    }
+        this.isDisjointTo = (activity) => {
+            return !(this.contains(activity.getDate()) ||
+                activity.contains(date));
+        };
 
-    registerDisplay(display) {
-        this.displays.push(display);
-    }
+        this.registerDisplay = (display) => {
+            displays.push(display);
+            display.update(date, allocatedTime, description);
+        };
 
-    unregisterDisplay(display) {
-        let indexOfDipslay = this.displays.indexOf(display);
-        this.displays.splice(indexOfDipslay, 1);
-    }
+        this.unregisterDisplay = (display) => {
+            const indexOfDipslay = displays.indexOf(display);
+            this.displays.splice(indexOfDipslay, 1);
+        };
 
-    updateDisplays() {
-        this.displays.forEach((display) => {
-            display.update(this.date, this.allocatedTime, this.description);
-        });
+        this.updateDisplays = () => {
+            displays.forEach((display) => {
+                display.update(date, allocatedTime, description);
+            });
+        };
     }
 }

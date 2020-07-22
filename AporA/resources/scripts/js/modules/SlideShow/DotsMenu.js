@@ -1,4 +1,4 @@
-import {getIndexOfHtmlChild} from "./Utils.js";
+import {getIndexOfHtmlChild} from "../Utils.js";
 
 export class DotsMenu {
     constructor(containerId, dotsCssClass, selectedDotCssClass) {
