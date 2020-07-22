@@ -15,6 +15,12 @@ class vestibulares(models.Model):
 	ano = models.IntegerField()
 	def __str__(self):
 		return "%s %s" % (self.nome, self.ano)
+	
+	def to_dictionary(self):
+		return{
+			'nome': self.nome,
+			'ano': self.ano
+		}
 		
 	
 
@@ -33,3 +39,8 @@ class questoes(models.Model):
 
 	def __str__(self):
 		return 'Questao %s %s' % (self.numero, self.vestibular)
+
+	def to_dictionary(self):
+		return{
+			'correta': self.correta,
+		}

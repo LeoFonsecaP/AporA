@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import vestibulares, questoes
+import json
 
 # Create your views here.
 
@@ -10,7 +11,14 @@ def renderexercicios(request):
 
 def render_vestibular(request, vest_id):
 	vest = vestibulares.objects.get(pk = vest_id)
+	q = questoes.objects.filter(vestibular__id = vest_id)
+	corretas = map(lambda questao:str(questao.correta), q)
+	json_corretas = '['
+	for correta in corretas:
+		json_corretas += '"%s",' %(correta)
+	json_corretas = json_corretas[0:len(json_corretas) - 1] + ']'
 	return render(request, "prova.html", {
-		"questoes": questoes.objects.all(),
-		"nome": vest
+		"questoes": q,
+		"nome": vest,
+		"certas": json_corretas,
 	})

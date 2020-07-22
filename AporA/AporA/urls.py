@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.urls"), name = "home"),
     path('politica_de_privacidade/', include("pdp.urls"), name = "privacidade"),
-    path('organizacao/', OrganizationController.as_view()),
+    path('organizacao/', include("organization.urls"), name = "organizacao"),
     path('materiais/', include("materias.urls"), name = "materiais"),
     path('exercicios/', include("exercicios.urls"), name = 'exercicios'),
 ]
