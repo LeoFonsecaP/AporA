@@ -1,0 +1,18 @@
+{% extends './default.html' %}
+
+{% block content %}
+{% load static %}
+<div class="list">
+	<ul>
+		{% for vest in vestibulares %}
+		<li>
+			<a href = "{% url 'vestibular' vest.id %}">
+				{{vest.nome}} {{vest.ano}}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}
+	

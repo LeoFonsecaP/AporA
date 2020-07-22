@@ -29,6 +29,7 @@ urlpatterns = [
     path('politica_de_privacidade/', include("pdp.urls"), name = "privacidade"),
     path('organizacao/', OrganizationController.as_view()),
     path('materiais/', include("materias.urls"), name = "materiais"),
+    path('exercicios/', include("exercicios.urls"), name = 'exercicios'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
