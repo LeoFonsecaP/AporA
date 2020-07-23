@@ -26,7 +26,6 @@ body {
   .page_wrapper {
     padding-bottom: 75px;
   }
-
   .content {
     display: hidden;
     position: relative;
@@ -41,21 +40,25 @@ body {
     display: block;
     min-height: calc(100% - 27);
   }
-
   .SlideShowContainer {
     position: relative;
     min-width: 588;
     max-width: 65%;
     height: 75%;
     margin: 0 auto;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 50px 2fr 50px;
-    grid-template-rows: 95% 5%;
+    -ms-grid-columns: 50px 2fr 50px;
+        grid-template-columns: 50px 2fr 50px;
+    -ms-grid-rows: 95% 5%;
+        grid-template-rows: 95% 5%;
   }
   .SlideShowContainer .SlideShowDisplayer {
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 2;
     height: 95%;
     overflow: hidden;
@@ -64,20 +67,28 @@ body {
   .SlideShowContainer .SlideShowDisplayer .Slider {
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .SlideShowContainer .SlideShowDisplayer .Slider img {
     display: block;
     max-width: 100%;
     min-width: 100%;
     height: auto;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .SlideShowContainer .PreviousButton {
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 1;
     background: transparent;
     line-height: 15%;
@@ -85,20 +96,24 @@ body {
     color: #7bf675;
     opacity: 0.8;
     border: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     cursor: pointer;
   }
   .SlideShowContainer .PreviousButton:active, .SlideShowContainer .PreviousButton:hover {
     color: #057700;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .SlideShowContainer .PreviousButton:focus {
     outline: 0;
   }
   .SlideShowContainer .NextButton {
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
     grid-column-end: 3;
     background: transparent;
     line-height: 15%;
@@ -106,21 +121,27 @@ body {
     color: #7bf675;
     opacity: 0.8;
     border: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     cursor: pointer;
   }
   .SlideShowContainer .NextButton:active, .SlideShowContainer .NextButton:hover {
     color: #057700;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .SlideShowContainer .NextButton:focus {
     outline: 0;
   }
   .SlideShowContainer .DotsContainer {
-    grid-row-start: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
     grid-row-end: 2;
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 4;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     width: 100%;
   }
@@ -128,7 +149,9 @@ body {
     margin: 0 auto;
     background: transparent;
     border: none;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .SlideShowContainer .DotsContainer .Dots:focus {
     outline: 0;
@@ -155,7 +178,6 @@ body {
   .SlideShowContainer .SelectedDot:focus {
     outline: 0;
   }
-
   h1 {
     margin-top: 80px;
     font-weight: 700;
@@ -164,39 +186,46 @@ body {
     font-family: "Roboto Mono Medium";
     color: #464b45;
   }
-
   .Sobre_nos {
     color: #464b45;
     overflow-wrap: normal;
     background: #ffffff;
     margin-top: 40px;
     margin-bottom: 40px;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: max-content;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: max-content;
+        grid-template-rows: -webkit-max-content;
+        grid-template-rows: max-content;
     grid-gap: 50px;
     font-family: "Roboto Mono Medium";
   }
   .Sobre_nos .historia_e_obj {
     padding: 5px;
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 2;
   }
   .Sobre_nos .como {
     padding: 5px;
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 2;
   }
 }
+
 @media (max-width: 768px) {
   .page_wrapper {
     padding-bottom: 200px;
   }
-
   h1 {
     font-weight: 700;
     margin-top: 40px;
@@ -204,7 +233,6 @@ body {
     font-family: "Roboto Mono Medium";
     color: #464b45;
   }
-
   .Sobre_nos {
     width: 90%;
     left: 5%;
@@ -224,7 +252,6 @@ body {
   .Sobre_nos .como {
     padding: 5px;
   }
-
   .content {
     margin-top: 100px;
     width: 90%;
@@ -236,20 +263,24 @@ body {
     margin: 0 auto;
     border-bottom: 50px;
   }
-
   .SlideShowContainer {
     position: relative;
     width: 100%;
     height: 70%;
     margin: 0 auto;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 25px 2fr 25px;
-    grid-template-rows: 90% 10%;
+    -ms-grid-columns: 25px 2fr 25px;
+        grid-template-columns: 25px 2fr 25px;
+    -ms-grid-rows: 90% 10%;
+        grid-template-rows: 90% 10%;
   }
   .SlideShowContainer .SlideShowDisplayer {
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 2;
     height: 95%;
     overflow: hidden;
@@ -258,8 +289,13 @@ body {
   .SlideShowContainer .SlideShowDisplayer .Slider {
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .SlideShowContainer .SlideShowDisplayer .Slider img {
     display: block;
@@ -267,12 +303,15 @@ body {
     min-width: 100%;
     height: auto;
     max-width: 100%;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .SlideShowContainer .PreviousButton {
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 1;
     background: transparent;
     line-height: 15%;
@@ -280,20 +319,24 @@ body {
     color: #7bf675;
     opacity: 0.8;
     border: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     cursor: pointer;
   }
   .SlideShowContainer .PreviousButton:active, .SlideShowContainer .PreviousButton:hover {
     color: #057700;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .SlideShowContainer .PreviousButton:focus {
     outline: 0;
   }
   .SlideShowContainer .NextButton {
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
     grid-column-end: 3;
     background: transparent;
     line-height: 15%;
@@ -301,21 +344,27 @@ body {
     color: #7bf675;
     opacity: 0.8;
     border: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     cursor: pointer;
   }
   .SlideShowContainer .NextButton:active, .SlideShowContainer .NextButton:hover {
     color: #057700;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .SlideShowContainer .NextButton:focus {
     outline: 0;
   }
   .SlideShowContainer .DotsContainer {
-    grid-row-start: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
     grid-row-end: 2;
-    grid-column-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 4;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     width: 100%;
   }
@@ -323,7 +372,9 @@ body {
     margin: 0 auto;
     background: transparent;
     border: none;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .SlideShowContainer .DotsContainer .Dots:focus {
     outline: 0;
@@ -351,5 +402,4 @@ body {
     outline: 0;
   }
 }
-
 /*# sourceMappingURL=mainpage_style.css.map */

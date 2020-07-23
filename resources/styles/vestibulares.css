@@ -14,6 +14,10 @@ body {
   background: white;
 }
 
+.list {
+  margin-top: 100px;
+}
+
 .list ul li a {
   font-family: "Roboto Mono Medium";
   color: #464b45;
@@ -21,9 +25,9 @@ body {
   text-align: center;
   padding: 5px;
 }
+
 .list ul li a:hover {
   font-weight: 600;
   color: #057700;
 }
-
 /*# sourceMappingURL=vestibulares.css.map */

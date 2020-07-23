@@ -28,8 +28,13 @@ h4 {
 }
 .calendar_display .calendar_container {
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .calendar_display .calendar_container .day_labels {
   height: 30px;
@@ -42,8 +47,13 @@ h4 {
   background: white;
   z-index: 2;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .calendar_display .calendar_container .day_labels p {
   margin: 0;
@@ -61,19 +71,14 @@ h4 {
 }
 .calendar_display .calendar_container .week_container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin-top: 30px;
-}
-.calendar_display .calendar_container .week_container .Week {
-  position: relative;
-  margin-right: 10px;
-  height: 150vh;
-  width: calc(100% - 60px);
-  padding: 0;
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-  grid-template-rows: 150vh;
 }
 .calendar_display .calendar_container .week_container .hour_labels {
   margin: 0;
@@ -81,8 +86,13 @@ h4 {
   width: 50px;
   height: 150vh;
   font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .calendar_display .calendar_container .week_container .hour_labels div {
   height: calc(4.1666666% - 0px);
@@ -105,12 +115,19 @@ h4 {
 .calendar_display .calendar_container .week_container .day_container {
   background: white;
   border-right: 2px solid #464b45;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .calendar_display .calendar_container .week_container .hour {
   height: calc(4.1666666% - 2.04166666px);
-  flex-grow: 0.6;
+  -webkit-box-flex: 0.6;
+      -ms-flex-positive: 0.6;
+          flex-grow: 0.6;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
   margin: 0;
 }
@@ -125,6 +142,7 @@ h4 {
   font-size: 15px;
   width: calc(14.2857142% - 10px);
   border: 2px solid #057700;
+  cursor: -webkit-grab;
   cursor: grab;
   overflow: hidden;
 }
@@ -150,8 +168,13 @@ h4 {
 
 .subject_selection {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: left;
   margin: 0 auto;
   margin-top: 150px;
@@ -191,9 +214,9 @@ h4 {
   outline: none;
   cursor: pointer;
 }
+
 .button a:hover {
   text-decoration: none;
   color: white;
 }
-
 /*# sourceMappingURL=calendar.css.map */

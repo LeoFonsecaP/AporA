@@ -22,7 +22,8 @@ body {
   z-index: 10;
   background: #7bf675;
   border-bottom: 6px solid #057700;
-  box-shadow: 0 4px 5px #464b45;
+  -webkit-box-shadow: 0 4px 5px #464b45;
+          box-shadow: 0 4px 5px #464b45;
   overflow: visible;
 }
 
@@ -32,9 +33,12 @@ body {
     margin-right: 30px;
     margin-top: calc(22px - 10px + 3px);
     height: 100%;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 75px 550px 1fr 24px 80px;
-    grid-template-rows: 22px;
+    -ms-grid-columns: 75px 550px 1fr 24px 80px;
+        grid-template-columns: 75px 550px 1fr 24px 80px;
+    -ms-grid-rows: 22px;
+        grid-template-rows: 22px;
     font-family: "Roboto Mono Medium";
     text-decoration: none;
     z-index: 10;
@@ -50,9 +54,12 @@ body {
   }
   .navigation .navigation_links {
     margin: 0;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100%;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
   }
   .navigation .navigation_links a {
     font-size: 19px;
@@ -71,11 +78,13 @@ body {
     margin-top: 1px;
     height: 20px;
     height: auto;
-    grid-column-start: 4;
+    -ms-grid-column: 4;
+        grid-column-start: 4;
     grid-column-end: 5;
   }
   .navigation .log_in_button {
-    grid-column-start: 5;
+    -ms-grid-column: 5;
+        grid-column-start: 5;
     grid-column-end: 6;
     margin: 0 auto;
     margin-top: 1px;
@@ -108,14 +117,18 @@ body {
     display: none;
   }
 }
+
 @media (max-width: 768px) {
   .navigation {
     margin-left: 5vw;
     margin-right: 5vw;
     margin-top: calc(22px - 10px + 3px);
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 20px 1fr 22px 40px;
-    grid-template-rows: 22px 0;
+    -ms-grid-columns: 20px 1fr 22px 40px;
+        grid-template-columns: 20px 1fr 22px 40px;
+    -ms-grid-rows: 22px 0;
+        grid-template-rows: 22px 0;
     font-family: "Roboto Mono Medium";
     text-decoration: none;
     z-index: 10;
@@ -125,8 +138,10 @@ body {
   }
   .navigation .ver_mais_cel {
     margin: 0 auto;
-    grid-row-start: 1;
-    grid-column-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
     grid-column-end: 2;
     background: transparent;
     cursor: pointer;
@@ -138,8 +153,10 @@ body {
   }
   .navigation .logo {
     margin-left: calc(50% - 35px + 18px);
-    grid-row-start: 1;
-    grid-column-start: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     grid-column-end: 3;
     z-index: 10;
     width: 75px;
@@ -151,15 +168,19 @@ body {
   }
   .navigation .instagram_icon {
     margin: 0 auto;
-    grid-column-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
     grid-column-end: 4;
-    grid-row-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     width: 20px;
     height: auto;
   }
   .navigation .loginimg {
-    grid-row-start: 1;
-    grid-column-start: 4;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 4;
+        grid-column-start: 4;
     grid-column-end: 5;
     width: 20px;
     height: auto;
@@ -170,7 +191,8 @@ body {
     max-width: 100%;
     min-width: 100%;
     height: auto;
-    object-fit: fill;
+    -o-object-fit: fill;
+       object-fit: fill;
   }
   .navigation .navigation_links {
     position: fixed;
@@ -180,14 +202,18 @@ body {
     height: 280px;
     background-color: #7bf675;
     text-align: center;
+    -webkit-transition: ease-out 0.5s;
     transition: ease-out 0.5s;
     border: 7px solid #057700;
     border-top: none;
     border-left: none;
     border-collapse: collapse;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 70px 70px 70px 70px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 70px 70px 70px 70px;
+        grid-template-rows: 70px 70px 70px 70px;
   }
   .navigation .navigation_links a {
     margin: 0 auto;
@@ -205,5 +231,4 @@ body {
     left: 0;
   }
 }
-
 /*# sourceMappingURL=header_style.css.map */

@@ -1,4 +1,4 @@
-document.getElementsByClassName("submit_prova")[0].addEventListener("click", function(){
+document.getElementsByClassName("button")[0].addEventListener("click", function(){
 	var q = 0;
 	var e = document.getElementsByClassName("alt");
 	var questao = 0;
