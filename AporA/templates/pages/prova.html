@@ -25,9 +25,11 @@
 				<li>
 					<label for = "d">D - {{questao.d}}</label>
 				</li>
-				<li>
-					<label for = "e">E - {{questao.e}}</label>
-				</li>
+				{% if questao.e %}
+					<li>
+						<label for = "e">E - {{questao.e}}</label>
+					</li>
+				{% endif %}
 			</ul>
 			<div class="inferior">
 				<div class="alternativas">
