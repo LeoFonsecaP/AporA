@@ -1,8 +1,8 @@
 import { ActivityDisplay } from './ActivityDisplay.js';
 import { setStyleAttributes } from '../Utils.js';
 
-export const RESIZE_BORDER_CSS_CLASS = '_ResizeBorder';
-export const DELETE_ICON_CSS_CLASS = '_CloseIcon';
+export const RESIZE_BORDER_CSS_CLASS = '_resize_border';
+export const DELETE_ICON_CSS_CLASS = '_delete_icon';
 
 export class EditableActivityDisplay extends ActivityDisplay {
     constructor(activitiesParent, activityCssClass) {

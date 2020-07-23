@@ -1,7 +1,6 @@
 import { Calendar } from './Calendar.js';
 import { CalendarDisplay } from './CalendarDisplay.js';
 import { EditableActivityDisplayFactory } from './EditableActivityDisplayFactory.js';
-import { ActivityDisplayFactory } from './ActivityDisplayFactory.js';
 import { ActivityFactory } from './ActivityFactory.js';
 import { CalendarListener } from './CalendarListener.js';
 

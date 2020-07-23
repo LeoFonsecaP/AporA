@@ -19,7 +19,7 @@ export class CalendarDisplay {
 
         let renderDayLabels = () => {
             let dayLabels = document.createElement('div');
-            dayLabels.className = 'DayLabels';
+            dayLabels.className = 'day_labels';
 
             WEEK_DAYS.forEach(day => {
                 const label = document.createElement('p');
@@ -32,13 +32,13 @@ export class CalendarDisplay {
 
         let renderWeekContainer = () => {
             weekContainer = document.createElement('div');
-            weekContainer.className = 'WeekContainer';
+            weekContainer.className = 'week_container';
             htmlContainer.appendChild(weekContainer);
         }
 
         let renderHtmlHourLabels = () => {
             let hourLabels = document.createElement('div')
-            hourLabels.className = 'HourLabels';
+            hourLabels.className = 'hour_labels';
 
             for (let i = 0; i < HOURS_IN_A_DAY; i++) {
                 const label = document.createElement('div');
@@ -53,14 +53,14 @@ export class CalendarDisplay {
 
         let renderHtmlCalendarGrid = () => {
             htmlGrid = document.createElement('div');
-            htmlGrid.className = 'Week';
+            htmlGrid.className = 'week';
 
             for (let i = 0; i < WEEK_DAYS.length; i++) {
                 const column = document.createElement('div');
-                column.className = "DayContainer";
+                column.className = "day_container";
                 for (let j = 0; j < HOURS_IN_A_DAY; j++) {
                     const row = document.createElement('div');
-                    row.className = "Hour";
+                    row.className = "hour";
                     column.appendChild(row);
                 }
                 htmlGrid.appendChild(column);

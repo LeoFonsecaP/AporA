@@ -20,18 +20,18 @@ h4 {
     margin-bottom: 20px;
 }
 
-.CalendarDisplay {
+.calendar_display {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 70vh;
   width: 100%;
-.CalendarContainer {
+.calendar_container {
   margin: 0 auto;
 
   display: flex;
   flex-direction: column;
 
-  .DayLabels {
+  .day_labels {
     height: 30px;
     width: calc(100% - 30px);
     position: absolute;
@@ -65,7 +65,7 @@ h4 {
     }
   }
 
-  .WeekContainer {
+  .week_container {
     width: 100%;
 
     display: flex;
@@ -85,7 +85,7 @@ h4 {
       grid-template-rows: 150vh;
     }
 
-    .HourLabels {
+    .hour_labels {
       margin: 0;
 
       color: rgb(70, 75, 69);
@@ -114,11 +114,11 @@ h4 {
       }
     }
 
-    .DayContainer:first-child {
+    .day_container:first-child {
         border-left: 2px solid rgb(70, 75, 69);
         border-right: 2px solid rgb(70, 75, 69);
     }
-    .DayContainer {
+    .day_container {
       background: white;
       border-right: 2px solid rgb(70, 75, 69);
 
@@ -126,21 +126,21 @@ h4 {
       flex-direction: column;
     }
 
-    .Hour {
+    .hour {
       height: calc(4.1666666% - 2.04166666px);
       flex-grow: 0.6;
       border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
       margin: 0;
     }
 
-    .Hour:first-child {
+    .hour:first-child {
       border-top: 2px dashed rgba(70, 75, 69, 0.5);
     }
   }
 }
 
 }
-.SelectedActivity {
+.selected_activity {
   position: relative;
   border-radius: 5px;
   background: #7bf675;
@@ -170,7 +170,7 @@ h4 {
   }
 }
 
-.SubjectSelection {
+.subject_selection {
   width: 100%;
   display: flex;
   flex-direction: column;

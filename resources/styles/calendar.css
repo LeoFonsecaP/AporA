@@ -20,18 +20,18 @@ h4 {
   margin-bottom: 20px;
 }
 
-.CalendarDisplay {
+.calendar_display {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 70vh;
   width: 100%;
 }
-.CalendarDisplay .CalendarContainer {
+.calendar_display .calendar_container {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
-.CalendarDisplay .CalendarContainer .DayLabels {
+.calendar_display .calendar_container .day_labels {
   height: 30px;
   width: calc(100% - 30px);
   position: absolute;
@@ -45,7 +45,7 @@ h4 {
   display: flex;
   flex-direction: row;
 }
-.CalendarDisplay .CalendarContainer .DayLabels p {
+.calendar_display .calendar_container .day_labels p {
   margin: 0;
   color: #464b45;
   border-right: 2px solid #464b45;
@@ -54,18 +54,18 @@ h4 {
   line-height: 100%;
   text-align: center;
 }
-.CalendarDisplay .CalendarContainer .DayLabels p:first-child {
+.calendar_display .calendar_container .day_labels p:first-child {
   margin-left: 45px;
   width: calc(14.2857142% - 3px);
   border-left: 2px solid #464b45;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer {
+.calendar_display .calendar_container .week_container {
   width: 100%;
   display: flex;
   flex-direction: row;
   margin-top: 30px;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .Week {
+.calendar_display .calendar_container .week_container .Week {
   position: relative;
   margin-right: 10px;
   height: 150vh;
@@ -75,7 +75,7 @@ h4 {
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 150vh;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels {
+.calendar_display .calendar_container .week_container .hour_labels {
   margin: 0;
   color: #464b45;
   width: 50px;
@@ -84,41 +84,41 @@ h4 {
   display: flex;
   flex-direction: column;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels div {
+.calendar_display .calendar_container .week_container .hour_labels div {
   height: calc(4.1666666% - 0px);
   margin: 0px;
   width: 100%;
   text-align: center;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels div p {
+.calendar_display .calendar_container .week_container .hour_labels div p {
   line-height: 100%;
   color: #464b45;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels div p:first-child {
+.calendar_display .calendar_container .week_container .hour_labels div p:first-child {
   margin-top: 2px;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .DayContainer:first-child {
+.calendar_display .calendar_container .week_container .day_container:first-child {
   border-left: 2px solid #464b45;
   border-right: 2px solid #464b45;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .DayContainer {
+.calendar_display .calendar_container .week_container .day_container {
   background: white;
   border-right: 2px solid #464b45;
   display: flex;
   flex-direction: column;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .Hour {
+.calendar_display .calendar_container .week_container .hour {
   height: calc(4.1666666% - 2.04166666px);
   flex-grow: 0.6;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
   margin: 0;
 }
-.CalendarDisplay .CalendarContainer .WeekContainer .Hour:first-child {
+.calendar_display .calendar_container .week_container .hour:first-child {
   border-top: 2px dashed rgba(70, 75, 69, 0.5);
 }
 
-.SelectedActivity {
+.selected_activity {
   position: relative;
   border-radius: 5px;
   background: #7bf675;
@@ -128,16 +128,16 @@ h4 {
   cursor: grab;
   overflow: hidden;
 }
-.SelectedActivity:active {
+.selected_activity:active {
   cursor: grabbing;
   opacity: 0.7;
 }
-.SelectedActivity:focus {
+.selected_activity:focus {
   opacity: 1;
   border: 1px solid green;
   cursor: ns-resize;
 }
-.SelectedActivity p {
+.selected_activity p {
   font-size: 15px;
   margin-top: 17px;
   width: calc(100% - 30px);
@@ -148,7 +148,7 @@ h4 {
   word-wrap: break-word;
 }
 
-.SubjectSelection {
+.subject_selection {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -157,11 +157,11 @@ h4 {
   margin-top: 150px;
   font-size: 20px;
 }
-.SubjectSelection label {
+.subject_selection label {
   margin-top: 15px;
   margin-bottom: 3px;
 }
-.SubjectSelection select {
+.subject_selection select {
   padding: 7px calc(50% - 120px);
   width: 100%;
   background: #464b45;
@@ -171,7 +171,7 @@ h4 {
   outline: none;
   cursor: pointer;
 }
-.SubjectSelection p {
+.subject_selection p {
   margin-bottom: 2px;
 }
 

@@ -18,7 +18,7 @@ function main() {
     listenForRepeatedSubjects(subjectsColletion);
 
     const calendar = new UserEditableCalendar(
-        calendarContainer, 'SelectedActivity'
+        calendarContainer, 'selected_activity'
     );
     calendar.run();
 
@@ -92,14 +92,14 @@ function clearErrorMessage() {
 
 function renderCalendarFromResponse(routine) {
     const calendarDisplay = document.createElement('div');
-    calendarDisplay.className = 'CalendarDisplay';
+    calendarDisplay.className = 'calendar_display';
     const calendarContainer = document.createElement('div');
-    calendarContainer.className = 'CalendarContainer';
+    calendarContainer.className = 'calendar_container';
     contentContainer.appendChild(calendarDisplay);
     calendarDisplay.appendChild(calendarContainer);
 
     const calendar = new DisplayOnlyCalendar(
-        calendarContainer, 'SelectedActivity'
+        calendarContainer, 'selected_activity'
     );
     calendar.run();
 
@@ -110,7 +110,7 @@ function renderCalendarFromResponse(routine) {
 }
 
 function setupRoutineDownload() {
-    const container = document.getElementsByClassName('CalendarContainer')[0];
+    const container = document.getElementsByClassName('calendar_container')[0];
 
     const linkWrapper = document.createElement('div');
     linkWrapper.className = 'button';
