@@ -1,0 +1,75 @@
+{% extends './default.html' %}
+
+{% block content %}
+{% load static %}
+<div class="questoes">
+	<h2>Prova {{nome.nome}} {{nome.ano}}</h2>
+	{% for questao in questoes %}
+		<h4>
+		{{questao.numero}}) {{questao.enunciado}}
+		</h4>
+		{% if questao.imagem %}
+			<img src= {{questao.imagem.url}} class="imagem">
+		{% endif %}
+		<form id = {{questao.id}} data-question = "{{question.id}}">
+			<ul class="opcoes">
+				<li>
+					<label for = "a">A - {{questao.a}}</label>
+				</li>
+				<li>
+					<label for = "b">B - {{questao.b}}</label>
+				</li>
+					<li>
+					<label for = "c">C - {{questao.c}}</label>
+				</li>
+				<li>
+					<label for = "d">D - {{questao.d}}</label>
+				</li>
+				{% if questao.e %}
+					<li>
+						<label for = "e">E - {{questao.e}}</label>
+					</li>
+				{% endif %}
+			</ul>
+			<div class="inferior">
+				<div class="alternativas">
+					<div class="alternativa">
+						<input type = "radio" class = "alt" name = {{questao.id}} value = "a">
+						A
+					</div>
+					<div class="alternativa">
+						<input type = "radio" class = "alt" name = {{questao.id}} value = "b">
+						B
+					</div>
+					<div class="alternativa">
+						<input type = "radio" class = "alt" name = {{questao.id}} value = "c">
+						C
+					</div>
+					<div class="alternativa">
+						<input type = "radio" class = "alt" name = {{questao.id}} value = "d">
+						D
+					</div>
+					<div class="alternativa">
+						{% if questao.e %}
+							<input type = "radio" class = "alt" name = {{questao.id}} value = "e">
+							E
+						{% endif %}
+					</div>				
+				</div>
+				<div class="respostas">
+					<p>Resposta correta: {{questao.correta}}</p>
+					<div class="usu"></div>
+				</div>
+			</div>
+	{% endfor %}
+				<input type="button" value="Submit" class="button">
+			</form>
+			<div class="correcao"></div>
+			<script>
+				var corretas = "{{certas}}"
+			</script>
+			<script src={% static 'scripts/prova.js' %}></script>
+</div>
+
+{% endblock %}
+	

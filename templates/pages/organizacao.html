@@ -1,0 +1,66 @@
+{% extends './default.html' %}
+
+{% block content %}
+    <h4>
+        Selecione os blocos de tempo livres na sua semana
+        para estudar:
+    </h4>
+    <div class="CalendarDisplay">
+        <div class="CalendarContainer" id="calendarContainer"></div>
+    </div>
+    <div class="SubjectSelection">
+        <h4>
+            Selecione as duas materias nas quais voce mais possui
+            dificuldades:
+        </h4>
+        <label>Materia 1:</label>
+        <select class="dificult_subject">
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
+        </select>
+        <label>Materia 2:</label>
+        <select class="dificult_subject">
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="SubjectSelection">
+        <h4>
+            Selecione as duas materias nas quais voce menos possui
+            dificuldades:
+        </h4>
+        <label>Materia 1:</label>
+        <select class="easy_subject">
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
+        </select>
+        <label>Materia 2:</label>
+        <select class="easy_subject">
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button class="button" id="submitButton"/>Gerar rotina</button>
+    <p id="errorLogging" style="color: red; margin-top: 20px"></p>
+
+{% load static %}
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.mjs"
+></script>
+<script src={% static "scripts/js/modules/html2canvas.js" %}></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+{% csrf_token %}
+<script src={% static "scripts/js/organizacao.js" %} type="module"></script>
+
+{% endblock %}
