@@ -56,9 +56,14 @@ body {
 
 .questoes .inferior .respostas {
   margin-right: -1500px;
-  margin-top: -60px;
   text-align: right;
   color: #057700;
+}
+
+@media (min-width: 600px) {
+  .questoes .inferior .respostas {
+    margin-top: -60px;
+  }
 }
 
 .questoes .inferior .usu {
