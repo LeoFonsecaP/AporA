@@ -26,6 +26,7 @@ h4 {
   height: 70vh;
   width: 100%;
 }
+
 .calendar_display .calendar_container {
   margin: 0 auto;
   display: -webkit-box;
@@ -36,6 +37,7 @@ h4 {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
 .calendar_display .calendar_container .day_labels {
   height: 30px;
   width: calc(100% - 30px);
@@ -55,6 +57,7 @@ h4 {
       -ms-flex-direction: row;
           flex-direction: row;
 }
+
 .calendar_display .calendar_container .day_labels p {
   margin: 0;
   color: #464b45;
@@ -64,11 +67,13 @@ h4 {
   line-height: 100%;
   text-align: center;
 }
+
 .calendar_display .calendar_container .day_labels p:first-child {
   margin-left: 45px;
   width: calc(14.2857142% - 3px);
   border-left: 2px solid #464b45;
 }
+
 .calendar_display .calendar_container .week_container {
   width: 100%;
   display: -webkit-box;
@@ -80,6 +85,21 @@ h4 {
           flex-direction: row;
   margin-top: 30px;
 }
+
+.calendar_display .calendar_container .week_container .Week {
+  position: relative;
+  margin-right: 10px;
+  height: 150vh;
+  width: calc(100% - 60px);
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+      grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  -ms-grid-rows: 150vh;
+      grid-template-rows: 150vh;
+}
+
 .calendar_display .calendar_container .week_container .hour_labels {
   margin: 0;
   color: #464b45;
@@ -94,6 +114,7 @@ h4 {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
 .calendar_display .calendar_container .week_container .hour_labels div {
   height: calc(4.1666666% - 0px);
   margin: 0px;
@@ -101,17 +122,21 @@ h4 {
   text-align: center;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
 }
+
 .calendar_display .calendar_container .week_container .hour_labels div p {
   line-height: 100%;
   color: #464b45;
 }
+
 .calendar_display .calendar_container .week_container .hour_labels div p:first-child {
   margin-top: 2px;
 }
+
 .calendar_display .calendar_container .week_container .day_container:first-child {
   border-left: 2px solid #464b45;
   border-right: 2px solid #464b45;
 }
+
 .calendar_display .calendar_container .week_container .day_container {
   background: white;
   border-right: 2px solid #464b45;
@@ -123,6 +148,7 @@ h4 {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
 .calendar_display .calendar_container .week_container .hour {
   height: calc(4.1666666% - 2.04166666px);
   -webkit-box-flex: 0.6;
@@ -131,6 +157,7 @@ h4 {
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
   margin: 0;
 }
+
 .calendar_display .calendar_container .week_container .hour:first-child {
   border-top: 2px dashed rgba(70, 75, 69, 0.5);
 }
@@ -146,15 +173,19 @@ h4 {
   cursor: grab;
   overflow: hidden;
 }
+
 .selected_activity:active {
+  cursor: -webkit-grabbing;
   cursor: grabbing;
   opacity: 0.7;
 }
+
 .selected_activity:focus {
   opacity: 1;
   border: 1px solid green;
   cursor: ns-resize;
 }
+
 .selected_activity p {
   font-size: 15px;
   margin-top: 17px;
@@ -180,10 +211,12 @@ h4 {
   margin-top: 150px;
   font-size: 20px;
 }
+
 .subject_selection label {
   margin-top: 15px;
   margin-bottom: 3px;
 }
+
 .subject_selection select {
   padding: 7px calc(50% - 120px);
   width: 100%;
@@ -194,6 +227,7 @@ h4 {
   outline: none;
   cursor: pointer;
 }
+
 .subject_selection p {
   margin-bottom: 2px;
 }

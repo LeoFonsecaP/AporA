@@ -2,9 +2,9 @@
 
 {% block content %}
 {% load static %}
-<div class="SlideShowContainer">
-    <div class="SlideShowDisplayer" id="slideShowDisplayer">
-        <div id="slider" class="Slider">
+<div class="slide_show_container">
+    <div class="slide_show_displayer" id="slideShowDisplayer">
+        <div id="slider" class="slider">
             <img src={% static "images/whiteBackground.png" %}
                 data-src={% static "images\Como estudar Física.pdf" %}
                 alt="" class="Pdf" />
@@ -16,9 +16,9 @@
                 alt="" class="Pdf" />
         </div>
     </div>
-    <button id="previousButton" class="PreviousButton"><</button>
-        <button id="nextButton" class="NextButton">></button>
-        <div id="dotsContainer" class="DotsContainer">
+    <button id="previousButton" class="previous_button"><</button>
+        <button id="nextButton" class="next_button">></button>
+        <div id="dotsContainer" class="dots_container">
             <div id="dots" class="Dots"></div>
         </div>
     </div>

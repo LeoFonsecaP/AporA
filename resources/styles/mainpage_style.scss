@@ -46,7 +46,7 @@ body {
 	min-height: calc(100% - 27);
 }
 
-.SlideShowContainer {
+.slide_show_container {
 	position: relative;
 	min-width: 588;
 	max-width: 65%;
@@ -55,7 +55,7 @@ body {
 	display: grid;
 	grid-template-columns: 50px 2fr 50px;
 	grid-template-rows: 95% 5%;
-	.SlideShowDisplayer {
+	.slide_show_displayer {
 		grid-row-start: 1;
 		grid-row-end: 1;
 		grid-column-start: 2;
@@ -63,7 +63,7 @@ body {
 		height: 95%;
 		overflow: hidden;
 		margin: auto;
-		.Slider {
+		.slider {
 			width: 100%;
 			height: 100%;
 			display: flex;
@@ -77,7 +77,7 @@ body {
 			}
 		}
 	}
-	.PreviousButton {
+	.previous_button {
 		grid-row-start: 1;
 		grid-row-end: 1;
 		grid-column-start: 1;
@@ -99,7 +99,7 @@ body {
 			outline: 0;
 		}
 	}
-	.NextButton {
+	.next_button {
 		grid-row-start: 1;
 		grid-row-end: 1;
 		grid-column-start: 3;
@@ -121,7 +121,7 @@ body {
 			outline: 0;
 		}
 	}
-	.DotsContainer {
+	.dots_container {
 		grid-row-start: 2;
 		grid-row-end: 2;
 		grid-column-start: 1;
@@ -138,7 +138,7 @@ body {
 			}
 		}
 	}
-	.Dot {
+	.dot {
 		border: 1px solid $A_por_A_cinza;
 		background: whitesmoke;
 		border-radius: 100%;
@@ -149,7 +149,7 @@ body {
 			outline: 0;
 		}
 	}
-	.SelectedDot {
+	.selected_dot {
 		border: 1px solid $A_por_A_cinza;
 		background: $A_por_A_verde_claro;
 		border-radius: 100%;
@@ -170,7 +170,7 @@ body {
 		color: $A_por_A_cinza;
 	}
 
-	.Sobre_nos {
+	.sobre_nos {
 		color: $A_por_A_cinza;
 		overflow-wrap: normal;
 		background: #ffffff;
@@ -212,7 +212,7 @@ body {
 		color: $A_por_A_cinza;
 	}
 
-	.Sobre_nos {
+	.sobre_nos {
 		width: 90%;
 		left: 5%;
 		right: 5%;
@@ -244,7 +244,7 @@ body {
 		border-bottom: 50px;
 	}
 
-	.SlideShowContainer {
+	.slide_show_container {
 		position: relative;
 		width: 100%;
 		height: 70%;
@@ -252,7 +252,7 @@ body {
 		display: grid;
 		grid-template-columns: 25px 2fr 25px;
 		grid-template-rows: 90% 10%;
-		.SlideShowDisplayer {
+		.slide_show_displayer {
 			grid-row-start: 1;
 			grid-row-end: 1;
 			grid-column-start: 2;
@@ -260,7 +260,7 @@ body {
 			height: 95%;
 			overflow: hidden;
 			margin: auto;
-			.Slider {
+			.slider {
 				width: 100%;
 				height: 100%;
 				display: flex;
@@ -275,7 +275,7 @@ body {
 				}
 			}
 		}
-		.PreviousButton {
+		.previous_button {
 			grid-row-start: 1;
 			grid-row-end: 1;
 			grid-column-start: 1;
@@ -297,7 +297,7 @@ body {
 				outline: 0;
 			}
 		}
-		.NextButton {
+		.next_button {
 			grid-row-start: 1;
 			grid-row-end: 1;
 			grid-column-start: 3;
@@ -319,7 +319,7 @@ body {
 				outline: 0;
 			}
 		}
-		.DotsContainer {
+		.dots_container {
 			grid-row-start: 2;
 			grid-row-end: 2;
 			grid-column-start: 1;
@@ -336,7 +336,7 @@ body {
 				}
 			}
 		}
-		.Dot {
+		.dot {
 			border: 1px solid $A_por_A_cinza;
 			background: whitesmoke;
 			border-radius: 100%;
@@ -347,7 +347,7 @@ body {
 				outline: 0;
 			}
 		}
-		.SelectedDot {
+		.selected_dot {
 			border: 1px solid $A_por_A_cinza;
 			background: $A_por_A_verde_claro;
 			border-radius: 100%;
