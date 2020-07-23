@@ -1,29 +1,113 @@
-import { Calendar } from './modules/Calendar/Calendar.js';
-import { CalendarDisplay } from './modules/Calendar/CalendarDisplay.js';
-import { EditableActivityDisplayFactory } from './modules/Calendar/EditableActivityDisplayFactory.js';
-import { ActivityDisplayFactory } from './modules/Calendar/ActivityDisplayFactory.js';
-import { ActivityFactory } from './modules/Calendar/ActivityFactory.js';
-import { CalendarMouseActionsMenu } from './modules/Calendar/CalendarMouseMenu.js';
-import { WeekRelativeDate } from './modules/Calendar/WeekRelativeDate.js';
+import { UserEditableCalendar } from './modules/calendar/UserEditableCalendar.js';
+import { DisplayOnlyCalendar } from './modules/calendar/DisplayOnlyCalendar.js';
+import { WeekRelativeDate } from './modules/calendar/WeekRelativeDate.js';
+    
+const contentContainer = document.getElementsByClassName('content')[0];
 
-function renderCalendarFromJsonObject(container, jsonStudyBlocks) {
-    console.log(jsonStudyBlocks);
-    const studyBlocks = JSON.parse(jsonStudyBlocks);
-    const activityDisplayFactory = new ActivityDisplayFactory('SelectedActivity');
-    const calendarDisplay = new CalendarDisplay(container, activityDisplayFactory);
-    calendarDisplay.render();
+const EMPTY_SUBJECT = 'Selecione uma materia';
+const REPEATED_SUBJECTS = 'Nao e permitido escolher a mesma materia duas vezes'
 
-    console.log('rendering calendar');
+function main() {
+    const calendarContainer = document.getElementById('calendarContainer');
+    const easySubjects = document.getElementsByClassName('easy_subject');
+    const difficultSubjects = document.getElementsByClassName('dificult_subject');
+    const subjectsColletion = [
+        easySubjects[0], easySubjects[1],
+        difficultSubjects[0], difficultSubjects[1]
+    ];
+    for (let i = 0; i < subjectsColletion.length; i++) {
+        const otherSubjects = subjectsColletion.filter((subject) => {
+            return subjectsColletion[i] !== subject;
+        });
+        listenForRepeatedSubjects(subjectsColletion[i], otherSubjects);
+    }
 
-    const activityFactory = new ActivityFactory();
-    const calendar = new Calendar(activityFactory);
+    const calendar = new UserEditableCalendar(
+        calendarContainer, 'SelectedActivity'
+    );
+    calendar.run();
 
-    calendar.registerDisplay(calendarDisplay);
-
-    studyBlocks.forEach((studyBlock) => {
-        const date = new WeekRelativeDate(studyBlock.weekDay, studyBlock.startHour);
-        calendar.addActivity(date, studyBlock.allocatedTime, studyBlock.subject);
+    const submitButton = document.getElementById('submitButton');
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (!subjectChoicesAreValid(subjectsColletion))
+            renderErrorMessage('Todos os campos devem ser selecionados');
+        else 
+            clearErrorMessage();
+        if (document.getElementById('errorLogging').innerHTML !== '')
+            return;
+        const requestData = buildRequestData(
+            easySubjects, difficultSubjects, calendar
+        );
+        sendRequest(requestData);
     });
+}
+
+function listenForRepeatedSubjects(listenedSubject, otherSubjects) {
+    let errorFlag = false;
+    listenedSubject.addEventListener('change', (event) => {
+        for (let i = 0; i < otherSubjects.length; i++) {
+            if (listenedSubject.value === otherSubjects[i].value) {
+                renderErrorMessage(REPEATED_SUBJECTS);
+                errorFlag = true;
+                return;
+            }
+        }
+        errorFlag = false;
+        clearErrorMessage(); 
+    })
+}
+
+function subjectChoicesAreValid(subjects) {
+    for (let i = 0; i < subjects.length; i++) {
+        if (subjects[i].value === EMPTY_SUBJECT)
+            return false;
+    }
+    return true;
+}
+
+function renderResponse(response) {
+    const parsed_response = JSON.parse(response);
+    if (parsed_response.error !== '') {
+        renderErrorMessage(parsed_response.error);
+        return;
+    }
+    contentContainer.innerHTML = '';
+    renderCalendarFromResponse(parsed_response.routine);
+}
+
+function renderErrorMessage(errorMessage) {
+    const htmlErrorElement = document.getElementById('errorLogging');
+    htmlErrorElement.innerHTML = errorMessage;
+}
+
+function clearErrorMessage() {
+    const htmlErrorElement = document.getElementById('errorLogging');
+    htmlErrorElement.innerHTML = '';
+}
+
+function renderCalendarFromResponse(routine) {
+    const calendarContainer = document.createElement('div');
+    calendarContainer.className = 'CalendarContainer';
+    contentContainer.appendChild(calendarContainer);
+
+    const calendar = new DisplayOnlyCalendar(
+        calendarContainer, 'SelectedActivity'
+    );
+    calendar.run();
+
+    routine.forEach((studyBlock) => {
+        const date = new WeekRelativeDate(studyBlock.weekDay, studyBlock.hour);
+        calendar.addActivity(date, 1, studyBlock.subject);
+    });
+}
+
+function sendRequest(requestData) {
+    const request = new XMLHttpRequest();
+    request.open('POST', '');
+    setDjangoEnforcedRequestHeaders(request);
+    request.onload = () => renderResponse(request.response);
+    request.send(requestData);
 }
 
 function setDjangoEnforcedRequestHeaders(request) {
@@ -39,47 +123,6 @@ function buildRequestData(easySubjects, difficultSubjects, calendar) {
         '","' + easySubjects[1].value + '"], "difficultSubjects":["' +
         difficultSubjects[0].value + '","' + difficultSubjects[1].value +
         '"],"availableHours":' + calendar.toJson() + '}';
-}
-
-function main() {
-    const container = document.getElementById('calendarContainer');
-
-    const activityDisplayFactory = new EditableActivityDisplayFactory('SelectedActivity');
-    const calendarDisplay = new CalendarDisplay(container, activityDisplayFactory);
-    calendarDisplay.render();
-
-    const activityFactory = new ActivityFactory();
-    const calendar = new Calendar(activityFactory);
-
-    calendar.registerDisplay(calendarDisplay);
-
-    const calendarMenu = new CalendarMouseActionsMenu(calendarDisplay.getCalendarGrid(), calendar);
-    calendarMenu.startListening();
-
-    const easySubjects = document.getElementsByClassName('easy_subject');
-    const difficultSubjects = document.getElementsByClassName('dificult_subject');
-
-    const submitButton = document.getElementById('submitButton');
-
-    submitButton.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        const request = new XMLHttpRequest();
-        request.open('POST', '');
-        setDjangoEnforcedRequestHeaders(request);
-        request.onload = () => {
-            const content = document.getElementsByClassName('content')[0];
-            content.innerHTML = '';
-            const newCalendarContainer = document.createElement('div');
-            newCalendarContainer.className = 'CalendarContainer';
-            content.appendChild(newCalendarContainer);
-            renderCalendarFromJsonObject(newCalendarContainer, request.response);
-        };
-        const requestData = buildRequestData(
-            easySubjects, difficultSubjects, calendar
-        );
-        request.send(requestData);
-    });
 }
 
 window.onload = main;

@@ -1,15 +1,17 @@
-import { HOURS_IN_A_DAY, WeekRelativeDate } from "./WeekRelativeDate.js";
+import { HOURS_IN_A_DAY } from "./WeekRelativeDate.js";
+import { WeekRelativeDate } from "./WeekRelativeDate.js";
 
 export const ACTIVITY_NOT_FOUND = {};
 
 export class Calendar {
-    constructor(calendarsActivityFactory) {
-        let activityFactory = calendarsActivityFactory;
+    constructor(activityFactory) {
         let activities = [];
         let displays = [];
 
         this.addActivity = (date, allocatedTime=1, description='') => {
-            const newActivity = activityFactory.create(date, allocatedTime, description);
+            const newActivity = activityFactory.create(
+                date, allocatedTime, description
+            );
             activities.push(newActivity);
             displays.forEach(display => display.updateOnAdd(newActivity));
         };
@@ -33,64 +35,69 @@ export class Calendar {
             return ACTIVITY_NOT_FOUND;
         };
 
+        this.hasTimeAvailableAt = (date) => {
+            return (this.getActivityContaining(date) === ACTIVITY_NOT_FOUND);
+        }
+
         this.resizeActivityContaining = (targetedDate, newEndDate) => {
             const activity = this.getActivityContaining(targetedDate);
+            if (activity === ACTIVITY_NOT_FOUND)
+                return;
             const activityDate = activity.getDate();
+
+            if (activityDate.getDay() !== newEndDate.getDay())
+                return;
+
             const newAllocatedTime = newEndDate.getHour() - 
                 activityDate.getHour() + 1; 
-
-            const newActivityVersion = activityFactory.create(activityDate);
-            try {
-                newActivityVersion.setAllocatedTime(newAllocatedTime);
-            } catch(exception) {
-                throw exception;
-            }
+            const canResize = hasTimeAvailableFor(
+                activityDate, newAllocatedTime, activity
+            );
             
-            if (!hasTimeAvailableFor(newActivityVersion, activity))
-                throw new Error('Invalid end hour for activity');
-
+            if (!canResize)
+                return;
             try {
                 activity.setAllocatedTime(newAllocatedTime);
             } catch(exception) {
-                throw exception;
+                return;
             }
         }
 
         
         this.moveActivityContaining = (targetedDate, displacement) => {
             const activity = this.getActivityContaining(targetedDate);
+            if (activity === ACTIVITY_NOT_FOUND)
+                return;
             const activityDate = activity.getDate();
-            const newDateHour = activityDate.getHour() + displacement; 
-            const activityWeekDay = activityDate.getWeekDay();
+            const activityDay = activityDate.getDay();
+
+            const newDateHour = activityDate.getHour() + displacement;
             let newDate = null;
-            try {
-                newDate = new WeekRelativeDate(activityWeekDay, newDateHour);
-            } catch(exception) {
-                throw exception;
+            try{
+                newDate = new WeekRelativeDate(activityDay, newDateHour);
+            } catch (exception) {
+                return;
             }
 
-            const newActivityVersion = activityFactory.create(newDate);
+            const canMove = hasTimeAvailableFor(
+                newDate, activity.getAllocatedTime(), activity
+            );
 
+            if (canMove)
+                activity.setDate(newDate);
+        }
+
+        let hasTimeAvailableFor = (date, allocatedTime, activityToIgnore) => {
+            const buffer = activityFactory.create(date);
             try {
-                newActivityVersion.setAllocatedTime(activity.getAllocatedTime());
+                buffer.setAllocatedTime(allocatedTime);
             } catch(exception) {
-                throw exception;
+                return false;
             }
 
-            if (!hasTimeAvailableFor(newActivityVersion, activity))
-                throw new Error('Invalid end hour for activity');
-
-            activity.setDate(newDate);
-        }
-
-        this.hasTimeAvailableAt = (date) => {
-            return (this.getActivityContaining(date) === ACTIVITY_NOT_FOUND);
-        }
-
-        let hasTimeAvailableFor = (activityBuffer, activityToIgnore = {}) => {
             for (let i = 0; i < activities.length; i++) {
                 let shouldIgnore = (activities[i] === activityToIgnore)
-                if (!shouldIgnore && !activityBuffer.isDisjointTo(activities[i]))
+                if (!shouldIgnore && !buffer.isDisjointTo(activities[i]))
                     return false;
             }
             return true;
@@ -114,7 +121,7 @@ export class Calendar {
         this.toJson = () => {
             return JSON.stringify(activities.map((activity) => {
                 return {
-                    'weekDay' : activity.getDate().getWeekDay(),
+                    'weekDay' : activity.getDate().getDay(),
                     'startHour' : activity.getDate().getHour(),
                     'allocatedTime': activity.getAllocatedTime()
                 };

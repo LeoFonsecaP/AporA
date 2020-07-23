@@ -1,7 +1,6 @@
 {% extends './default.html' %}
 
 {% block content %}
-<form>
     <h4>
         Selecione os blocos de tempo livres na sua semana
         para estudar:
@@ -14,23 +13,17 @@
         </h4>
         <label>Materia 1:</label>
         <select class="dificult_subject">
-            <option>Matematica</option>
-            <option>Fisica</option>
-            <option>Quimica</option>
-            <option>Portugues</option>
-            <option>Historia</option>
-            <option>Geografia</option>
-            <option>Biologia</option>
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
         </select>
         <label>Materia 2:</label>
         <select class="dificult_subject">
-            <option>Matematica</option>
-            <option>Fisica</option>
-            <option>Quimica</option>
-            <option>Portugues</option>
-            <option>Historia</option>
-            <option>Geografia</option>
-            <option>Biologia</option>
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
         </select>
     </div>
     <div class="SubjectSelection">
@@ -40,28 +33,22 @@
         </h4>
         <label>Materia 1:</label>
         <select class="easy_subject">
-            <option>Matematica</option>
-            <option>Fisica</option>
-            <option>Quimica</option>
-            <option>Portugues</option>
-            <option>Historia</option>
-            <option>Geografia</option>
-            <option>Biologia</option>
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
         </select>
         <label>Materia 2:</label>
         <select class="easy_subject">
-            <option>Matematica</option>
-            <option>Fisica</option>
-            <option>Quimica</option>
-            <option>Portugues</option>
-            <option>Historia</option>
-            <option>Geografia</option>
-            <option>Biologia</option>
+            <option>Selecione uma materia</option>
+            {% for subject in subjects %}
+                <option>{{subject}}</option>
+            {% endfor %}
         </select>
     </div>
 
-    <input type="submit" value="Enviar" id="submitButton"/>
-</form>
+    <button class="submit_button" id="submitButton"/>Gerar rotina</button>
+    <p id="errorLogging" style="color: red; margin-top: 20px"></p>
 
 {% load static %}
 <script

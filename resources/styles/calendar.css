@@ -18,15 +18,9 @@ body {
   margin: 0 auto;
   height: 70%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .CalendarContainer .DayLabels {
   height: 30px;
   width: calc(100% - 32px);
@@ -36,15 +30,9 @@ body {
   border-bottom: 2px solid #464b45;
   z-index: 2;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 .CalendarContainer .DayLabels p {
   margin: 0;
   color: #464b45;
@@ -54,56 +42,38 @@ body {
   line-height: 100%;
   text-align: center;
 }
-
 .CalendarContainer .DayLabels p:first-child {
   margin-left: 45px;
   width: calc(14.2857142% - 3px);
   border-left: 2px solid #464b45;
 }
-
 .CalendarContainer .WeekContainer {
   height: 70vh;
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 .CalendarContainer .WeekContainer .Week {
   position: relative;
   margin-right: 10px;
   height: 150vh;
   width: calc(100% - 60px);
   padding: 0;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-      grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-  -ms-grid-rows: 150vh;
-      grid-template-rows: 150vh;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 150vh;
 }
-
 .CalendarContainer .WeekContainer .HourLabels {
   margin: 0;
   color: #464b45;
   width: 50px;
   height: 150vh;
   font-size: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .CalendarContainer .WeekContainer .HourLabels div {
   height: calc(4.1666666% - 0px);
   margin: 0px;
@@ -111,42 +81,29 @@ body {
   text-align: center;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
 }
-
 .CalendarContainer .WeekContainer .HourLabels div p {
   line-height: 100%;
   color: #464b45;
 }
-
 .CalendarContainer .WeekContainer .HourLabels div p:first-child {
   margin-top: 2px;
 }
-
 .CalendarContainer .WeekContainer .DayContainer:first-child {
   border-left: 2px solid #464b45;
   border-right: 2px solid #464b45;
 }
-
 .CalendarContainer .WeekContainer .DayContainer {
   background: white;
   border-right: 2px solid #464b45;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .CalendarContainer .WeekContainer .Hour {
   height: calc(4.1666666% - 2.04166666px);
-  -webkit-box-flex: 0.6;
-      -ms-flex-positive: 0.6;
-          flex-grow: 0.6;
+  flex-grow: 0.6;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
   margin: 0;
 }
-
 .CalendarContainer .WeekContainer .Hour:first-child {
   border-top: 2px dashed rgba(70, 75, 69, 0.5);
 }
@@ -157,26 +114,20 @@ body {
   background: #7bf675;
   font-size: 15px;
   width: calc(14.2857142% - 10px);
-  -webkit-box-shadow: 2px -1px 5px green;
-          box-shadow: 2px -1px 5px green;
+  box-shadow: 2px -1px 5px green;
   border: 2px solid #464b45;
-  cursor: -webkit-grab;
   cursor: grab;
   overflow: hidden;
 }
-
 .SelectedActivity:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
   opacity: 0.7;
 }
-
 .SelectedActivity:focus {
   opacity: 1;
   border: 1px solid green;
   cursor: ns-resize;
 }
-
 .SelectedActivity p {
   font-size: 15px;
   margin-top: 17px;
@@ -190,23 +141,16 @@ body {
 
 .SubjectSelection {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: left;
   margin: 0 auto;
   margin-top: 150px;
 }
-
 .SubjectSelection label {
   margin-top: 15px;
   margin-bottom: 3px;
 }
-
 .SubjectSelection select {
   padding: 7px calc(50% - 66px);
   width: 100%;
@@ -217,12 +161,11 @@ body {
   outline: none;
   cursor: pointer;
 }
-
 .SubjectSelection p {
   margin-bottom: 2px;
 }
 
-input {
+.submit_button {
   margin: 0 auto;
   margin-top: 100px;
   padding: 7px 0;
@@ -234,4 +177,5 @@ input {
   outline: none;
   cursor: pointer;
 }
+
 /*# sourceMappingURL=calendar.css.map */

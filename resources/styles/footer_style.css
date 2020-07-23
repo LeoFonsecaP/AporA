@@ -14,7 +14,6 @@
     position: absolute;
     bottom: 0;
     height: auto;
-    display: -ms-grid;
     display: grid;
     overflow-wrap: normal;
     font-size: 13px;
@@ -36,7 +35,6 @@
     color: white;
   }
 }
-
 @media (max-width: 768px) {
   .footer {
     clear: both;
@@ -48,7 +46,6 @@
     padding: 5px;
     height: auto;
     padding: 5px;
-    display: -ms-grid;
     display: grid;
     font-size: 13px;
     background: #7bf675;
@@ -66,4 +63,5 @@
     color: white;
   }
 }
+
 /*# sourceMappingURL=footer_style.css.map */

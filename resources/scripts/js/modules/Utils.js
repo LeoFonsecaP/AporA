@@ -16,3 +16,13 @@ export function removeHtmlChild(parent, index) {
     let nodeAtTheIndex = parent.children[index];
     parent.removeChild(nodeAtTheIndex);
 }
+
+export function setStyleAttributes(element, styleAttributes) {
+    Object.keys(styleAttributes).forEach((attribute) => {
+        element.style[attribute] = styleAttributes[attribute];
+    });
+}
+
+export function percentage(numberOfOccurrences, sampleSpaceSize) {
+    return ((numberOfOccurrences / sampleSpaceSize) * 100) + '%';
+}
