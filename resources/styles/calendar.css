@@ -14,26 +14,38 @@ body {
   background: white;
 }
 
-.CalendarContainer {
-  margin: 0 auto;
-  height: 70%;
+h4 {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.CalendarDisplay {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 70vh;
   width: 100%;
+}
+.CalendarDisplay .CalendarContainer {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
-.CalendarContainer .DayLabels {
+.CalendarDisplay .CalendarContainer .DayLabels {
   height: 30px;
-  width: calc(100% - 32px);
-  margin-top: 25px;
+  width: calc(100% - 30px);
+  position: absolute;
+  margin-top: 0px;
   margin-left: 5px;
   margin-right: 5px;
   border-bottom: 2px solid #464b45;
+  background: white;
   z-index: 2;
   color: white;
   display: flex;
   flex-direction: row;
 }
-.CalendarContainer .DayLabels p {
+.CalendarDisplay .CalendarContainer .DayLabels p {
   margin: 0;
   color: #464b45;
   border-right: 2px solid #464b45;
@@ -42,20 +54,18 @@ body {
   line-height: 100%;
   text-align: center;
 }
-.CalendarContainer .DayLabels p:first-child {
+.CalendarDisplay .CalendarContainer .DayLabels p:first-child {
   margin-left: 45px;
   width: calc(14.2857142% - 3px);
   border-left: 2px solid #464b45;
 }
-.CalendarContainer .WeekContainer {
-  height: 70vh;
+.CalendarDisplay .CalendarContainer .WeekContainer {
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
 }
-.CalendarContainer .WeekContainer .Week {
+.CalendarDisplay .CalendarContainer .WeekContainer .Week {
   position: relative;
   margin-right: 10px;
   height: 150vh;
@@ -65,7 +75,7 @@ body {
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 150vh;
 }
-.CalendarContainer .WeekContainer .HourLabels {
+.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels {
   margin: 0;
   color: #464b45;
   width: 50px;
@@ -74,37 +84,37 @@ body {
   display: flex;
   flex-direction: column;
 }
-.CalendarContainer .WeekContainer .HourLabels div {
+.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels div {
   height: calc(4.1666666% - 0px);
   margin: 0px;
   width: 100%;
   text-align: center;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
 }
-.CalendarContainer .WeekContainer .HourLabels div p {
+.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels div p {
   line-height: 100%;
   color: #464b45;
 }
-.CalendarContainer .WeekContainer .HourLabels div p:first-child {
+.CalendarDisplay .CalendarContainer .WeekContainer .HourLabels div p:first-child {
   margin-top: 2px;
 }
-.CalendarContainer .WeekContainer .DayContainer:first-child {
+.CalendarDisplay .CalendarContainer .WeekContainer .DayContainer:first-child {
   border-left: 2px solid #464b45;
   border-right: 2px solid #464b45;
 }
-.CalendarContainer .WeekContainer .DayContainer {
+.CalendarDisplay .CalendarContainer .WeekContainer .DayContainer {
   background: white;
   border-right: 2px solid #464b45;
   display: flex;
   flex-direction: column;
 }
-.CalendarContainer .WeekContainer .Hour {
+.CalendarDisplay .CalendarContainer .WeekContainer .Hour {
   height: calc(4.1666666% - 2.04166666px);
   flex-grow: 0.6;
   border-bottom: 2px dashed rgba(70, 75, 69, 0.5);
   margin: 0;
 }
-.CalendarContainer .WeekContainer .Hour:first-child {
+.CalendarDisplay .CalendarContainer .WeekContainer .Hour:first-child {
   border-top: 2px dashed rgba(70, 75, 69, 0.5);
 }
 
@@ -114,8 +124,7 @@ body {
   background: #7bf675;
   font-size: 15px;
   width: calc(14.2857142% - 10px);
-  box-shadow: 2px -1px 5px green;
-  border: 2px solid #464b45;
+  border: 2px solid #057700;
   cursor: grab;
   overflow: hidden;
 }
@@ -146,13 +155,14 @@ body {
   text-align: left;
   margin: 0 auto;
   margin-top: 150px;
+  font-size: 20px;
 }
 .SubjectSelection label {
   margin-top: 15px;
   margin-bottom: 3px;
 }
 .SubjectSelection select {
-  padding: 7px calc(50% - 66px);
+  padding: 7px calc(50% - 120px);
   width: 100%;
   background: #464b45;
   border-radius: 10px;
@@ -165,17 +175,25 @@ body {
   margin-bottom: 2px;
 }
 
-.submit_button {
+.button {
+  display: block;
+  text-decoration: none;
   margin: 0 auto;
   margin-top: 100px;
+  font-size: 20px;
   padding: 7px 0;
   width: 100%;
+  height: 50px;
   color: white;
   background: #464b45;
   border-radius: 10px;
   text-align: center;
   outline: none;
   cursor: pointer;
+}
+.button a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 /*# sourceMappingURL=calendar.css.map */

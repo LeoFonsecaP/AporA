@@ -15,12 +15,7 @@ function main() {
         easySubjects[0], easySubjects[1],
         difficultSubjects[0], difficultSubjects[1]
     ];
-    for (let i = 0; i < subjectsColletion.length; i++) {
-        const otherSubjects = subjectsColletion.filter((subject) => {
-            return subjectsColletion[i] !== subject;
-        });
-        listenForRepeatedSubjects(subjectsColletion[i], otherSubjects);
-    }
+    listenForRepeatedSubjects(subjectsColletion);
 
     const calendar = new UserEditableCalendar(
         calendarContainer, 'SelectedActivity'
@@ -43,19 +38,27 @@ function main() {
     });
 }
 
-function listenForRepeatedSubjects(listenedSubject, otherSubjects) {
-    let errorFlag = false;
-    listenedSubject.addEventListener('change', (event) => {
-        for (let i = 0; i < otherSubjects.length; i++) {
-            if (listenedSubject.value === otherSubjects[i].value) {
-                renderErrorMessage(REPEATED_SUBJECTS);
-                errorFlag = true;
-                return;
+function listenForRepeatedSubjects(subjects) {
+    let areValid = [true, true, true, true];
+    const length = subjects.length;
+
+    for (let i = 0; i < subjects.length; i++) {
+        subjects[i].addEventListener('change', (event) => {
+            for (let j = 1; j < subjects.length; j++) {
+                if (subjects[i].value === subjects[(i + j) % length].value) {
+                    areValid[i] = false;
+                    renderErrorMessage(REPEATED_SUBJECTS);
+                    return;
+                }
             }
-        }
-        errorFlag = false;
-        clearErrorMessage(); 
-    })
+            areValid[i] = true;
+            let shouldClearError = areValid.reduce((accumulator, isValid) => {
+                return accumulator && isValid;
+            });
+            if (shouldClearError)
+                clearErrorMessage(); 
+        })
+    }
 }
 
 function subjectChoicesAreValid(subjects) {
@@ -74,6 +77,7 @@ function renderResponse(response) {
     }
     contentContainer.innerHTML = '';
     renderCalendarFromResponse(parsed_response.routine);
+    setupRoutineDownload();
 }
 
 function renderErrorMessage(errorMessage) {
@@ -87,9 +91,12 @@ function clearErrorMessage() {
 }
 
 function renderCalendarFromResponse(routine) {
+    const calendarDisplay = document.createElement('div');
+    calendarDisplay.className = 'CalendarDisplay';
     const calendarContainer = document.createElement('div');
     calendarContainer.className = 'CalendarContainer';
-    contentContainer.appendChild(calendarContainer);
+    contentContainer.appendChild(calendarDisplay);
+    calendarDisplay.appendChild(calendarContainer);
 
     const calendar = new DisplayOnlyCalendar(
         calendarContainer, 'SelectedActivity'
@@ -100,6 +107,40 @@ function renderCalendarFromResponse(routine) {
         const date = new WeekRelativeDate(studyBlock.weekDay, studyBlock.hour);
         calendar.addActivity(date, 1, studyBlock.subject);
     });
+}
+
+function setupRoutineDownload() {
+    const container = document.getElementsByClassName('CalendarContainer')[0];
+
+    const linkWrapper = document.createElement('div');
+    linkWrapper.className = 'button';
+    linkWrapper.innerHTML = 'Download';
+
+    const link = document.createElement('a');
+    link.download = true;
+    link.style.display = 'none';
+   
+    linkWrapper.appendChild(link);
+    contentContainer.appendChild(linkWrapper);
+
+    link.addEventListener('click', (event) => {
+        event.stopPropagation();
+    })
+
+    linkWrapper.addEventListener('click', (event) => {
+        console.log('button clicked');
+        const scrollBackup = container.parentNode.scrollTop;
+        container.parentNode.scrollTop = '0';
+        container.parentNode.overflow = 'hidden';
+        
+        html2canvas(container).then((canvas) => {
+            link.href = canvas.toDataURL('image/png', 1);
+            link.click();
+        }).then(() => {
+            container.parentNode.overflowY = 'scroll';
+            container.parentNode.scrollTop = scrollBackup;
+        });
+    })
 }
 
 function sendRequest(requestData) {

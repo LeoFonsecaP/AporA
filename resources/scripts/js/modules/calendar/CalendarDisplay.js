@@ -14,7 +14,7 @@ export class CalendarDisplay {
             renderWeekContainer();
             renderHtmlHourLabels();
             renderHtmlCalendarGrid();
-            weekContainer.scrollTop = weekContainer.scrollHeight / 3;
+            scrollToMiddle();
         }
 
         let renderDayLabels = () => {
@@ -66,6 +66,11 @@ export class CalendarDisplay {
                 htmlGrid.appendChild(column);
             }
             weekContainer.appendChild(htmlGrid);
+        }
+
+        let scrollToMiddle = () => {
+            const containersParent = htmlContainer.parentNode;
+            containersParent.scrollTop = containersParent.scrollHeight / 3;
         }
 
         this.getCalendarGrid = () => {
