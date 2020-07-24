@@ -5,15 +5,9 @@
 <div class="slide_show_container">
     <div class="slide_show_displayer" id="slideShowDisplayer">
         <div id="slider" class="slider">
-            <img src={% static "images/whiteBackground.png" %}
-                data-src={% static "images\Como estudar Física.pdf" %}
-                alt="" class="Pdf" />
-            <img src={% static "images/whiteBackground.png" %}
-                data-src={% static "images/Eletrostática.pdf" %}
-                alt="" class="Pdf" />
-            <img src={% static "images/whiteBackground.png" %}
-                data-src={% static "imagens/Vetores.pdf" %}
-                alt="" class="Pdf" />
+            {% for resumo in resumos %}
+            <a href="{{ resumo.link }}"><img src={{resumo.thumb.url}}></a>
+            {% endfor %}
         </div>
     </div>
     <button id="previousButton" class="previous_button"><</button>
@@ -23,8 +17,6 @@
         </div>
     </div>
 
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"
-        type="text/javascript"></script>
     <script src={% static "scripts/js/index.js" %} type="module"></script>
 
     <h1>Sobre Nós:</h1>
