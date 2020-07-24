@@ -87,8 +87,10 @@ body {
             margin-top: 1px;
             height: 20px;
             height: auto;
-            grid-column-start: 4;
-            grid-column-end: 5;
+            grid-column-start: 5;
+            grid-column-end: 6;
+            margin-right: 0;
+            
         }
 
         .log_in_button {
@@ -180,11 +182,13 @@ body {
 
         .instagram_icon {
             margin: 0 auto;
-            grid-column-start: 3;
-            grid-column-end: 4;
+            grid-column-start: 4;
+            grid-column-end: 5;
             grid-row-start: 1;
             width: 20px;
             height: auto;
+            margin-left: calc(100% - 20px);
+            cursor: pointer;
         }
 
         .loginimg {

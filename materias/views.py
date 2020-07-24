@@ -7,7 +7,9 @@ def rendermaterias(request):
     return render(request, 'materias.html')
 
 def render_materia(request, materia):
-    return render(request, 'materia.html', {
-		"resumos": Resumo.objects.all(),
+	r = Resumo.objects.filter(materia = materia)
+	r = Resumo.objects.order_by('titulo')
+	return render(request, 'materia.html', {
+		"resumos": r,
 		"nome": materia
 	})

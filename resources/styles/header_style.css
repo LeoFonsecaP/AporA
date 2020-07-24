@@ -78,9 +78,10 @@ body {
     margin-top: 1px;
     height: 20px;
     height: auto;
-    -ms-grid-column: 4;
-        grid-column-start: 4;
-    grid-column-end: 5;
+    -ms-grid-column: 5;
+        grid-column-start: 5;
+    grid-column-end: 6;
+    margin-right: 0;
   }
   .navigation .log_in_button {
     -ms-grid-column: 5;
@@ -168,13 +169,15 @@ body {
   }
   .navigation .instagram_icon {
     margin: 0 auto;
-    -ms-grid-column: 3;
-        grid-column-start: 3;
-    grid-column-end: 4;
+    -ms-grid-column: 4;
+        grid-column-start: 4;
+    grid-column-end: 5;
     -ms-grid-row: 1;
         grid-row-start: 1;
     width: 20px;
     height: auto;
+    margin-left: calc(100% - 20px);
+    cursor: pointer;
   }
   .navigation .loginimg {
     -ms-grid-row: 1;
