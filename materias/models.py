@@ -15,7 +15,7 @@ MATERIAS = [
 ]
 
 # Create your models here.
-class resumo(models.Model):
+class Resumo(models.Model):
 	titulo = models.CharField(max_length = 100)
 	data = models.DateField(auto_now = False, auto_now_add = True)
 	materia = models.CharField(max_length = 15, choices = MATERIAS)

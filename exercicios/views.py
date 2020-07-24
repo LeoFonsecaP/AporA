@@ -6,12 +6,12 @@ import json
 
 def renderexercicios(request):
     return render(request, 'vestibulares.html', {
-		"vestibulares": vestibulares.objects.all()
+		"vestibulares": Vestibulares.objects.all()
 	})
 
 def render_vestibular(request, vest_id):
-	vest = vestibulares.objects.get(pk = vest_id)
-	q = questoes.objects.filter(vestibular__id = vest_id)
+	vest = Vestibulares.objects.get(pk = vest_id)
+	q = Questoes.objects.filter(vestibular__id = vest_id)
 	corretas = map(lambda questao:str(questao.correta), q)
 	json_corretas = '['
 	for correta in corretas:
