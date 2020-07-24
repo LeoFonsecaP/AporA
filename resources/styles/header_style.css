@@ -202,7 +202,7 @@ body {
     top: 50px;
     left: -350px;
     width: calc(50% - 42px);
-    height: 280px;
+    height: 231px;
     background-color: #7bf675;
     text-align: center;
     -webkit-transition: ease-out 0.5s;
@@ -215,8 +215,8 @@ body {
     display: grid;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: 70px 70px 70px 70px;
-        grid-template-rows: 70px 70px 70px 70px;
+    -ms-grid-rows: (3)[70px];
+        grid-template-rows: repeat(70px, 3);
   }
   .navigation .navigation_links a {
     margin: 0 auto;

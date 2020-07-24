@@ -215,7 +215,7 @@ body {
             left: -350px;
 
             width: calc(50% - 42px);
-            height: 280px;
+            height: 231px;
             
             background-color: $A_por_A_verde_claro;
 
@@ -230,7 +230,7 @@ body {
 
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 70px 70px 70px 70px;
+            grid-template-rows: repeat(70px, 3);
 
             a {
                 margin: 0 auto;

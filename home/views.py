@@ -7,7 +7,6 @@ from materias.models import Resumo
 def renderHomePage(request):
     r = Resumo.objects.order_by('data').reverse()
     r = r[0:6]
-    print(r)
     return render(request, 'home.html',{
         "resumos": r,
     })
