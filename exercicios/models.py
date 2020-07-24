@@ -10,7 +10,7 @@ alternativas = [
 ]
 
 # Create your models here.
-class vestibulares(models.Model):
+class Vestibulares(models.Model):
 	nome = models.CharField(max_length = 50)
 	ano = models.IntegerField()
 	def __str__(self):
@@ -24,7 +24,7 @@ class vestibulares(models.Model):
 		
 	
 
-class questoes(models.Model):
+class Questoes(models.Model):
 	enunciado = models.CharField(max_length = 5000)
 	numero =  models.IntegerField(default=1, validators = 
 	[MaxValueValidator(180), MinValueValidator(1)], blank=False)
@@ -35,7 +35,7 @@ class questoes(models.Model):
 	d = models.CharField(max_length=500, blank=False)
 	e = models.CharField(max_length=500, blank=True)
 	correta = models.CharField(max_length = 1, choices = alternativas)
-	vestibular = models.ForeignKey(vestibulares, on_delete=models.CASCADE)
+	vestibular = models.ForeignKey(Vestibulares, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return 'Questao %s %s' % (self.numero, self.vestibular)

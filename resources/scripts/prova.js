@@ -19,6 +19,10 @@ document.getElementsByClassName("button")[0].addEventListener("click", function(
 			}
 		}
 	}
+	if(questao < corretas.length){
+		alert("Você deve responder todas as questões");
+		location.reload();
+	}
 	document.getElementsByClassName("correcao")[0].innerHTML = ""
 	document.getElementsByClassName("correcao")[0].innerHTML += "Você acertou " + acertos + " de " + corretas.length;
 

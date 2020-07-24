@@ -44,7 +44,7 @@ body {
     position: relative;
     min-width: 588;
     max-width: 65%;
-    height: 75%;
+    min-height: 75%;
     margin: 0 auto;
     display: -ms-grid;
     display: grid;
@@ -75,7 +75,13 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .slide_show_container .slide_show_displayer .slider img {
+  .slide_show_container .slide_show_displayer .slider a {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+  }
+  .slide_show_container .slide_show_displayer .slider a img {
     display: block;
     max-width: 100%;
     min-width: 100%;
@@ -266,7 +272,7 @@ body {
   .slide_show_container {
     position: relative;
     width: 100%;
-    height: 70%;
+    height: 500px;
     margin: 0 auto;
     display: -ms-grid;
     display: grid;
@@ -297,12 +303,18 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .slide_show_container .slide_show_displayer .slider img {
+  .slide_show_container .slide_show_displayer .slider a {
     display: block;
     max-width: 100%;
     min-width: 100%;
-    height: auto;
+    min-height: 100%;
+  }
+  .slide_show_container .slide_show_displayer .slider a img {
+    display: block;
     max-width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
     -o-object-fit: contain;
        object-fit: contain;
   }

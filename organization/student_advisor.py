@@ -28,7 +28,7 @@ class StudentAdvisor:
     def __select_subject_for_study_time_blocks(self, study_time_blocks):
         study_time_blocks = sorted(
             study_time_blocks,
-            key=(lambda time_block: time_block.get_week_day()*24
+            key=(lambda time_block: time_block.get_week_day() * 24
                 + time_block.get_hour())
         )
         for i in range(len(study_time_blocks)):

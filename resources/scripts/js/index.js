@@ -15,19 +15,8 @@ function main() {
     slideShow.start();
 
     const slideShowDisplayer = document.getElementById('slideShowDisplayer');
-    const height = slideShowDisplayer.clientHeight;
-    const width = slideShowDisplayer.clientWidth;
-    const pdfThumbnailGenerator = new PdfThumbnailsGenerator(pdfjsLib, width, height);
-    const images = document.querySelectorAll('img');
-
-    for (let i = 0; i < images.length; i++) {
-        const dataSrc = images[i].getAttribute('data-src');
-        if ((dataSrc != null) && dataSrc.search('pdf') != -1) {
-            pdfThumbnailGenerator.generateThumbnail(dataSrc, images[i]);
-        }
-    }
     window.addEventListener('resize', (() => {
-        setTimeout(() => slideShow.refresh.bind(slideShow)(), 100);
+        setTimeout(() => slideShow(), 100);
     }).bind(slideShow));
 }
 
