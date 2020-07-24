@@ -16,7 +16,7 @@ function main() {
 
     const slideShowDisplayer = document.getElementById('slideShowDisplayer');
     window.addEventListener('resize', (() => {
-        setTimeout(() => slideShow.refresh.bind(slideShow)(), 100);
+        setTimeout(() => slideShow(), 100);
     }).bind(slideShow));
 }
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import vestibulares, questoes
+from .models import Vestibulares, Questoes
 import json
 
 # Create your views here.

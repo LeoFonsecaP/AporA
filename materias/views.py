@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import resumo
+from .models import Resumo
 
 # Create your views here.
 

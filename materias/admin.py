@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import resumo
+from .models import Resumo
 # Register your models here.
 
-admin.site.register(resumo)
+admin.site.register(Resumo)

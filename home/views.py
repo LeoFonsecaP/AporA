@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from materias.models import resumo
+from materias.models import Resumo
 
 
 # Create your views here.
 
 def renderHomePage(request):
-    r = resumo.objects.all()
-    r = resumo.objects.order_by('data').reverse()
+    r = Resumo.objects.all()
+    r = Resumo.objects.order_by('data').reverse()
     r = r[0:6]
     print(r)
     return render(request, 'home.html',{

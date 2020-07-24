@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import vestibulares, questoes
+from .models import Vestibulares, Questoes
 
 # Register your models here.
 
-admin.site.register(vestibulares)
-admin.site.register(questoes)
+admin.site.register(Vestibulares)
+admin.site.register(Questoes)
