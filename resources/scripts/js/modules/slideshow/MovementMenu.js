@@ -1,7 +1,7 @@
 export class MovementMenu {
-    constructor(nextButtonId, previousButtonId, swipeDetector) {
-        this.nextButton = document.getElementById(nextButtonId);
-        this.previousButton = document.getElementById(previousButtonId);
+    constructor(htmlNextButton, htmlPreviousButton, swipeDetector) {
+        this.htmlNextButton = htmlNextButton;
+        this.htmlPreviousButton = htmlPreviousButton;
         this.swipeDetector = swipeDetector;
         this.onNext = () => {};
         this.onPrevious = () => {};
@@ -18,8 +18,10 @@ export class MovementMenu {
     startListening() {
         const boundOnNext = this.onNext.bind(this);
         const boundOnPrevious = this.onPrevious.bind(this);
-        this.nextButton.addEventListener('click', boundOnNext);
-        this.previousButton.addEventListener('click', boundOnPrevious);
+
+        this.htmlNextButton.addEventListener('click', boundOnNext);
+        this.htmlPreviousButton.addEventListener('click', boundOnPrevious);
+
         this.swipeDetector.addOnSwipeLeftListener(boundOnNext);
         this.swipeDetector.addOnSwipeRightListener(boundOnPrevious);
         this.swipeDetector.startListening();

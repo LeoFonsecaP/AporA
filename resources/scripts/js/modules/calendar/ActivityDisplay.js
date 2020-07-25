@@ -4,57 +4,58 @@ import { percentage } from "../Utils.js";
 
 export class ActivityDisplay {
     constructor(parent, cssClass) {
-        let html = {};
-        let description = {};
+        this.parent = parent;
+        this.cssClass = cssClass;
+        this.html = {};
+        this.description = {};
+    }
 
-        this.render = (startDate, allocatedTime=1, textDescription='') => {
-            html = createHtmlElement();
-            description = document.createElement('p');
-            html.appendChild(description);
+    render(startDate, allocatedTime=1, description='') {
+        this.html = this._createHtmlElement();
+        this.description = document.createElement('p');
+        this.html.appendChild(this.description);
 
-            updateDate(startDate);
-            updateAllocatedTime(allocatedTime);
-            updateActivityDescription(textDescription);
+        this.updateDate(startDate);
+        this.updateAllocatedTime(allocatedTime);
+        this.updateActivityDescription(description);
           
-            parent.appendChild(html);
-        }
+        this.parent.appendChild(this.html);
+    }
 
-        let createHtmlElement = () => {
-            html = document.createElement('div');
-            html.className = cssClass;
-            html.style.position = 'absolute';
-            return html;
-        }
+    _createHtmlElement() {
+        const html = document.createElement('div');
+        html.className = this.cssClass;
+        html.style.position = 'absolute';
+        return html;
+    }
 
-        this.update = (newDate, newAllocatedTime, newDescription) => {
-            updateDate(newDate);
-            updateAllocatedTime(newAllocatedTime);
-            updateActivityDescription(newDescription);
-        }
+    update(newDate, newAllocatedTime, newDescription) {
+        this.updateDate(newDate);
+        this.updateAllocatedTime(newAllocatedTime);
+        this.updateActivityDescription(newDescription);
+    }
     
-        let updateDate = (newDate) => {
-            const weekDay = newDate.getDay();
-            const hour = newDate.getHour();
+    updateDate(newDate) {
+        const weekDay = newDate.getDay();
+        const hour = newDate.getHour();
 
-            html.style.left = percentage(weekDay, WEEK_DAYS.length);
-            html.style.top = percentage(hour, HOURS_IN_A_DAY);
-        }
+        this.html.style.left = percentage(weekDay, WEEK_DAYS.length);
+        this.html.style.top = percentage(hour, HOURS_IN_A_DAY);
+    }
 
-        let updateAllocatedTime = (newAllocatedTime) => {
-            html.style.height = percentage(newAllocatedTime, HOURS_IN_A_DAY);
-        }
+    updateAllocatedTime(newAllocatedTime) {
+        this.html.style.height = percentage(newAllocatedTime, HOURS_IN_A_DAY);
+    }
 
-        let updateActivityDescription = (newDescription) => {
-            description.textContent = newDescription;
-        }
+    updateActivityDescription(newDescription) {
+        this.description.textContent = newDescription;
+    }
     
+    destroy() {
+        this.html.parentNode.removeChild(this.html);
+    }
 
-        this.destroy = () => {
-            html.parentNode.removeChild(html);
-        }
-
-        this.getHtml = () => {
-            return html;
-        }
+    getHtml() {
+        return this.html;
     }
 }

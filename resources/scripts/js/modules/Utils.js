@@ -6,7 +6,7 @@ export function getIndexOfHtmlChild(parent, element) {
 }
 
 export function addHtmlChild(parent, element, index) {
-    if (index == parent.children.length - 1)
+    if (index == parent.children.length)
         parent.appendChild(element);
     else
         parent.insertBefore(element, parent.children[index]);

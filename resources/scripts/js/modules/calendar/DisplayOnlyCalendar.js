@@ -5,26 +5,26 @@ import { ActivityFactory } from './ActivityFactory.js';
 
 export class DisplayOnlyCalendar {
     constructor(container, activityCssClass) {
-        const activityDisplayFactory = new ActivityDisplayFactory(
+        this.activityDisplayFactory = new ActivityDisplayFactory(
             activityCssClass
         );
-        const calendarDisplay = new CalendarDisplay(
-            container, activityDisplayFactory
+        this.calendarDisplay = new CalendarDisplay(
+            container, this.activityDisplayFactory
         );
-        const activityFactory = new ActivityFactory();
-        const calendar = new CalendarModel(activityFactory);
+        this.activityFactory = new ActivityFactory();
+        this.calendar = new CalendarModel(this.activityFactory);
+    }
 
-        this.run = () => {
-            calendarDisplay.render();
-            calendar.registerDisplay(calendarDisplay);
-        }
+    run() {
+        this.calendarDisplay.render();
+        this.calendar.registerDisplay(this.calendarDisplay);
+    }
 
-        this.addActivity = (date, allocatedTime, description) => {
-            calendar.addActivity(date, allocatedTime, description);
-        }
+    addActivity(date, allocatedTime, description) {
+        this.calendar.addActivity(date, allocatedTime, description);
+    }
 
-        this.toJson = () => {
-            return calendar.toJson();
-        }
+    toJson() {
+        return this.calendar.toJson();
     }
 }

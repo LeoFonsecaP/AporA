@@ -1,6 +1,6 @@
 export class SwipeDetector {
-    constructor(htmlElementId) {
-        this.element = document.getElementById(htmlElementId);
+    constructor(htmlElement) {
+        this.htmlElement = htmlElement;
 
         this.x = 0;
         this.y = 0;
@@ -34,14 +34,14 @@ export class SwipeDetector {
 }
 
 function startListeningToTouchMovements(detector) {
-    detector.element.addEventListener('touchmove', event => {
+    detector.htmlElement.addEventListener('touchmove', event => {
         event.preventDefault();
     });
-    detector.element.addEventListener('touchstart', event => {
+    detector.htmlElement.addEventListener('touchstart', event => {
         detector.x = event.changedTouches[0].pageX;
         detector.y = event.changedTouches[0].pageY;
     });
-    detector.element.addEventListener('touchend', event => {
+    detector.htmlElement.addEventListener('touchend', event => {
         detector.x = event.changedTouches[0].pageX - detector.x;
         detector.y = event.changedTouches[0].pageY - detector.y;
         (selectListener(detector))();
@@ -49,14 +49,14 @@ function startListeningToTouchMovements(detector) {
 }
 
 function startListeningToMouseMovements(detector) {
-    detector.element.addEventListener('mousemove', event => {
+    detector.htmlElement.addEventListener('mousemove', event => {
         event.preventDefault();
     });
-    detector.element.addEventListener('mousedown', event => {
+    detector.htmlElement.addEventListener('mousedown', event => {
         detector.x = event.clientX;
         detector.y = event.clientY;
     });
-    detector.element.addEventListener('mouseup', event => {
+    detector.htmlElement.addEventListener('mouseup', event => {
         detector.x = event.clientX - detector.x;
         detector.y = event.clientY - detector.y;
         (selectListener(detector))();

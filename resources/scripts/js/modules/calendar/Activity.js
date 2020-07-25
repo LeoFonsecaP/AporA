@@ -6,65 +6,76 @@ const DEFAULT_DESCRIPTION = '';
 
 export class Activity {
     constructor(date, key, allocatedTime=1, description='') {
-        let displays = [];
+        this.date = date;
+        this.key = key;
+        this.allocatedTime = allocatedTime;
+        this.description = description;
+        this.displays = [];
+    }
+    
+    contains(dateToVerify) {
+        if (dateToVerify.getDay() !== this.date.getDay())
+            return false;
+        const timeDistance = dateToVerify.getHour() - this.date.getHour();
+        return (timeDistance >= 0) && (timeDistance < this.allocatedTime);
+    }
 
-        this.contains = (dateToVerify) => {
-            if (dateToVerify.getDay() !== date.getDay())
-                return false;
-            const timeDistance = dateToVerify.getHour() - date.getHour();
-            return (timeDistance >= 0) && (timeDistance < allocatedTime);
-        };
+    isDisjointTo(activity) {
+        return !(this.contains(activity.getDate()) ||
+            activity.contains(this.date));
+    }
 
-        this.isDisjointTo = (activity) => {
-            return !(this.contains(activity.getDate()) ||
-                activity.contains(date));
-        };
+    registerDisplay(newDisplay) {
+        this.displays.push(newDisplay);
+        newDisplay.update(this.date, this.allocatedTime, this.description);
+    }
 
-        this.registerDisplay = (display) => {
-            displays.push(display);
-            display.update(date, allocatedTime, description);
-        };
+    unregisterDisplay(display) {
+        const index = this.displays.indexOf(display);
+        this.displays.splice(index, 1);
+    }
 
-        this.unregisterDisplay = (display) => {
-            const index = displays.indexOf(display);
-            this.displays.splice(index, 1);
-        };
+    updateDisplays() {
+        this.displays.forEach((display) => {
+            display.update(this.date, this.allocatedTime, this.description);
+        });
+    }
 
-        this.updateDisplays = () => {
-            displays.forEach((display) => {
-                display.update(date, allocatedTime, description);
-            });
-        };
+    setDate(newDate) {
+        this.date = newDate;
+        this.updateDisplays();
+    }
 
-        this.setDate = (newDate) => {
-            date = newDate;
-            this.updateDisplays();
-        };
+    setAllocatedTime(newAllocatedTime) {
+        const endHour = this.date.getHour() + newAllocatedTime;
+        const isValid = WeekRelativeDate.hourIsValid(endHour) &&
+            newAllocatedTime >= 1;
 
-        this.setAllocatedTime = (newAllocatedTime) => {
-            const endHour = date.getHour() + newAllocatedTime;
-            const isValid = WeekRelativeDate.hourIsValid(endHour) &&
-                newAllocatedTime >= 1;
+        if (!isValid)
+            throw new Error('Invalid allocated time for activity');
 
-            if (!isValid)
-                throw new Error('Invalid allocated time for activity');
+        this.allocatedTime = newAllocatedTime;
+        this.updateDisplays();
+    }
 
-            allocatedTime = newAllocatedTime;
-            this.updateDisplays();
-        };
+    setDescription(newDescription) {
+        this.description = newDescription; 
+        this.updateDisplays();
+    }
 
-        this.setDescription = (newDescription) => {
-            description = newDescription; 
-            this.updateDisplays();
-        };
+    getDate() {
+        return this.date
+    }
 
-        this.getDate = () => {return date};
+    getKey() {
+        return this.key
+    }
 
-        this.getKey = () => {return key};
+    getAllocatedTime() {
+        return this.allocatedTime
+    }
 
-        this.getAllocatedTime = () => {return allocatedTime};
-
-        this.getDescription = () => {return description};
-
+    getDescription() {
+        return this.description
     }
 }

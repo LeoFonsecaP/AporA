@@ -5,127 +5,128 @@ export const ACTIVITY_NOT_FOUND = {};
 
 export class CalendarModel {
     constructor(activityFactory) {
-        let activities = [];
-        let displays = [];
+        this.activityFactory = activityFactory;
+        this.activities = [];
+        this.displays = [];
+    }
 
-        this.addActivity = (date, allocatedTime=1, description='') => {
-            const newActivity = activityFactory.create(
-                date, allocatedTime, description
-            );
-            activities.push(newActivity);
-            displays.forEach(display => display.updateOnAdd(newActivity));
-        };
+    addActivity(date, allocatedTime=1, description='') {
+        const newActivity = this.activityFactory.create(
+            date, allocatedTime, description
+        );
+        this.activities.push(newActivity);
+        this.displays.forEach(display => display.updateOnAdd(newActivity));
+    }
     
-        this.removeActivityThatContains = (date) => {
-            const activity = this.getActivityContaining(date);
-            if(activity === ACTIVITY_NOT_FOUND)
-                return;
-            const indexOfActivity = activities.indexOf(activity);
-            displays.forEach(display => {
-                display.updateOnRemove(activity.getKey());
-            });
-            activities.splice(indexOfActivity, 1);
-        };
+    removeActivityThatContains(date) {
+        const activity = this.getActivityContaining(date);
+        if(activity === ACTIVITY_NOT_FOUND)
+            return;
+        const indexOfActivity = this.activities.indexOf(activity);
+        this.displays.forEach(display => {
+            display.updateOnRemove(activity.getKey());
+        });
+        this.activities.splice(indexOfActivity, 1);
+    }
    
-        this.getActivityContaining = (date) => {
-            for (let i = 0; i < activities.length; i++) {
-                if (activities[i].contains(date))
-                    return activities[i];
-            }
-            return ACTIVITY_NOT_FOUND;
-        };
-
-        this.hasTimeAvailableAt = (date) => {
-            return (this.getActivityContaining(date) === ACTIVITY_NOT_FOUND);
+    getActivityContaining(date) {
+        for (let i = 0; i < this.activities.length; i++) {
+            if (this.activities[i].contains(date))
+                return this.activities[i];
         }
+        return ACTIVITY_NOT_FOUND;
+    }
 
-        this.resizeActivityContaining = (targetedDate, newEndDate) => {
-            const activity = this.getActivityContaining(targetedDate);
-            if (activity === ACTIVITY_NOT_FOUND)
-                return;
-            const activityDate = activity.getDate();
+    hasTimeAvailableAt(date) {
+        return (this.getActivityContaining(date) === ACTIVITY_NOT_FOUND);
+    }
 
-            if (activityDate.getDay() !== newEndDate.getDay())
-                return;
+    resizeActivityContaining(targetedDate, newEndDate) {
+        const activity = this.getActivityContaining(targetedDate);
+        if (activity === ACTIVITY_NOT_FOUND)
+            return;
+        const activityDate = activity.getDate();
 
-            const newAllocatedTime = newEndDate.getHour() - 
-                activityDate.getHour() + 1; 
-            const canResize = hasTimeAvailableFor(
-                activityDate, newAllocatedTime, activity
-            );
+        if (activityDate.getDay() !== newEndDate.getDay())
+            return;
+
+        const newAllocatedTime = newEndDate.getHour() - 
+            activityDate.getHour() + 1; 
+        const canResize = this._hasTimeAvailableFor(
+            activityDate, newAllocatedTime, activity
+        );
             
-            if (!canResize)
-                return;
-            try {
-                activity.setAllocatedTime(newAllocatedTime);
-            } catch(exception) {
-                return;
-            }
+        if (!canResize)
+            return;
+        try {
+            activity.setAllocatedTime(newAllocatedTime);
+        } catch(exception) {
+            return;
         }
+    }
 
         
-        this.moveActivityContaining = (targetedDate, displacement) => {
-            const activity = this.getActivityContaining(targetedDate);
-            if (activity === ACTIVITY_NOT_FOUND)
-                return;
-            const activityDate = activity.getDate();
-            const activityDay = activityDate.getDay();
+    moveActivityContaining(targetedDate, displacement) {
+        const activity = this.getActivityContaining(targetedDate);
+        if (activity === ACTIVITY_NOT_FOUND)
+            return;
+        const activityDate = activity.getDate();
+        const activityDay = activityDate.getDay();
 
-            const newDateHour = activityDate.getHour() + displacement;
-            let newDate = null;
-            try{
-                newDate = new WeekRelativeDate(activityDay, newDateHour);
-            } catch (exception) {
-                return;
-            }
-
-            const canMove = hasTimeAvailableFor(
-                newDate, activity.getAllocatedTime(), activity
-            );
-
-            if (canMove)
-                activity.setDate(newDate);
+        const newDateHour = activityDate.getHour() + displacement;
+        let newDate = null;
+        try{
+            newDate = new WeekRelativeDate(activityDay, newDateHour);
+        } catch (exception) {
+            return;
         }
 
-        let hasTimeAvailableFor = (date, allocatedTime, activityToIgnore) => {
-            const buffer = activityFactory.create(date);
-            try {
-                buffer.setAllocatedTime(allocatedTime);
-            } catch(exception) {
+        const canMove = this._hasTimeAvailableFor(
+            newDate, activity.getAllocatedTime(), activity
+        );
+
+        if (canMove)
+            activity.setDate(newDate);
+    }
+
+    _hasTimeAvailableFor(date, allocatedTime, activityToIgnore) {
+        const buffer = this.activityFactory.create(date);
+        try {
+            buffer.setAllocatedTime(allocatedTime);
+        } catch(exception) {
+            return false;
+        }
+
+        for (let i = 0; i < this.activities.length; i++) {
+            let shouldIgnore = (this.activities[i] === activityToIgnore)
+            if (!shouldIgnore && !buffer.isDisjointTo(this.activities[i]))
                 return false;
-            }
+        }
+        return true;
+    }
 
-            for (let i = 0; i < activities.length; i++) {
-                let shouldIgnore = (activities[i] === activityToIgnore)
-                if (!shouldIgnore && !buffer.isDisjointTo(activities[i]))
-                    return false;
-            }
-            return true;
-        };
+    registerDisplay(display) {
+        this.displays.push(display);
+    }
 
-        this.registerDisplay = (display) => {
-            displays.push(display);
-        };
+    unregisterDisplay(display) {
+        const indexOfDipslay = displays.indexOf(display);
+        this.displays.splice(indexOfDipslay, 1);
+    };
 
-        this.unregisterDisplay = (display) => {
-            const indexOfDipslay = displays.indexOf(display);
-            displays.splice(indexOfDipslay, 1);
-        };
+    updateDisplays() {
+        this.displays.forEach((display) => {
+            display.update(this.date, this.allocatedTime, this.description);
+        });
+    };
 
-        this.updateDisplays = () => {
-            displays.forEach((display) => {
-                display.update(date, allocatedTime, description);
-            });
-        };
-
-        this.toJson = () => {
-            return JSON.stringify(activities.map((activity) => {
-                return {
-                    'weekDay' : activity.getDate().getDay(),
-                    'startHour' : activity.getDate().getHour(),
-                    'allocatedTime': activity.getAllocatedTime()
-                };
-            }));
-        };
+    toJson() {
+        return JSON.stringify(this.activities.map((activity) => {
+            return {
+                'weekDay' : activity.getDate().getDay(),
+                'startHour' : activity.getDate().getHour(),
+                'allocatedTime': activity.getAllocatedTime()
+            };
+        }));
     }
 }
