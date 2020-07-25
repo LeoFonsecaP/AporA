@@ -1,4 +1,4 @@
-import { Calendar } from './Calendar.js';
+import { CalendarModel } from './CalendarModel.js';
 import { CalendarDisplay } from './CalendarDisplay.js';
 import { EditableActivityDisplayFactory } from './EditableActivityDisplayFactory.js';
 import { ActivityFactory } from './ActivityFactory.js';
@@ -13,7 +13,7 @@ export class UserEditableCalendar {
             container, activityDisplayFactory
         );
         const activityFactory = new ActivityFactory();
-        const calendar = new Calendar(activityFactory);
+        const calendar = new CalendarModel(activityFactory);
 
         this.run = () => {
             calendarDisplay.render();

@@ -1,4 +1,4 @@
-import { Calendar } from './Calendar.js';
+import { CalendarModel } from './CalendarModel.js';
 import { CalendarDisplay } from './CalendarDisplay.js';
 import { ActivityDisplayFactory } from './ActivityDisplayFactory.js';
 import { ActivityFactory } from './ActivityFactory.js';
@@ -12,7 +12,7 @@ export class DisplayOnlyCalendar {
             container, activityDisplayFactory
         );
         const activityFactory = new ActivityFactory();
-        const calendar = new Calendar(activityFactory);
+        const calendar = new CalendarModel(activityFactory);
 
         this.run = () => {
             calendarDisplay.render();

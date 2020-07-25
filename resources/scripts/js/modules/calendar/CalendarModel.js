@@ -3,7 +3,7 @@ import { WeekRelativeDate } from "./WeekRelativeDate.js";
 
 export const ACTIVITY_NOT_FOUND = {};
 
-export class Calendar {
+export class CalendarModel {
     constructor(activityFactory) {
         let activities = [];
         let displays = [];
