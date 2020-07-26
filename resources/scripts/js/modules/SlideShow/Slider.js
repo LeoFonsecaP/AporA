@@ -4,87 +4,61 @@ export const DEFAULT_TRANSITION = 'transform 0.4s ease-in-out';
 
 const Direction = {'HORIZONTAL' : 0, 'VERTICAL' : 1};
 
-const cssTranslate = 'translate%c(%dpx)';
+const CSS_TRANSLATE = 'translate%c(%dpx)';
 
 export class Slider {
     constructor(sliderId, transitionEffect) {
-        this.container = document.getElementById(sliderId);
-        this.transitionEffect = transitionEffect;
-        this.container.style.transition = transitionEffect;
-        this.direction = Direction.HORIZONTAL;
-        this.counter = 0;
-        this.transitionToItem(this.counter);
-    }
+        let container = document.getElementById(sliderId);
+        container.style.transition = transitionEffect;
+        let direction = Direction.HORIZONTAL;
+        let counter = 0;
 
-    setTransitionsDirectionToVertical(direction) {
-        /* Doesn't get set directly to avoid changing the transition
-        * effect during the execution of a transition */
-        this.direction = Direction.VERTICAL;
-    }
+    	this.setTransitionsDirectionToVertical = (direction) => {
+        	direction = Direction.VERTICAL;
+    	}
 
-    changeTransitionEffect(transitionEffect) {
-        this.transitionEffect = transitionEffect;
-    }
+    	this.changeTransitionEffect = (transitionEffect) => {
+        	transitionEffect = transitionEffect;
+    	}
 
-    transitionToNextItem() {
-        this.transitionToItem(this.counter + 1);
-    }
+    	this.transitionToItem = (index) => {
+        	if ((index >= this.getNumberOfItems()) || (index < 0))
+            		return;
 
-    transitionToPreviousItem() {
-        this.transitionToItem(this.counter - 1);
-    }
+        	container.style.transition = transitionEffect;
+        	const slideCoordinate = calculateItemCoordinate(index);
+        	const axis = (this.direction === Direction.HORIZONTAL) ? 'X' : 'Y';
+        	/*const transform = CSS_TRANSLATE.replace('%c', axis)
+			.replace('%d', ('-' + slideCoordinate));
+        	transform = transform.replace('%d', ('-' + slideCoordinate));*/
+        	container.style.transform = CSS_TRANSLATE.replace('%c', axis)
+				.replace('%d', ('-' + slideCoordinate));
+        	counter = index;
+    	}
 
-    transitionToItem(index) {
-        if ((index >= this.getNumberOfItems()) || (index < 0))
-            return;
-        this.container.style.transition = this.transitionEffect;
-        let slideCoordinate = calculateItemCoordinate(this, index);
-        let axis = (this.direction === Direction.HORIZONTAL) ? 'X' : 'Y';
-        let transform = cssTranslate.replace('%c', axis);
-        transform = transform.replace('%d', ('-' + slideCoordinate));
-        this.container.style.transform = transform;
-        this.counter = index;
-    }
+		let calculateItemCoordinate = (index) => {
+    		const slidesDistance = (direction === Direction.HORIZONTAL) ?
+        		container.children[0].clientWidth :
+        		container.children[0].clientHeight;
+    		return (slidesDistance * index);
+		}
 
-    addItem(index, slide) {
-        if (index <= this.getNumberOfItems())
-            addHtmlChild(this.container, slide, index);
-    }
+    	this.transitionToNextItem = () => {
+        	this.transitionToItem(counter + 1);
+    	}
 
-    removeItem(index) {
-        if (this.isEmpty())
-            return;
-        removeHtmlChild(this.container, index);
-        let numberOfItems = this.getNumberOfItems();
-        if ((this.counter === index) && (this.counter === numberOfItems))
-            this.transitionToPreviousItem();
-    }
+    	this.transitionToPreviousItem = () => {
+        	this.transitionToItem(counter - 1);
+    	}
 
-    getItem(index) {
-        return this.container.children[index];
-    }
+    	this.getNumberOfItems = () => {
+        	return container.children.length;
+    	}
 
-    clear() {
-        while(!this.isEmpty())
-            this.removeItem(0);
+    	this.getIndexOfCurrentItem = () => {
+        	return counter;
+		}
+		
+		this.transitionToItem(this.counter);
     }
-
-    isEmpty() {
-        return (this.getNumberOfItems() === 0);
-    }
-
-    getNumberOfItems() {
-        return this.container.children.length;
-    }
-
-    getIndexOfCurrentItem() {
-        return this.counter;
-    }
-}
-
-function calculateItemCoordinate(slider, index) {
-    let slidesDistance = (slider.direction === Direction.HORIZONTAL) ?
-        slider.container.children[0].clientWidth :
-        slider.container.children[0].clientHeight;
-    return (slidesDistance * index);
 }

@@ -1,7 +1,7 @@
 import {Slider, DEFAULT_TRANSITION} from "./Slider.js";
 import {addHtmlChild} from "../Utils.js";
 
-export class CircularSlider {
+export class CircularSlider extends Slider {
     constructor(sliderId, transitionEffect) {
         this.super = new Slider(sliderId, transitionEffect);
         addSentinels.bind(this)();
