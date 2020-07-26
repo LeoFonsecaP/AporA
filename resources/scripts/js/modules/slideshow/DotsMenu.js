@@ -1,8 +1,8 @@
 import {getIndexOfHtmlChild} from "../Utils.js";
 
 export class DotsMenu {
-    constructor(containerId, dotsCssClass, selectedDotCssClass) {
-        this.container = document.getElementById(containerId);
+    constructor(htmlContainer, dotsCssClass, selectedDotCssClass) {
+        this.htmlContainer = htmlContainer;
         this.dotsCssClass = dotsCssClass;
         this.selectedDotCssClass = selectedDotCssClass;
         this.selectedDotIndex = (this.isEmpty()) ? -1 : 0;
@@ -10,7 +10,7 @@ export class DotsMenu {
     }
 
     getNumberOfDots() {
-        return (this.container.children.length);
+        return (this.htmlContainer.children.length);
     }
 
     setNumberOfDots(numberOfDots) {
@@ -26,7 +26,7 @@ export class DotsMenu {
 
     pushDot() {
         let newDot = document.createElement('button');
-        this.container.appendChild(newDot);
+        this.htmlContainer.appendChild(newDot);
         newDot.className = this.dotsCssClass;
         if (this.getNumberOfDots() > 1)
             return;
@@ -40,8 +40,8 @@ export class DotsMenu {
         let numberOfDots = this.getNumberOfDots();
         if (numberOfDots > 1)
             this.setSelectedDot(numberOfDots - 2);
-        let lastChild = this.container.children[numberOfDots - 1];
-        this.container.removeChild(lastChild);
+        let lastChild = this.htmlContainer.children[numberOfDots - 1];
+        this.htmlContainer.removeChild(lastChild);
     }
 
     clear() {
@@ -50,10 +50,10 @@ export class DotsMenu {
     }
 
     setSelectedDot(index) {
-        let oldSelectedDot = this.container.children[this.selectedDotIndex];
+        let oldSelectedDot = this.htmlContainer.children[this.selectedDotIndex];
         this.selectedDotIndex = index;
         oldSelectedDot.className = this.dotsCssClass;
-        this.container.children[index].className = this.selectedDotCssClass;
+        this.htmlContainer.children[index].className = this.selectedDotCssClass;
     }
 
     addOnSelectionListener(listener) {
@@ -61,8 +61,8 @@ export class DotsMenu {
     }
 
     startListening() {
-        this.container.addEventListener('click', ((click) => {
-            let index = getIndexOfHtmlChild(this.container, click.target);
+        this.htmlContainer.addEventListener('click', ((click) => {
+            let index = getIndexOfHtmlChild(this.htmlContainer, click.target);
             if (index === -1)
                 return;
             this.listeners.forEach((listener) => {listener(index)});

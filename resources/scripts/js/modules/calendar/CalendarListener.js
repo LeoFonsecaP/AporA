@@ -10,133 +10,136 @@ const EVENTS_THAT_INTERRUPT_ACTION = [
 
 export class CalendarListener {
     constructor(calendarContainer, calendar) {
-        let currentListener = () => {};
+        this.calendarContainer = calendarContainer;
+        this.calendar = calendar;
+        this.currentListener = () => {};
+    }
 
-        this.startListening = () => {
-            calendarContainer.addEventListener('mousedown', (event) => {
+    startListening() {
+        this.calendarContainer.addEventListener('mousedown', (event) => {
+            event.preventDefault();
+            this._performSetupOperation(event);
+            this._startActiveListener();
+        });
+
+        this.calendarContainer.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+        });
+
+        let touchActionTimeoutId = null;
+        this.calendarContainer.addEventListener('touchstart', (event) => {
+            touchActionTimeoutId = setTimeout(() => {
                 event.preventDefault();
-                performSetupOperation(event);
-                startActiveListener();
+                this._performSetupOperation(event);
+                this._startActiveListener();
+            }, 200);
+            return false;
+        });
+
+        EVENTS_THAT_INTERRUPT_ACTION.forEach((interruptEvent) => {
+            document.body.addEventListener(interruptEvent, () => {
+                this._interruptActiveListener();
+                clearTimeout(touchActionTimeoutId);
             });
+        });
+    }
 
-            calendarContainer.addEventListener('contextmenu', (event) => {
-                event.preventDefault();
-            })
+    _performSetupOperation(event) {
+        const targetDate = this._detectEventDate(event);
+        const targetClassName = event.target.className;
 
-            let touchActionTimeoutId = null;
-            calendarContainer.addEventListener('touchstart', (event) => {
-                touchActionTimeoutId = setTimeout(() => {
-                    event.preventDefault();
-                    performSetupOperation(event);
-                    startActiveListener();
-                }, 200);
-                return false;
-            });
+        if (this.calendar.hasTimeAvailableAt(targetDate))
+            this._setUpNewActivityAddition(targetDate);
+        else if (targetClassName === RESIZE_BORDER_CSS_CLASS)
+            this._setupActivityAllocatedTimeEditing(targetDate);
+        else if (targetClassName === DELETE_ICON_CSS_CLASS)
+            this._setupActivityRemoval(targetDate);
+        else
+            this._setupActivityDateEditing(targetDate);
+    }
 
-            EVENTS_THAT_INTERRUPT_ACTION.forEach((event) => {
-                document.body.addEventListener(event, () => {
-                    interruptActiveListener();
-                    clearTimeout(touchActionTimeoutId);
-                });
-            });
+    _detectEventDate(event) {
+        const xCoordinate = this._getEventXCoordinate(event);
+        const YCoordinate = this._getEventYCoordinate(event);
+        const targetedDay = this._detectEventDay(xCoordinate);
+        const targetedHour = this._detectEventHour(YCoordinate);
+
+        try {
+            return new WeekRelativeDate(targetedDay, targetedHour)
+        } catch (exception) {
+            return null;
         }
+    }
 
-        let performSetupOperation = (event) => {
-            const targetDate = detectEventDate(event);
-            const targetClassName = event.target.className;
+    _getEventXCoordinate(event) {
+        return event.type.includes('mouse') ?
+            event.clientX : event.touches[0].clientX;
+    }
 
-            if (calendar.hasTimeAvailableAt(targetDate))
-                setUpNewActivityAddition(targetDate);
-            else if (targetClassName === RESIZE_BORDER_CSS_CLASS)
-                setupActivityAllocatedTimeEditing(targetDate);
-            else if (targetClassName === DELETE_ICON_CSS_CLASS)
-                setupActivityRemoval(targetDate);
-            else
-                setupActivityDateEditing(targetDate);
-        }
-
-        let detectEventDate = (event) => {
-            const xCoordinate = getEventXCoordinate(event);
-            const YCoordinate = getEventYCoordinate(event);
-            const targetedDay = detectEventDay(xCoordinate);
-            const targetedHour = detectEventHour(YCoordinate);
-
-            try {
-                return new WeekRelativeDate(targetedDay, targetedHour)
-            } catch (exception) {
-                return null;
-            }
-        }
-
-        let getEventXCoordinate = (event) => {
-            return event.type.includes('mouse') ?
-                event.clientX : event.touches[0].clientX;
-        }
-
-        let getEventYCoordinate = (event) => {
-            return event.type.includes('mouse') ?
-                event.clientY : event.touches[0].clientY;
-        }
+    _getEventYCoordinate(event) {
+        return event.type.includes('mouse') ?
+            event.clientY : event.touches[0].clientY;
+    }
     
-        let detectEventDay = (eventXCoordinate) => {
-            const viewPort = calendarContainer.getBoundingClientRect(); 
-            const relativeXCoordinate = (eventXCoordinate - viewPort.left) /
-                viewPort.width; 
-            return Math.ceil(relativeXCoordinate * WEEK_DAYS.length) - 1;
-        };
+    _detectEventDay(eventXCoordinate) {
+        const viewPort = this.calendarContainer.getBoundingClientRect(); 
+        const relativeXCoordinate = (eventXCoordinate - viewPort.left) /
+            viewPort.width; 
+        return Math.ceil(relativeXCoordinate * WEEK_DAYS.length) - 1;
+    }
 
-        let detectEventHour = (eventYCoordinate) => {
-            const viewPort = calendarContainer.getBoundingClientRect(); 
-            const relativeYCoordinate = (eventYCoordinate - viewPort.top) /
-                viewPort.height; 
-            return Math.ceil(relativeYCoordinate * HOURS_IN_A_DAY) - 1;
-        };
+    _detectEventHour(eventYCoordinate) {
+        const viewPort = this.calendarContainer.getBoundingClientRect(); 
+        const relativeYCoordinate = (eventYCoordinate - viewPort.top) /
+            viewPort.height; 
+        return Math.ceil(relativeYCoordinate * HOURS_IN_A_DAY) - 1;
+    }
     
-        let setUpNewActivityAddition = (targetDate) => {
-            interruptActiveListener()
-            calendar.addActivity(targetDate);
-            setupActivityAllocatedTimeEditing(targetDate)
+    _setUpNewActivityAddition(targetDate) {
+        this._interruptActiveListener()
+        this.calendar.addActivity(targetDate);
+        this._setupActivityAllocatedTimeEditing(targetDate)
+    };
+
+    _setupActivityDateEditing(targetDate) {
+        this._interruptActiveListener()
+        let previousDate = targetDate;
+        let currentDate = previousDate;
+        this.currentListener = (event) => {
+            event.preventDefault();
+            previousDate = currentDate;
+            currentDate = this._detectEventDate(event);
+            const displacement = currentDate.getHour() - 
+                previousDate.getHour();
+
+            this.calendar.moveActivityContaining(previousDate, displacement);
+            return false;
         };
+    }
 
-        let setupActivityDateEditing = (targetDate) => {
-            interruptActiveListener()
-            let previousDate = targetDate;
-            let currentDate = previousDate;
-            currentListener = (event) => {
-                event.preventDefault();
-                previousDate = currentDate;
-                currentDate = detectEventDate(event);
-                const displacement = currentDate.getHour() - 
-                    previousDate.getHour();
-                calendar.moveActivityContaining(previousDate, displacement);
-                return false;
-            };
-        }
+    _setupActivityAllocatedTimeEditing(targetDate) {
+        this._interruptActiveListener()
+        this.currentListener = (event) => {
+            event.preventDefault();
+            const newEndDate = this._detectEventDate(event);
+            this.calendar.resizeActivityContaining(targetDate, newEndDate);
+            targetDate = newEndDate;
+            return false;
+        };
+    }
 
-        let setupActivityAllocatedTimeEditing = (targetDate) => {
-            interruptActiveListener()
-            currentListener = (event) => {
-                event.preventDefault();
-                const newEndDate = detectEventDate(event);
-                calendar.resizeActivityContaining(targetDate, newEndDate);
-                targetDate = newEndDate;
-                return false;
-            };
-        }
+    _setupActivityRemoval(targetDate) {
+        this.calendar.removeActivityThatContains(targetDate);
+        this.currentListener = () => {};
+    }
 
-        let setupActivityRemoval = (targetDate) => {
-            calendar.removeActivityThatContains(targetDate);
-            currentListener = () => {};
-        }
+    _startActiveListener() {
+        this.calendarContainer.addEventListener('mousemove', this.currentListener);
+        this.calendarContainer.addEventListener('touchmove', this.currentListener);
+    }
 
-        let startActiveListener = () => {
-            calendarContainer.addEventListener('mousemove', currentListener);
-            calendarContainer.addEventListener('touchmove', currentListener);
-        }
-
-        let interruptActiveListener = () => {
-            calendarContainer.removeEventListener('mousemove', currentListener);
-            calendarContainer.removeEventListener('touchmove', currentListener);
-        }
+    _interruptActiveListener() {
+        this.calendarContainer.removeEventListener('mousemove', this.currentListener);
+        this.calendarContainer.removeEventListener('touchmove', this.currentListener);
     }
 }

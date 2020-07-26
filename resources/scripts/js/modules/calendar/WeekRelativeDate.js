@@ -10,25 +10,27 @@ export class WeekRelativeDate {
     }
 
     constructor(weekDay, hour) {
+        this.weekDay = weekDay;
+        this.hour = hour;
         if (!this.constructor.hourIsValid(hour))
             throw new Error('Invalid hour for a WeekRelativeDay');
+    }
 
-        this.getDay = () => {
-            return weekDay;
-        }
+    getDay() {
+        return this.weekDay;
+    }
 
-        this.getHour = () => {
-            return hour;
-        }
+    getHour() {
+        return this.hour;
+    }
 
-        this.setDay = (newDay) => {
-            weekDay = newDay;
-        }
+    setDay(newDay) {
+        this.weekDay = newDay;
+    }
 
-        this.setHour = (newDateHour) => {
-            if (!this.constructor.hourIsValid(dateHour))
-                throw new Error('Invalid hour for a WeekRelativeDay');
-            hour = newDateHour; 
-        }
+    setHour(newDateHour) {
+        if (!this.constructor.hourIsValid(dateHour))
+            throw new Error('Invalid hour for a WeekRelativeDay');
+        this.hour = newDateHour; 
     }
 }

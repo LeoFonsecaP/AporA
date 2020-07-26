@@ -6,26 +6,26 @@ import { CalendarListener } from './CalendarListener.js';
 
 export class UserEditableCalendar {
     constructor(container, activityCssClass) {
-        const activityDisplayFactory = new EditableActivityDisplayFactory(
+        this.activityDisplayFactory = new EditableActivityDisplayFactory(
             activityCssClass
         );
-        const calendarDisplay = new CalendarDisplay(
-            container, activityDisplayFactory
+        this.calendarDisplay = new CalendarDisplay(
+            container, this.activityDisplayFactory
         );
-        const activityFactory = new ActivityFactory();
-        const calendar = new CalendarModel(activityFactory);
-
-        this.run = () => {
-            calendarDisplay.render();
-            calendar.registerDisplay(calendarDisplay);
-            const calendarMenu = new CalendarListener(
-                calendarDisplay.getCalendarGrid(), calendar
-            );
-            calendarMenu.startListening();
+        this.activityFactory = new ActivityFactory();
+        this.calendar = new CalendarModel(this.activityFactory);
+        this.calendarMenu = {};
+    }
+    run() {
+        this.calendarDisplay.render();
+        this.calendar.registerDisplay(this.calendarDisplay);
+        this.calendarMenu = new CalendarListener(
+            this.calendarDisplay.getCalendarGrid(), this.calendar
+        );
+            this.calendarMenu.startListening();
         }
 
-        this.toJson = () => {
-            return calendar.toJson();
-        }
+    toJson() {
+        return this.calendar.toJson();
     }
 }

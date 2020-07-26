@@ -1,16 +1,16 @@
-import {DotsMenu} from "./modules/slideshow/DotsMenu.js";
-import {MovementMenu} from "./modules/slideshow/MovementMenu.js";
-import {DEFAULT_TRANSITION} from "./modules/slideshow/Slider.js";
-import {SlideShow} from "./modules/slideshow/SlideShow.js";
-import {CircularSlider} from "./modules/slideshow/CircularSlider.js";
-import {SwipeDetector} from "./modules/slideshow/SwipeDetector.js";
+import { CircularSlideShow } from "./modules/slideshow/CircularSlideShow.js";
 
 function main() {
-    const swipeDetector = new SwipeDetector('slideShowDisplayer');
-    const movementMenu = new MovementMenu('nextButton', 'previousButton', swipeDetector);
-    const slider = new CircularSlider('slider', DEFAULT_TRANSITION);
-    const dotsMenu = new DotsMenu('dots', 'dot', 'selected_dot');
-    const slideShow = new SlideShow(slider, movementMenu, dotsMenu);
+    const htmlNextButton = document.getElementById('nextButton');
+    const htmlPreviousButton = document.getElementById('previousButton');
+    const htmlSlider = document.getElementById('slider');
+    const htmlDotsContainer = document.getElementById('dots');
+
+    const slideShow = new CircularSlideShow(
+        htmlSlider, htmlNextButton,
+        htmlPreviousButton, htmlDotsContainer,
+        'dot', 'selected_dot'
+    );
     slideShow.start();
 
     window.addEventListener('resize', () => {

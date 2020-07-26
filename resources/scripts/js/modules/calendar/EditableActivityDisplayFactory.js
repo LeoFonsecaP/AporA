@@ -3,10 +3,10 @@ import { ActivityDisplayFactory } from './ActivityDisplayFactory.js';
 
 export class EditableActivityDisplayFactory {
     constructor(displaysCssClass) {
-        let cssClass = displaysCssClass;
-        
-        this.create = (parent, date) => {
-            return new EditableActivityDisplay(parent, cssClass, date); 
-        }
+        this.cssClass = displaysCssClass;
     } 
+
+    create(parent, date) {
+        return new EditableActivityDisplay(parent, this.cssClass, date); 
+    }
 }
