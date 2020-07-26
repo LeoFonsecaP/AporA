@@ -10,8 +10,7 @@ import json
 class OrganizationController(View):
     def get(self, request, *args, **kwargs):
         context = {'subjects': SUBJECTS}
-        if not request.user.is_authenticated:
-            return render(request, 'organizacao.html', context)
+        return render(request, 'organizacao.html', context)
 
     def post(self, request, *args, **kwargs):
         request_data = json.loads(request.read().decode('utf-8'))

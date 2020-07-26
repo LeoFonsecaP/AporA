@@ -3,8 +3,8 @@ from organization.study_subjects_cycle import StudySubjectsCycle
 import functools
 
 SUBJECTS = [
-    'Portugues', 'Redacao', 'Ingles', 'Matematica', 'Fisica', 'Quimica',
-    'Geografia', 'Historia', 'Biologia', 'Sociologia', 'Filosofia'
+    'Português', 'Redação', 'Inglês', 'Matemática', 'Física', 'Química',
+    'Geografia', 'História', 'Biologia', 'Sociologia', 'Filosofia'
 ]
 
 class StudentAdvisor:
@@ -22,7 +22,7 @@ class StudentAdvisor:
     def generate_routine(self, week_available_time):
         study_time_blocks = self.__generate_study_time_blocks(week_available_time)
         if len(study_time_blocks) < len(self.__study_cycle):
-            raise Exception('O minimo de tempo livre na semana e de 24 horas')
+            raise Exception('O mínimo de tempo livre na semana é de 24 horas')
         return self.__select_subject_for_study_time_blocks(study_time_blocks)
 
     def __select_subject_for_study_time_blocks(self, study_time_blocks):

@@ -1,11 +1,13 @@
 import { UserEditableCalendar } from './modules/calendar/UserEditableCalendar.js';
 import { DisplayOnlyCalendar } from './modules/calendar/DisplayOnlyCalendar.js';
 import { WeekRelativeDate } from './modules/calendar/WeekRelativeDate.js';
+import { DjangoRequest } from './modules/django/DjangoRequest.js'
+import { REQUEST_TYPES } from './modules/django/DjangoRequest.js'
     
 const contentContainer = document.getElementsByClassName('content')[0];
 
-const EMPTY_SUBJECT = 'Selecione uma materia';
-const REPEATED_SUBJECTS = 'Nao e permitido escolher a mesma materia duas vezes'
+const EMPTY_SUBJECT = 'Selecione uma matéria';
+const REPEATED_SUBJECTS = 'Não é permitido escolher a mesma matéria duas vezes'
 
 function main() {
     const calendarContainer = document.getElementById('calendarContainer');
@@ -34,7 +36,8 @@ function main() {
         const requestData = buildRequestData(
             easySubjects, difficultSubjects, calendar
         );
-        sendRequest(requestData);
+        const request = new DjangoRequest(REQUEST_TYPES.POST);
+        request.send(requestData, renderResponse);
     });
 }
 
@@ -141,22 +144,6 @@ function setupRoutineDownload() {
             container.parentNode.scrollTop = scrollBackup;
         });
     })
-}
-
-function sendRequest(requestData) {
-    const request = new XMLHttpRequest();
-    request.open('POST', '');
-    setDjangoEnforcedRequestHeaders(request);
-    request.onload = () => renderResponse(request.response);
-    request.send(requestData);
-}
-
-function setDjangoEnforcedRequestHeaders(request) {
-    const csrfToken = Cookies.get('csrftoken');
-    request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
-    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    request.setRequestHeader("X-CSRFToken", csrfToken);
-    request.setRequestHeader('Content-Type', 'application/json');
 }
 
 function buildRequestData(easySubjects, difficultSubjects, calendar) {
